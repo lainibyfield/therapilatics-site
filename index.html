@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Therapilatics — Private Pilates Studio, Melbourne FL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #3D9A97;
+    --teal-dark: #2E7B78;
+    --teal-pale: #E4F2F1;
+    --black: #0E0E0D;
+    --dark: #1E1C1A;
+    --body: #2E2C2A;
+    --mid: #4A4745;
+    --light: #767270;
+    --rule: #C8C4BC;
+    --pale: #F0EEEB;
+    --grey: #E8E6E3;
+    --grey-mid: #D4D1CD;
+    --white: #FAFAF6;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--white);
+    color: var(--body);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: var(--white);
+    border-top: 3px solid var(--black);
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3rem;
+    height: 3.6rem;
+  }
+
+  .nav-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--black);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--teal-dark); }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--teal-dark); }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .nav-book {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--black);
+    padding: 0.65rem 1.4rem;
+    text-decoration: none;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    transition: background 0.2s;
+  }
+
+  .nav-book:hover { background: var(--teal-dark); }
+
+  /* Hamburger — mobile only */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+    min-height: 44px;
+    min-width: 44px;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+  }
+
+  .nav-hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--black);
+    transition: transform 0.25s, opacity 0.25s;
+    transform-origin: center;
+  }
+
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* Mobile menu drawer */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 3.6rem;
+    left: 0; right: 0;
+    background: var(--white);
+    border-bottom: 2px solid var(--black);
+    z-index: 99;
+    padding: 0;
+    flex-direction: column;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .mobile-menu.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .mobile-menu a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--dark);
+    text-decoration: none;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--rule);
+    display: block;
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+  }
+
+  .mobile-menu a:last-child {
+    background: var(--black);
+    color: var(--white);
+    border-bottom: none;
+    justify-content: center;
+    letter-spacing: 0.2em;
+  }
+
+  /* ── HERO — TYPOGRAPHIC ── */
+  .hero {
+    min-height: 100vh;
+    padding-top: 3.6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Subtle grid */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--grey) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grey) 1px, transparent 1px);
+    background-size: 80px 80px;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    padding: 5rem 3rem 3rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-pre {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 3rem;
+  }
+
+  .hero-pre-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--light);
+  }
+
+  .hero-pre-line {
+    width: 3rem;
+    height: 1px;
+    background: var(--teal);
+    flex-shrink: 0;
+  }
+
+  .hero-pre-location {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--teal-dark);
+  }
+
+  /* Typographic lines */
+  .hero-type { margin-bottom: 0; }
+
+  .hero-line {
+    display: flex;
+    align-items: center;
+    border-top: 1px solid var(--rule);
+    padding: 1rem 0;
+    position: relative;
+  }
+
+  .hero-line:last-child { border-bottom: 1px solid var(--rule); }
+
+  .hero-line-number {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.58rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    color: var(--light);
+    width: 3rem;
+    flex-shrink: 0;
+    align-self: flex-start;
+    padding-top: 0.8rem;
+  }
+
+  .hero-line-text {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(3.5rem, 7vw, 6.5rem);
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: var(--black);
+    flex: 1;
+  }
+
+  .hero-line-text.accent { color: var(--teal-dark); }
+
+  .hero-line-aside {
+    align-self: center;
+    width: 22rem;
+    flex-shrink: 0;
+    padding-left: 2.5rem;
+  }
+
+  .hero-line-aside p {
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.8;
+    color: var(--mid);
+  }
+
+  .hero-line-aside-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+
+  /* Hero footer bar */
+  .hero-footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 3rem;
+    border-top: 1px solid var(--rule);
+    border-bottom: 2px solid var(--black);
+    position: relative;
+    z-index: 1;
+    background: var(--pale);
+  }
+
+  .residency-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .residency-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--teal);
+    flex-shrink: 0;
+  }
+
+  .residency-text {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mid);
+  }
+
+  .residency-text strong {
+    font-weight: 600;
+    color: var(--dark);
+  }
+
+  .hero-footer-right {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--light);
+  }
+
+  /* Buttons */
+  .btn-primary {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--black);
+    padding: 0.9rem 2rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    transition: background 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--teal-dark); }
+
+  .btn-ghost {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .btn-ghost:hover { color: var(--teal-dark); border-color: var(--teal); }
+
+  /* ── DISTINCTION ── */
+  .distinction {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background: var(--dark);
+  }
+
+  .distinction-item {
+    padding: 2rem 2.5rem;
+    border-right: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .distinction-item:last-child { border-right: none; }
+
+  .distinction-number {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--teal);
+    margin-bottom: 0.6rem;
+    display: block;
+  }
+
+  .distinction-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.58rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 0.3rem;
+    display: block;
+  }
+
+  .distinction-desc {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: rgba(255,255,255,0.82);
+    line-height: 1.3;
+  }
+
+  /* ── ABOUT ── */
+  .about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 2px solid var(--black);
+  }
+
+  .about-image-col {
+    background: var(--grey);
+    min-height: 560px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid var(--rule);
+    position: relative;
+  }
+
+  .about-image-placeholder {
+    width: 70%;
+    aspect-ratio: 3/4;
+    background: var(--grey-mid);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .about-image-placeholder p {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--light);
+  }
+
+  .about-content {
+    padding: 5rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .section-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--teal-dark);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-eyebrow::after {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: var(--teal);
+  }
+
+  .section-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(1.8rem, 2.5vw, 2.6rem);
+    font-weight: 500;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    color: var(--black);
+    margin-bottom: 1.75rem;
+  }
+
+  .section-title .accent { color: var(--teal-dark); }
+
+  .section-body {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.85;
+    color: var(--body);
+    margin-bottom: 1.25rem;
+  }
+
+  .inline-link {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--black);
+    text-decoration: none;
+    border-bottom: 2px solid var(--teal);
+    padding-bottom: 1px;
+    transition: color 0.2s;
+  }
+
+  .inline-link:hover { color: var(--teal-dark); }
+
+  /* ── SERVICES ── */
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 3rem;
+    border-top: 2px solid var(--black);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .section-header-inner {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+  }
+
+  .section-header-inner .section-eyebrow {
+    margin-bottom: 0;
+  }
+
+  .section-header h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--black);
+  }
+
+  .service-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: var(--rule);
+    gap: 1px;
+  }
+
+  .service-card {
+    background: var(--white);
+    padding: 3rem 2.5rem;
+    position: relative;
+    transition: background 0.25s;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 0;
+    background: var(--teal);
+    transition: height 0.3s ease;
+  }
+
+  .service-card:hover { background: var(--pale); }
+  .service-card:hover::before { height: 100%; }
+
+  .service-card-number {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: var(--teal-dark);
+    margin-bottom: 1.25rem;
+    display: block;
+  }
+
+  .service-card-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--black);
+    margin-bottom: 0.85rem;
+    line-height: 1.15;
+  }
+
+  .service-card-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.8;
+    color: var(--body);
+    margin-bottom: 1.75rem;
+  }
+
+  .service-card-link {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--dark);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .service-card-link:hover { color: var(--teal-dark); border-color: var(--teal); }
+
+  /* ── APPARATUS ── */
+  .apparatus-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    background: var(--rule);
+    gap: 1px;
+  }
+
+  .apparatus-item {
+    background: var(--pale);
+    padding: 2.5rem;
+    border: none;
+    transition: background 0.25s;
+  }
+
+  .apparatus-item:hover { background: var(--grey); }
+
+  .apparatus-item.featured {
+    grid-row: 1 / 3;
+    background: var(--black);
+  }
+
+  .apparatus-item.featured:hover { background: var(--dark); }
+
+  .apparatus-item-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.58rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-bottom: 0.6rem;
+    display: block;
+  }
+
+  .apparatus-item.featured .apparatus-item-label { color: var(--teal); }
+
+  .apparatus-item-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--black);
+    margin-bottom: 0.65rem;
+    line-height: 1.1;
+  }
+
+  .apparatus-item.featured .apparatus-item-name {
+    font-size: 1.75rem;
+    color: var(--white);
+  }
+
+  .apparatus-item-desc {
+    font-size: 0.85rem;
+    font-weight: 400;
+    line-height: 1.8;
+    color: var(--body);
+  }
+
+  .apparatus-item.featured .apparatus-item-desc { color: rgba(255,255,255,0.5); }
+
+  .apparatus-item-image {
+    width: 100%;
+    aspect-ratio: 1;
+    background: var(--grey);
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--light);
+  }
+
+  .apparatus-item.featured .apparatus-item-image {
+    aspect-ratio: 3/4;
+    background: rgba(255,255,255,0.04);
+    color: rgba(255,255,255,0.2);
+  }
+
+  .apparatus-cta {
+    grid-column: 1 / -1;
+    background: var(--white);
+    padding: 2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .apparatus-cta-text {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--mid);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--black);
+    padding: 4rem 3rem;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 3rem;
+    border-top: 2px solid var(--black);
+  }
+
+  .footer-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 0.3rem;
+  }
+
+  .footer-logo span { color: var(--teal); }
+
+  .footer-tagline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    margin-bottom: 2rem;
+  }
+
+  .footer-legal {
+    font-size: 0.6rem;
+    letter-spacing: 0.04em;
+    color: rgba(255,255,255,0.18);
+    line-height: 1.8;
+  }
+
+  .footer-heading {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 1.2rem;
+  }
+
+  .footer-item {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: rgba(255,255,255,0.5);
+    line-height: 2;
+  }
+
+  .footer-location { margin-bottom: 1.5rem; }
+
+  .footer-location-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.58rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    margin-bottom: 0.25rem;
+  }
+
+  .footer-location-detail {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes revealLine {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-pre { animation: revealLine 0.6s ease both; animation-delay: 0.05s; }
+  .hero-line:nth-child(1) { animation: revealLine 0.6s ease both; animation-delay: 0.15s; }
+  .hero-line:nth-child(2) { animation: revealLine 0.6s ease both; animation-delay: 0.28s; }
+  .hero-line:nth-child(3) { animation: revealLine 0.6s ease both; animation-delay: 0.42s; }
+  .hero-footer-row { animation: revealLine 0.6s ease both; animation-delay: 0.55s; }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--rule);
+    gap: 1px;
+  }
+
+  .testimonial-card {
+    background: var(--white);
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+    position: relative;
+  }
+
+  .testimonial-card::before {
+    content: '\201C';
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 5rem;
+    font-weight: 700;
+    color: var(--teal-pale);
+    position: absolute;
+    top: 1.5rem;
+    left: 2.5rem;
+    line-height: 1;
+  }
+
+  .testimonial-quote {
+    padding-top: 2.5rem;
+  }
+
+  .testimonial-quote p {
+    font-size: 1.05rem;
+    font-weight: 400;
+    line-height: 1.85;
+    color: var(--dark);
+  }
+
+  .testimonial-attribution {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  .testimonial-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--black);
+  }
+
+  .testimonial-location {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal-dark);
+  }
+
+  .testimonials-note {
+    padding: 1.25rem 3rem;
+    background: var(--pale);
+    border-top: 1px solid var(--rule);
+    border-bottom: 2px solid var(--black);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .testimonials-note-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--teal);
+    flex-shrink: 0;
+  }
+
+  .testimonials-note p {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--light);
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    nav {
+      padding: 0 1.25rem;
+    }
+
+    .nav-links { display: none; }
+    .nav-book { display: none; }
+    .nav-hamburger { display: flex; }
+    .mobile-menu { display: flex; }
+
+    body { font-size: 18px; }
+
+    .hero-inner { padding: 2.5rem 1.25rem 1.5rem; }
+
+    .hero-pre { margin-bottom: 1.75rem; }
+
+    .hero-line { padding: 0.85rem 0; }
+    .hero-line-number { width: 2rem; font-size: 0.52rem; }
+    .hero-line-text { font-size: clamp(2.8rem, 13vw, 4rem); }
+    .hero-line-aside { display: none; }
+
+    .hero-footer-row {
+      padding: 1.25rem;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+      background: var(--pale);
+    }
+
+    .hero-footer-right { display: none; }
+
+    /* Show CTA below hero lines on mobile */
+    .mobile-hero-cta {
+      padding: 1.5rem 1.25rem;
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .mobile-hero-cta .btn-primary {
+      width: 100%;
+      justify-content: center;
+      min-height: 52px;
+    }
+
+    .mobile-hero-cta .btn-ghost {
+      text-align: center;
+      padding: 0.85rem;
+      border: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .testimonial-card { padding: 2.5rem 1.25rem; }
+    .testimonials-note { padding: 1.25rem; }
+
+    .distinction {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .distinction-item {
+      padding: 1.25rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .about {
+      grid-template-columns: 1fr;
+    }
+
+    .about-image-col {
+      min-height: 280px;
+      border-right: none;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .about-content { padding: 2.5rem 1.25rem; }
+
+    .section-header {
+      padding: 1.25rem;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .service-cards {
+      grid-template-columns: 1fr;
+    }
+
+    .service-card { padding: 2rem 1.25rem; }
+
+    .apparatus-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .apparatus-item.featured { grid-row: auto; }
+
+    .apparatus-item { padding: 1.75rem 1.25rem; }
+
+    .apparatus-cta {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.25rem;
+      padding: 1.5rem 1.25rem;
+    }
+
+    footer {
+      grid-template-columns: 1fr;
+      padding: 2.5rem 1.25rem;
+    }
+
+    .footer-logo { margin-bottom: 0.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Thera<span>pilatics</span></a>
+  <ul class="nav-links">
+    <li><a href="services.html">Services</a></li>
+    <li><a href="apparatus.html">The Apparatus</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="locations.html">Locations</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="book.html" class="nav-book">Book a Session</a>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<nav class="mobile-menu" id="mobileMenu">
+  <a href="services.html">Services</a>
+  <a href="apparatus.html">The Apparatus</a>
+  <a href="about.html">About</a>
+  <a href="locations.html">Locations</a>
+  <a href="book.html">Book a Session</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-pre">
+      <span class="hero-pre-tag">Private Pilates Studio</span>
+      <div class="hero-pre-line"></div>
+      <span class="hero-pre-location">Melbourne, FL</span>
+    </div>
+
+    <div class="hero-type">
+      <div class="hero-line">
+        <span class="hero-line-number">01</span>
+        <span class="hero-line-text">One room.</span>
+        <div class="hero-line-aside">
+          <p>Private Pilates built around your body — for people who go to the gym, stay active, and still have a back, neck, or hip that will not resolve.</p>
+        </div>
+      </div>
+      <div class="hero-line">
+        <span class="hero-line-number">02</span>
+        <span class="hero-line-text">One client.</span>
+        <div class="hero-line-aside">
+          <p>No shared space. No group cueing. No one else's music. The room is private, the work is specific to you, and no two sessions are the same.</p>
+        </div>
+      </div>
+      <div class="hero-line">
+        <span class="hero-line-number">03</span>
+        <span class="hero-line-text accent">Every session.</span>
+        <div class="hero-line-aside hero-line-aside-cta">
+          <a href="book.html" class="btn-primary">Schedule Your Assessment</a>
+          <a href="services.html" class="btn-ghost">See Services &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile CTA (hidden on desktop via CSS) -->
+  <div class="mobile-hero-cta" style="display:none;" id="mobileCta">
+    <a href="book.html" class="btn-primary">Schedule Your Assessment</a>
+    <a href="services.html" class="btn-ghost">See Services &rarr;</a>
+  </div>
+
+  <div class="hero-footer-row">
+    <div class="residency-badge">
+      <div class="residency-dot"></div>
+      <span class="residency-text">Sunday residency &mdash; <strong>Jonathan's Landing, Jupiter</strong></span>
+    </div>
+    <span class="hero-footer-right">Full Gratz Apparatus &nbsp;&middot;&nbsp; Romana Kryzanowska Tradition</span>
+  </div>
+</section>
+
+<!-- DISTINCTION -->
+<div class="distinction">
+  <div class="distinction-item">
+    <span class="distinction-number">01</span>
+    <span class="distinction-label">Exclusivity</span>
+    <div class="distinction-desc">One client at a time, always</div>
+  </div>
+  <div class="distinction-item">
+    <span class="distinction-number">02</span>
+    <span class="distinction-label">Apparatus</span>
+    <div class="distinction-desc">Complete Gratz suite</div>
+  </div>
+  <div class="distinction-item">
+    <span class="distinction-number">03</span>
+    <span class="distinction-label">Lineage</span>
+    <div class="distinction-desc">Romana Kryzanowska tradition</div>
+  </div>
+  <div class="distinction-item">
+    <span class="distinction-number">04</span>
+    <span class="distinction-label">Location</span>
+    <div class="distinction-desc">Melbourne + Jupiter residency</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-image-col">
+    <div class="about-image-placeholder">
+      <p>Practitioner photo</p>
+    </div>
+  </div>
+  <div class="about-content">
+    <span class="section-eyebrow">The Practice</span>
+    <h2 class="section-title">Not a class.<br>Not a clinic.<br><span class="accent">Something else.</span></h2>
+    <p class="section-body">Most people who arrive here are already active. They go to the gym. They are not deconditioned. They have a back problem, a neck problem, a hip that has not been right since the surgery two years ago — and the workouts they are doing are not fixing it and may be making it worse.</p>
+    <p class="section-body">What they have not tried is work that is calibrated to their specific body, in a private room, with an instructor who came from engineering and approaches movement the way an engineer approaches a structural problem.</p>
+    <a href="about.html" class="inline-link">About Laini &rarr;</a>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-header">
+    <div class="section-header-inner">
+      <span class="section-eyebrow" style="margin-bottom:0;">Client Results</span>
+      <h2>In Their Words</h2>
+    </div>
+  </div>
+  <div class="testimonials-grid">
+
+    <div class="testimonial-card">
+      <div class="testimonial-quote">
+        <p>"I do Pilates twice a week and those two rounds that I play after Pilates are my lowest scores of the week."</p>
+      </div>
+      <div class="testimonial-attribution">
+        <span class="testimonial-name">Retired Broker &nbsp;&middot;&nbsp; Avid Golfer</span>
+        <span class="testimonial-location">Jupiter, FL</span>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="testimonial-quote">
+        <p>"I've definitely become more stronger because of Pilates. My golf ball is certainly going further since I started."</p>
+      </div>
+      <div class="testimonial-attribution">
+        <span class="testimonial-name">Retired Broker &nbsp;&middot;&nbsp; Avid Golfer</span>
+        <span class="testimonial-location">Jupiter, FL</span>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="testimonial-quote">
+        <p>"My SI joints are greatly improved from my previous xray. I didn't realize how much I needed that stability and how it all connects. Thank you so much for teaching me how to listen to my body."</p>
+      </div>
+      <div class="testimonial-attribution">
+        <span class="testimonial-name">Attorney</span>
+        <span class="testimonial-location">Melbourne, FL</span>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="testimonial-quote">
+        <p>"Haven't had a problem in a bit. Also I've had ackee and saltfish for the first time in about 10 years and I didn't have any abdominal problems. Yanique says it must be the Pilates because that's the only thing that's changed."</p>
+      </div>
+      <div class="testimonial-attribution">
+        <span class="testimonial-name">Physician</span>
+        <span class="testimonial-location">Melbourne, FL</span>
+      </div>
+    </div>
+
+  </div>
+  <div class="testimonials-note">
+    <div class="testimonials-note-dot"></div>
+    <p>Shared with permission. Results reflect individual client experience.</p>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-header">
+    <div class="section-header-inner">
+      <span class="section-eyebrow" style="margin-bottom:0;">What We Offer</span>
+      <h2>Services</h2>
+    </div>
+    <a href="book.html" class="btn-primary">Book Now</a>
+  </div>
+  <div class="service-cards">
+    <div class="service-card">
+      <span class="service-card-number">01 &mdash;</span>
+      <h3 class="service-card-title">Introductory Assessment</h3>
+      <p class="service-card-body">One hour. A full movement assessment for new clients — we establish what your body is doing, what it is not, and what that means for the work ahead. $85.</p>
+      <a href="book.html" class="service-card-link">Book &rarr;</a>
+    </div>
+    <div class="service-card">
+      <span class="service-card-number">02 &mdash;</span>
+      <h3 class="service-card-title">Private Session</h3>
+      <p class="service-card-body">A full session on the Gratz apparatus. Tailored to your body, your history, and what you need that day. Nothing is rushed. Nothing is shared. $125.</p>
+      <a href="book.html" class="service-card-link">Book &rarr;</a>
+    </div>
+    <div class="service-card">
+      <span class="service-card-number">03 &mdash;</span>
+      <h3 class="service-card-title">Monthly Retainer</h3>
+      <p class="service-card-body">A reserved weekly slot, same day and time each week. This is not a discount package — it is a held slot in a limited practice. Consistency is where results compound. $500/month.</p>
+      <a href="book.html" class="service-card-link">Reserve &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- APPARATUS -->
+<section id="apparatus">
+  <div class="section-header">
+    <div class="section-header-inner">
+      <span class="section-eyebrow" style="margin-bottom:0;">The Equipment</span>
+      <h2>The Apparatus</h2>
+    </div>
+    <a href="apparatus.html" class="btn-primary">Full Apparatus Page &rarr;</a>
+  </div>
+  <div class="apparatus-grid">
+    <div class="apparatus-item featured">
+      <span class="apparatus-item-label">Therapeutic Foundation</span>
+      <h3 class="apparatus-item-name">Gratz Cadillac</h3>
+      <p class="apparatus-item-desc">The most versatile piece in classical Pilates. Allows full work with clients who cannot yet access the Reformer or mat — including post-surgical, severely deconditioned, or acute pain presentations.</p>
+      <div class="apparatus-item-image">Cadillac photograph</div>
+    </div>
+    <div class="apparatus-item">
+      <span class="apparatus-item-label">The Familiar Anchor</span>
+      <h3 class="apparatus-item-name">Gratz Reformer</h3>
+      <p class="apparatus-item-desc">Built to original specifications by Gratz Industries — the manufacturer Joseph Pilates worked with directly.</p>
+      <div class="apparatus-item-image">Reformer photograph</div>
+    </div>
+    <div class="apparatus-item">
+      <span class="apparatus-item-label">Rare Specialist Piece</span>
+      <h3 class="apparatus-item-name">Gratz Pedi-Pole</h3>
+      <p class="apparatus-item-desc">Spinal alignment, postural feedback, and decompression work. Rarely found outside specialist classical studios.</p>
+      <div class="apparatus-item-image">Pedi-Pole photograph</div>
+    </div>
+    <div class="apparatus-item">
+      <span class="apparatus-item-label">Structural</span>
+      <h3 class="apparatus-item-name">Ladder Barrel</h3>
+      <p class="apparatus-item-desc">Spinal extension, lateral flexion, and hip work. Addresses restrictions from sitting, surgery, or chronic tension.</p>
+      <div class="apparatus-item-image">Barrel photograph</div>
+    </div>
+    <div class="apparatus-cta">
+      <span class="apparatus-cta-text">Every piece is Gratz — original apparatus made to Joseph Pilates' specifications.</span>
+      <a href="apparatus.html" class="btn-primary">See Full Suite &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="locations">
+  <div>
+    <div class="footer-logo">Thera<span>pilatics</span></div>
+    <div class="footer-tagline">Mending with Movement</div>
+    <div class="footer-legal">&copy; 2026 Pilates Footworks LLC<br>All Rights Reserved</div>
+  </div>
+  <div>
+    <p class="footer-heading">Contact</p>
+    <p class="footer-item">info@therapilatics.com</p>
+    <p class="footer-item">+1 561-766-7246</p>
+    <p class="footer-item" style="margin-top:1rem; font-size:0.62rem; color:rgba(255,255,255,0.2);">Scheduling via Setmore</p>
+  </div>
+  <div>
+    <p class="footer-heading">Locations</p>
+    <div class="footer-location">
+      <p class="footer-location-name">Primary Studio</p>
+      <p class="footer-location-detail">Melbourne, FL<br>Private appointments only</p>
+    </div>
+    <div class="footer-location">
+      <p class="footer-location-name">Sunday Residency</p>
+      <p class="footer-location-detail">Jonathan's Landing<br>Jupiter, FL</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileCta = document.getElementById('mobileCta');
+
+  // Show mobile CTA on small screens
+  function checkMobile() {
+    if (window.innerWidth <= 768) {
+      mobileCta.style.display = 'flex';
+    } else {
+      mobileCta.style.display = 'none';
+    }
+  }
+
+  checkMobile();
+  window.addEventListener('resize', checkMobile);
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+
+  // Close menu on link click
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+</script>
+</body>
+</html>

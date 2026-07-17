@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Locations — Therapilatics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #3D9A97;
+    --teal-dark: #2E7B78;
+    --teal-pale: #E4F2F1;
+    --black: #0E0E0D;
+    --dark: #1E1C1A;
+    --body: #2E2C2A;
+    --mid: #4A4745;
+    --light: #767270;
+    --rule: #C8C4BC;
+    --pale: #F0EEEB;
+    --grey: #E8E6E3;
+    --grey-mid: #D4D1CD;
+    --white: #FAFAF6;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--white);
+    color: var(--body);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: var(--white);
+    border-top: 3px solid var(--black);
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3rem;
+    height: 3.6rem;
+  }
+
+  .nav-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--black);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--teal-dark); }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--teal-dark); }
+  .nav-links a.active { color: var(--black); }
+
+  .nav-right { display: flex; align-items: center; gap: 1.5rem; }
+
+  .nav-book {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--black);
+    padding: 0.65rem 1.4rem;
+    text-decoration: none;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    transition: background 0.2s;
+  }
+
+  .nav-book:hover { background: var(--teal-dark); }
+
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+    min-height: 44px;
+    min-width: 44px;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+  }
+
+  .nav-hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--black);
+    transition: transform 0.25s, opacity 0.25s;
+    transform-origin: center;
+  }
+
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 3.6rem;
+    left: 0; right: 0;
+    background: var(--white);
+    border-bottom: 2px solid var(--black);
+    z-index: 99;
+    flex-direction: column;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .mobile-menu.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .mobile-menu a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--dark);
+    text-decoration: none;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    min-height: 52px;
+  }
+
+  .mobile-menu a:last-child {
+    background: var(--black);
+    color: var(--white);
+    border-bottom: none;
+    justify-content: center;
+    letter-spacing: 0.2em;
+  }
+
+  /* ── PAGE HEADER ── */
+  .page-header {
+    padding-top: 3.6rem;
+    background: var(--dark);
+    border-bottom: 3px solid var(--teal);
+  }
+
+  .page-header-inner {
+    padding: 4rem 3rem 3.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: end;
+  }
+
+  .page-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--teal);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .page-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 500;
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+
+  .page-title span { color: var(--teal); }
+
+  .page-intro {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.85;
+    color: rgba(255,255,255,0.55);
+    align-self: end;
+  }
+
+  /* ── LOCATIONS GRID ── */
+  .locations-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 2px solid var(--black);
+  }
+
+  /* ── MELBOURNE — PRIMARY ── */
+  .location-primary {
+    border-right: 1px solid var(--rule);
+  }
+
+  .location-image {
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    background: var(--grey);
+  }
+
+  .location-image-placeholder {
+    width: 100%;
+    height: 340px;
+    background: var(--grey);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .location-image-placeholder p {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--light);
+  }
+
+  .location-content {
+    padding: 3rem;
+  }
+
+  .location-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.58rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--teal-dark);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .location-tag::after {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: var(--teal);
+  }
+
+  .location-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--black);
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+
+  .location-sub {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-bottom: 2rem;
+  }
+
+  .location-detail-row {
+    display: flex;
+    gap: 0;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  .location-detail {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 8rem 1fr;
+    gap: 1rem;
+    align-items: baseline;
+  }
+
+  .detail-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--light);
+  }
+
+  .detail-value {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--dark);
+    line-height: 1.5;
+  }
+
+  .detail-value a {
+    color: var(--teal-dark);
+    text-decoration: none;
+    border-bottom: 1px solid var(--teal-pale);
+    transition: border-color 0.2s;
+  }
+
+  .detail-value a:hover { border-color: var(--teal); }
+
+  .btn-primary {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--black);
+    padding: 0.9rem 2rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    transition: background 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--teal-dark); }
+
+  /* ── JUPITER — RESIDENCY ── */
+  .location-residency {
+    background: var(--dark);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .residency-image-block {
+    width: 100%;
+    height: 340px;
+    background: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Subtle teal grid texture */
+  .residency-image-block::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(61,154,151,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(61,154,151,0.06) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .residency-image-inner {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .residency-signal {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.3;
+    margin-bottom: 0.75rem;
+  }
+
+  .residency-signal span {
+    color: var(--teal);
+    display: block;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+
+  .residency-rule {
+    width: 3rem;
+    height: 1px;
+    background: var(--teal);
+    margin: 1.25rem auto;
+  }
+
+  .residency-tag-line {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+  }
+
+  .location-residency .location-content {
+    padding: 3rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .location-residency .location-tag { color: var(--teal); }
+  .location-residency .location-tag::after { background: var(--teal); opacity: 0.4; }
+  .location-residency .location-name { color: rgba(255,255,255,0.9); }
+  .location-residency .location-sub { color: rgba(255,255,255,0.3); }
+  .location-residency .location-detail-row { border-top-color: rgba(255,255,255,0.08); }
+  .location-residency .location-detail { border-bottom-color: rgba(255,255,255,0.08); }
+  .location-residency .detail-label { color: rgba(255,255,255,0.3); }
+  .location-residency .detail-value { color: rgba(255,255,255,0.7); }
+
+  .residency-note {
+    margin-top: auto;
+    padding: 1.25rem;
+    background: rgba(61,154,151,0.08);
+    border-left: 2px solid var(--teal-dark);
+  }
+
+  .residency-note p {
+    font-size: 0.88rem;
+    font-weight: 400;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.7;
+  }
+
+  /* ── STUDIO DETAILS STRIP ── */
+  .studio-strip {
+    background: var(--pale);
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .studio-strip-item {
+    padding: 2rem 2.5rem;
+    border-right: 1px solid var(--rule);
+  }
+
+  .studio-strip-item:last-child { border-right: none; }
+
+  .strip-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.58rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal-dark);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .strip-value {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--black);
+    line-height: 1.3;
+  }
+
+  /* ── MAP EMBED PLACEHOLDER ── */
+  .map-block {
+    border-bottom: 2px solid var(--black);
+    position: relative;
+  }
+
+  .map-embed {
+    width: 100%;
+    height: 340px;
+    border: none;
+    display: block;
+    filter: grayscale(30%);
+  }
+
+  .map-overlay {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    background: var(--white);
+    padding: 1rem 1.25rem;
+    border-left: 3px solid var(--teal-dark);
+  }
+
+  .map-overlay-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--black);
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  .map-overlay-addr {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    color: var(--mid);
+  }
+
+  /* ── BOOKING CTA ── */
+  .booking-cta {
+    padding: 4rem 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .cta-text h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--black);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+
+  .cta-text p {
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.85;
+    color: var(--body);
+  }
+
+  .cta-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .cta-contact {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: var(--mid);
+    line-height: 2;
+  }
+
+  .cta-contact a {
+    color: var(--teal-dark);
+    text-decoration: none;
+    border-bottom: 1px solid var(--teal-pale);
+    transition: border-color 0.2s;
+  }
+
+  .cta-contact a:hover { border-color: var(--teal); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--black);
+    padding: 4rem 3rem;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .footer-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 0.3rem;
+  }
+
+  .footer-logo span { color: var(--teal); }
+
+  .footer-tagline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    margin-bottom: 2rem;
+  }
+
+  .footer-legal {
+    font-size: 0.6rem;
+    letter-spacing: 0.04em;
+    color: rgba(255,255,255,0.18);
+    line-height: 1.8;
+  }
+
+  .footer-heading {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 1.2rem;
+  }
+
+  .footer-item {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: rgba(255,255,255,0.5);
+    line-height: 2;
+  }
+
+  .footer-location { margin-bottom: 1.5rem; }
+
+  .footer-location-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.58rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    margin-bottom: 0.25rem;
+  }
+
+  .footer-location-detail {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .page-header-inner { animation: fadeUp 0.6s ease both; animation-delay: 0.05s; }
+  .locations-grid { animation: fadeUp 0.6s ease both; animation-delay: 0.2s; }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    nav { padding: 0 1.25rem; }
+    .nav-links { display: none; }
+    .nav-book { display: none; }
+    .nav-hamburger { display: flex; }
+    .mobile-menu { display: flex; }
+
+    .page-header-inner {
+      grid-template-columns: 1fr;
+      padding: 2.5rem 1.25rem 2rem;
+      gap: 1.5rem;
+    }
+
+    .locations-grid { grid-template-columns: 1fr; }
+    .location-primary { border-right: none; border-bottom: 2px solid var(--black); }
+
+    .location-content { padding: 2rem 1.25rem; }
+    .location-residency .location-content { padding: 2rem 1.25rem; }
+
+    .studio-strip { grid-template-columns: 1fr 1fr; }
+    .studio-strip-item { padding: 1.5rem 1.25rem; border-bottom: 1px solid var(--rule); }
+    .studio-strip-item:nth-child(even) { border-right: none; }
+
+    .map-embed { height: 240px; }
+
+    .booking-cta {
+      grid-template-columns: 1fr;
+      padding: 2.5rem 1.25rem;
+      gap: 2rem;
+    }
+
+    footer { grid-template-columns: 1fr; padding: 2.5rem 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Thera<span>pilatics</span></a>
+  <ul class="nav-links">
+    <li><a href="services.html">Services</a></li>
+    <li><a href="apparatus.html">The Apparatus</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="locations.html" class="active">Locations</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="book.html" class="nav-book">Book a Session</a>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<nav class="mobile-menu" id="mobileMenu">
+  <a href="services.html">Services</a>
+  <a href="apparatus.html">The Apparatus</a>
+  <a href="about.html">About</a>
+  <a href="locations.html">Locations</a>
+  <a href="book.html">Book a Session</a>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-inner">
+    <div>
+      <span class="page-eyebrow">Where to Find Us</span>
+      <h1 class="page-title">Loca<span>tions</span></h1>
+    </div>
+    <p class="page-intro">Private appointments only. All sessions are by booking — there is no walk-in availability at either location.</p>
+  </div>
+</div>
+
+<!-- LOCATIONS GRID -->
+<div class="locations-grid">
+
+  <!-- MELBOURNE PRIMARY -->
+  <div class="location-primary">
+    <img
+      src="img-cadillac.png"
+      alt="Gratz Cadillac apparatus at Therapilatics Melbourne studio"
+      class="location-image"
+    >
+    <div class="location-content">
+      <span class="location-tag">Primary Studio</span>
+      <h2 class="location-name">Melbourne, FL</h2>
+      <p class="location-sub">Brevard County &nbsp;&middot;&nbsp; Space Coast</p>
+      <div class="location-detail-row">
+        <div class="location-detail">
+          <span class="detail-label">Address</span>
+          <span class="detail-value">478 N Babcock St<br>Melbourne, FL 32935</span>
+        </div>
+        <div class="location-detail">
+          <span class="detail-label">Hours</span>
+          <span class="detail-value">By appointment only<br>Monday – Saturday</span>
+        </div>
+        <div class="location-detail">
+          <span class="detail-label">Apparatus</span>
+          <span class="detail-value">Full Gratz suite<br>Cadillac, Reformer, Chair, Barrel, Pedi-Pole</span>
+        </div>
+        <div class="location-detail">
+          <span class="detail-label">Contact</span>
+          <span class="detail-value">
+            <a href="mailto:info@therapilatics.com">info@therapilatics.com</a><br>
+            <a href="tel:+15617667246">+1 321-766-7246</a>
+          </span>
+        </div>
+        <div class="location-detail">
+          <span class="detail-label">Booking</span>
+          <span class="detail-value">Via Setmore — link below</span>
+        </div>
+      </div>
+      <a href="book.html" class="btn-primary">Book a Session</a>
+    </div>
+  </div>
+
+  <!-- JUPITER RESIDENCY -->
+  <div class="location-residency">
+    <div class="residency-image-block">
+      <div class="residency-image-inner">
+        <p class="residency-signal">
+          Sunday Residency
+          <span>Jonathan's Landing</span>
+        </p>
+        <div class="residency-rule"></div>
+        <p class="residency-tag-line">Jupiter, FL &nbsp;&middot;&nbsp; By arrangement</p>
+      </div>
+    </div>
+    <div class="location-content">
+      <span class="location-tag">Sunday Residency</span>
+      <h2 class="location-name">Jupiter, FL</h2>
+      <p class="location-sub">Jonathan's Landing</p>
+      <div class="location-detail-row">
+        <div class="location-detail">
+          <span class="detail-label">Availability</span>
+          <span class="detail-value">Sundays only<br>By arrangement</span>
+        </div>
+        <div class="location-detail">
+          <span class="detail-label">Access</span>
+          <span class="detail-value">Private community<br>Directions provided on booking</span>
+        </div>
+        <div class="location-detail">
+          <span class="detail-label">Contact</span>
+          <span class="detail-value">
+            <a href="mailto:info@therapilatics.com" style="color: var(--teal);">info@therapilatics.com</a>
+          </span>
+        </div>
+      </div>
+      <div class="residency-note">
+        <p>Jupiter clients are accepted by arrangement. Contact directly to discuss Sunday availability and access.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- STUDIO STRIP -->
+<div class="studio-strip">
+  <div class="studio-strip-item">
+    <span class="strip-label">Studio Type</span>
+    <div class="strip-value">Fully Private<br>No shared floor</div>
+  </div>
+  <div class="studio-strip-item">
+    <span class="strip-label">Capacity</span>
+    <div class="strip-value">One client<br>at a time</div>
+  </div>
+  <div class="studio-strip-item">
+    <span class="strip-label">Apparatus</span>
+    <div class="strip-value">Gratz Industries<br>Original equipment</div>
+  </div>
+  <div class="studio-strip-item">
+    <span class="strip-label">Parking</span>
+    <div class="strip-value">On-site<br>No charge</div>
+  </div>
+</div>
+
+<!-- MAP -->
+<div class="map-block">
+  <iframe
+    class="map-embed"
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3527.2!2d-80.6344!3d28.0836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88de1a7b4e1a4a4a%3A0x0!2s478+N+Babcock+St%2C+Melbourne%2C+FL+32935!5e0!3m2!1sen!2sus!4v1"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    title="Therapilatics Melbourne Studio Location">
+  </iframe>
+  <div class="map-overlay">
+    <span class="map-overlay-name">Therapilatics</span>
+    <span class="map-overlay-addr">478 N Babcock St, Melbourne FL 32935</span>
+  </div>
+</div>
+
+<!-- BOOKING CTA -->
+<div class="booking-cta">
+  <div class="cta-text">
+    <h2>All sessions are by appointment.<br>There is no front desk.</h2>
+    <p>Booking is managed through Setmore. Select your session type, choose a time, and you'll receive confirmation directly. All services are prepaid at the time of booking.</p>
+  </div>
+  <div class="cta-actions">
+    <a href="book.html" class="btn-primary">Book a Session &rarr;</a>
+    <div class="cta-contact">
+      Questions? &nbsp;<a href="mailto:info@therapilatics.com">info@therapilatics.com</a><br>
+      Phone: &nbsp;<a href="tel:+15617667246">+1 321-766-7246</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">Thera<span>pilatics</span></div>
+    <div class="footer-tagline">Mending with Movement</div>
+    <div class="footer-legal">&copy; 2026 Pilates Footworks LLC<br>All Rights Reserved</div>
+  </div>
+  <div>
+    <p class="footer-heading">Contact</p>
+    <p class="footer-item">info@therapilatics.com</p>
+    <p class="footer-item">+1 321-766-7246</p>
+    <p class="footer-item" style="margin-top:1rem; font-size:0.62rem; color:rgba(255,255,255,0.2);">Scheduling via Setmore</p>
+  </div>
+  <div>
+    <p class="footer-heading">Locations</p>
+    <div class="footer-location">
+      <p class="footer-location-name">Primary Studio</p>
+      <p class="footer-location-detail">Melbourne, FL<br>Private appointments only</p>
+    </div>
+    <div class="footer-location">
+      <p class="footer-location-name">Sunday Residency</p>
+      <p class="footer-location-detail">Jonathan's Landing<br>Jupiter, FL</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+</script>
+</body>
+</html>

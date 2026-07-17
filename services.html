@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — Therapilatics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #3D9A97;
+    --teal-dark: #2E7B78;
+    --teal-pale: #E4F2F1;
+    --black: #0E0E0D;
+    --dark: #1E1C1A;
+    --charcoal: #2A2826;
+    --body: #2E2C2A;
+    --mid: #4A4745;
+    --light: #767270;
+    --rule: #C8C4BC;
+    --pale: #F0EEEB;
+    --grey: #E8E6E3;
+    --white: #FAFAF6;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--white);
+    color: var(--body);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: var(--white);
+    border-top: 3px solid var(--black);
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3rem;
+    height: 3.6rem;
+  }
+
+  .nav-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--black);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--teal-dark); }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--teal-dark); }
+  .nav-links a.active { color: var(--black); }
+
+  .nav-right { display: flex; align-items: center; gap: 1.5rem; }
+
+  .nav-book {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--black);
+    padding: 0.65rem 1.4rem;
+    text-decoration: none;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    transition: background 0.2s;
+  }
+
+  .nav-book:hover { background: var(--teal-dark); }
+
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+    min-height: 44px;
+    min-width: 44px;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+  }
+
+  .nav-hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--black);
+    transition: transform 0.25s, opacity 0.25s;
+    transform-origin: center;
+  }
+
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 3.6rem;
+    left: 0; right: 0;
+    background: var(--white);
+    border-bottom: 2px solid var(--black);
+    z-index: 99;
+    flex-direction: column;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .mobile-menu.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .mobile-menu a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--dark);
+    text-decoration: none;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    min-height: 52px;
+  }
+
+  .mobile-menu a:last-child {
+    background: var(--black);
+    color: var(--white);
+    border-bottom: none;
+    justify-content: center;
+    letter-spacing: 0.2em;
+  }
+
+  /* ── PAGE HEADER ── */
+  .page-header {
+    padding-top: 3.6rem;
+    background: var(--dark);
+    border-bottom: 3px solid var(--teal);
+  }
+
+  .page-header-inner {
+    padding: 4rem 3rem 3.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: end;
+  }
+
+  .page-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--teal);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .page-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 500;
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+
+  .page-title span { color: var(--teal); }
+
+  .page-intro {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.85;
+    color: rgba(255,255,255,0.55);
+    align-self: end;
+  }
+
+  /* ── PROGRESSION ── */
+  .progression {
+    background: var(--charcoal);
+    padding: 3rem;
+    border-top: 2px solid var(--black);
+    border-bottom: 2px solid var(--black);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .progression-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal);
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    align-self: center;
+  }
+
+  .progression-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.06);
+  }
+
+  .progression-step {
+    padding: 1.75rem 2rem;
+    background: var(--charcoal);
+  }
+
+  .progression-number {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--teal);
+    display: block;
+    margin-bottom: 0.6rem;
+  }
+
+  .progression-step-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.4rem;
+    line-height: 1.2;
+  }
+
+  .progression-step-desc {
+    font-size: 0.88rem;
+    font-weight: 400;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.7;
+  }
+
+  /* ── SECTION LABEL ── */
+  .section-label-bar {
+    padding: 1rem 3rem;
+    border-bottom: 1px solid var(--rule);
+    background: var(--pale);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .section-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--teal-dark);
+  }
+
+  /* ── SERVICE CARDS ── */
+  .service-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background: var(--rule);
+    gap: 1px;
+    border-top: 2px solid var(--black);
+  }
+
+  .service-card {
+    background: var(--white);
+    padding: 3rem;
+    border-left: 3px solid transparent;
+    transition: border-left-color 0.2s, background 0.2s;
+    position: relative;
+  }
+
+  .service-card.featured {
+    border-left-color: var(--teal);
+    background: var(--teal-pale);
+  }
+
+  .service-card-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal-dark);
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  .service-card-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: 0.25rem;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+
+  .service-card-price {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--teal-dark);
+    letter-spacing: 0.04em;
+    margin-bottom: 1.25rem;
+    display: block;
+  }
+
+  .service-card-body {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.8;
+    color: var(--body);
+    margin-bottom: 1.25rem;
+  }
+
+  .service-card-detail {
+    font-size: 0.88rem;
+    font-weight: 400;
+    color: var(--mid);
+    line-height: 1.75;
+    padding: 0.85rem 1rem;
+    background: rgba(0,0,0,0.04);
+    border-left: 2px solid var(--rule);
+    margin-bottom: 1.5rem;
+  }
+
+  .service-card-detail strong {
+    font-weight: 600;
+    color: var(--dark);
+  }
+
+  .btn-book {
+    display: inline-flex;
+    align-items: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--black);
+    padding: 0.9rem 2rem;
+    text-decoration: none;
+    min-height: 52px;
+    transition: background 0.2s;
+  }
+
+  .btn-book:hover { background: var(--teal-dark); }
+  .btn-book.teal { background: var(--teal-dark); }
+  .btn-book.teal:hover { background: var(--black); }
+
+  /* ── RESERVE NOTE ── */
+  .reserve-note {
+    background: var(--teal-pale);
+    border-top: 2px solid var(--teal-dark);
+    border-bottom: 1px solid var(--rule);
+    padding: 1.5rem 3rem;
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+  }
+
+  .reserve-note-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--teal-dark);
+    flex-shrink: 0;
+    margin-top: 0.5rem;
+  }
+
+  .reserve-note-text {
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--dark);
+    line-height: 1.75;
+  }
+
+  .reserve-note-text strong {
+    font-weight: 600;
+    color: var(--black);
+    display: block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+  }
+
+  /* ── COMPARISON TABLE ── */
+  .comparison {
+    border-top: 2px solid var(--black);
+  }
+
+  .comparison-header {
+    padding: 1.75rem 3rem;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 2rem;
+  }
+
+  .comparison-header h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--black);
+  }
+
+  .comparison-header p {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--mid);
+    line-height: 1.6;
+    max-width: 40rem;
+  }
+
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+
+  .comparison-table thead tr {
+    background: var(--charcoal);
+  }
+
+  .comparison-table thead th {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    padding: 1rem 1.5rem;
+    text-align: left;
+    border-right: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .comparison-table thead th:last-child {
+    color: var(--teal);
+    border-right: none;
+  }
+
+  .comparison-table tbody tr {
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .comparison-table tbody tr:last-child { border-bottom: none; }
+
+  .comparison-table tbody tr:nth-child(even) {
+    background: var(--pale);
+  }
+
+  .comparison-table tbody td {
+    padding: 1rem 1.5rem;
+    font-weight: 400;
+    color: var(--body);
+    border-right: 1px solid var(--rule);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+
+  .comparison-table tbody td:last-child {
+    font-weight: 600;
+    color: var(--teal-dark);
+    border-right: none;
+    background: var(--teal-pale);
+  }
+
+  .comparison-table tbody tr:nth-child(even) td:last-child {
+    background: #D8EDEC;
+  }
+
+  .comparison-table tbody td:first-child {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mid);
+    white-space: nowrap;
+  }
+
+  /* ── COACHING NOTE ── */
+  .coaching-note {
+    padding: 1.5rem 3rem;
+    background: var(--pale);
+    border-top: 1px solid var(--rule);
+    border-bottom: 2px solid var(--black);
+  }
+
+  .coaching-note p {
+    font-size: 0.92rem;
+    font-weight: 400;
+    color: var(--mid);
+    line-height: 1.75;
+  }
+
+  .coaching-note a {
+    color: var(--teal-dark);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid var(--teal-dark);
+  }
+
+  /* ── CANCELLATION ── */
+  .cancellation {
+    padding: 1.5rem 3rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .cancellation-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .cancellation-text {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--mid);
+    line-height: 1.8;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--black);
+    padding: 4rem 3rem;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .footer-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 0.3rem;
+  }
+
+  .footer-logo span { color: var(--teal); }
+
+  .footer-tagline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    margin-bottom: 2rem;
+  }
+
+  .footer-legal {
+    font-size: 0.6rem;
+    letter-spacing: 0.04em;
+    color: rgba(255,255,255,0.18);
+    line-height: 1.8;
+  }
+
+  .footer-heading {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 1.2rem;
+  }
+
+  .footer-item {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: rgba(255,255,255,0.5);
+    line-height: 2;
+  }
+
+  .footer-location { margin-bottom: 1.5rem; }
+
+  .footer-location-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.58rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    margin-bottom: 0.25rem;
+  }
+
+  .footer-location-detail {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .page-header { animation: fadeUp 0.5s ease both; animation-delay: 0.05s; }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    nav { padding: 0 1.25rem; }
+    .nav-links { display: none; }
+    .nav-book { display: none; }
+    .nav-hamburger { display: flex; }
+    .mobile-menu { display: flex; }
+
+    .page-header-inner {
+      grid-template-columns: 1fr;
+      padding: 2.5rem 1.25rem 2rem;
+      gap: 1.5rem;
+    }
+
+    .progression {
+      grid-template-columns: 1fr;
+      padding: 2rem 1.25rem;
+    }
+
+    .progression-label { writing-mode: horizontal-tb; transform: none; }
+    .progression-steps { grid-template-columns: 1fr; }
+    .progression-step { padding: 1.25rem; }
+
+    .section-label-bar { padding: 0.85rem 1.25rem; }
+
+    .service-cards { grid-template-columns: 1fr; }
+    .service-card { padding: 2rem 1.25rem; }
+
+    .reserve-note { padding: 1.25rem; }
+
+    .comparison-header { padding: 1.25rem; flex-direction: column; gap: 0.75rem; }
+
+    .comparison-table { font-size: 0.78rem; }
+    .comparison-table thead th,
+    .comparison-table tbody td { padding: 0.75rem; }
+
+    .coaching-note { padding: 1.25rem; }
+    .cancellation { padding: 1.25rem; }
+
+    footer { grid-template-columns: 1fr; padding: 2.5rem 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Thera<span>pilatics</span></a>
+  <ul class="nav-links">
+    <li><a href="services.html" class="active">Services</a></li>
+    <li><a href="apparatus.html">The Apparatus</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="locations.html">Locations</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="book.html" class="nav-book">Book a Session</a>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<nav class="mobile-menu" id="mobileMenu">
+  <a href="services.html">Services</a>
+  <a href="apparatus.html">The Apparatus</a>
+  <a href="about.html">About</a>
+  <a href="locations.html">Locations</a>
+  <a href="book.html">Book a Session</a>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-inner">
+    <div>
+      <span class="page-eyebrow">What We Offer</span>
+      <h1 class="page-title">Ser<span>vices</span></h1>
+    </div>
+    <p class="page-intro">Every service is one-on-one, in a private room, on original Gratz apparatus. There are no group options and no shared equipment. That is the standard here.</p>
+  </div>
+</div>
+
+<!-- PROGRESSION -->
+<div class="progression">
+  <span class="progression-label">How It Works</span>
+  <div class="progression-steps">
+    <div class="progression-step">
+      <span class="progression-number">01</span>
+      <div class="progression-step-title">Start with an Assessment</div>
+      <div class="progression-step-desc">One hour. We establish how your body is moving, discuss your history, and identify what we are working with. New clients only.</div>
+    </div>
+    <div class="progression-step">
+      <span class="progression-number">02</span>
+      <div class="progression-step-title">Foundation Period</div>
+      <div class="progression-step-desc">Five sessions over three weeks. Frequency accelerates learning. Most clients know within this period whether the work is right for them.</div>
+    </div>
+    <div class="progression-step">
+      <span class="progression-number">03</span>
+      <div class="progression-step-title">Ongoing Practice</div>
+      <div class="progression-step-desc">A reserved weekly slot, invoiced monthly. Consistency is where results compound.</div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<div class="section-label-bar">
+  <span class="section-label">Pricing</span>
+</div>
+
+<div class="service-cards">
+  <div class="service-card">
+    <span class="service-card-tag">New Clients &mdash; Step One</span>
+    <h2 class="service-card-title">Introductory Assessment</h2>
+    <span class="service-card-price">$85 &nbsp;&middot;&nbsp; One Hour</span>
+    <p class="service-card-body">A full movement assessment. We review your history, look at what your body is doing and what it is not, and establish a baseline before your first full session. This is where we find out what we are working with.</p>
+    <div class="service-card-detail">
+      <strong>New clients only.</strong> The assessment is not a Pilates session — it is an assessment. Hands-on work begins at the Foundation Period.
+    </div>
+    <a href="book.html" class="btn-book">Book an Assessment</a>
+  </div>
+
+  <div class="service-card featured">
+    <span class="service-card-tag">New Clients &mdash; Step Two</span>
+    <h2 class="service-card-title">Foundation Period</h2>
+    <span class="service-card-price">$375 &nbsp;&middot;&nbsp; Five Sessions / Three Weeks</span>
+    <p class="service-card-body">Five sessions over three weeks. The frequency is deliberate — the body learns faster with repetition close together. By the end of this period you will know exactly what your body needs and what ongoing work should look like.</p>
+    <div class="service-card-detail">
+      <strong>New clients only.</strong> Typically follows the Introductory Assessment. This is not a discount package — it is a structured methodology. Sessions are scheduled across three weeks.
+    </div>
+    <a href="book.html" class="btn-book teal">Book Foundation Period</a>
+  </div>
+
+  <div class="service-card">
+    <span class="service-card-tag">Existing Clients</span>
+    <h2 class="service-card-title">Private Session</h2>
+    <span class="service-card-price">$125 &nbsp;&middot;&nbsp; One Hour</span>
+    <p class="service-card-body">A full session on the Gratz apparatus. Tailored to your body, your history, and what you need that day. The room is yours. Nothing is shared. Nothing is rushed.</p>
+    <a href="book.html" class="btn-book">Book a Session</a>
+  </div>
+
+  <div class="service-card">
+    <span class="service-card-tag">Existing Clients</span>
+    <h2 class="service-card-title">Monthly Retainer</h2>
+    <span class="service-card-price">$500 &nbsp;&middot;&nbsp; Four Sessions / Month</span>
+    <p class="service-card-body">A reserved weekly slot, same day and time each week, invoiced at the start of the month. This is not a discounted package — it is a held slot in a limited practice. The slot is yours as long as the retainer is active.</p>
+    <div class="service-card-detail">
+      <strong>$125 per session.</strong> Invoiced the first of each month. Consistency is where the work compounds.
+    </div>
+    <a href="book.html" class="btn-book">Retain a Slot</a>
+  </div>
+</div>
+
+<!-- RESERVE NOTE -->
+<div class="reserve-note">
+  <div class="reserve-note-dot"></div>
+  <div class="reserve-note-text">
+    <strong>On Availability</strong>
+    This is a private practice with a limited number of slots. The Monthly Retainer exists because consistency produces results — and because a held slot means neither of us is rescheduling around a full calendar.
+  </div>
+</div>
+
+<!-- COMPARISON TABLE -->
+<div class="comparison">
+  <div class="comparison-header">
+    <h2>How We Compare</h2>
+    <p>Not all private Pilates is the same. The room, the equipment, and the instructor matter.</p>
+  </div>
+  <table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Group / Franchise</th>
+        <th>Shared Private</th>
+        <th>Therapilatics</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Room</td>
+        <td>Shared</td>
+        <td>Shared</td>
+        <td>Private</td>
+      </tr>
+      <tr>
+        <td>Equipment</td>
+        <td>Shared</td>
+        <td>Shared</td>
+        <td>Yours for the session</td>
+      </tr>
+      <tr>
+        <td>Apparatus</td>
+        <td>Limited</td>
+        <td>Varies / Shared floor</td>
+        <td>Full Gratz suite</td>
+      </tr>
+      <tr>
+        <td>Attention</td>
+        <td>Divided</td>
+        <td>Undivided</td>
+        <td>Undivided</td>
+      </tr>
+      <tr>
+        <td>Lineage</td>
+        <td>Varies</td>
+        <td>Varies</td>
+        <td>Romana / Third Degree</td>
+      </tr>
+      <tr>
+        <td>Avg. Session Rate</td>
+        <td>$30 &ndash; $60</td>
+        <td>$90</td>
+        <td>$125</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- COACHING NOTE -->
+<div class="coaching-note">
+  <p>Laini Byfield is also a National Board Certified Health and Wellness Coach (NBC-HWC). For inquiries regarding behavioral health coaching or lifestyle protocols, <a href="mailto:info@therapilatics.com">contact Laini directly</a>.</p>
+</div>
+
+<!-- CANCELLATION -->
+<div class="cancellation">
+  <span class="cancellation-title">Scheduling and Cancellation</span>
+  <p class="cancellation-text">All services are prepaid. Late arrivals receive the remainder of their scheduled hour. Cancellations with more than 24 hours notice may be rescheduled within the same calendar week, subject to availability. Cancellations within 24 hours forfeit the session. Scheduling is managed through Setmore.</p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">Thera<span>pilatics</span></div>
+    <div class="footer-tagline">Mending with Movement</div>
+    <div class="footer-legal">&copy; 2026 Pilates Footworks LLC<br>All Rights Reserved</div>
+  </div>
+  <div>
+    <p class="footer-heading">Contact</p>
+    <p class="footer-item">info@therapilatics.com</p>
+    <p class="footer-item">+1 321-766-7246</p>
+  </div>
+  <div>
+    <p class="footer-heading">Locations</p>
+    <div class="footer-location">
+      <p class="footer-location-name">Primary Studio</p>
+      <p class="footer-location-detail">Melbourne, FL<br>Private appointments only</p>
+    </div>
+    <div class="footer-location">
+      <p class="footer-location-name">Sunday Residency</p>
+      <p class="footer-location-detail">Jonathan's Landing<br>Jupiter, FL</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+</script>
+</body>
+</html>
