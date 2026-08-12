@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 <title>For Referring Providers — Therapilatics</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -199,12 +202,26 @@
     .provider-contact { padding: 2rem 1.25rem; }
     footer { padding: 2rem 1.25rem; }
   }
+
+  .nav-logo { display: flex; align-items: center; gap: 0.55rem; }
+  .nav-logo img { height: 30px; width: auto; display: block; }
+  .footer-logo { display: flex; align-items: center; gap: 0.6rem; }
+  .footer-logo img { height: 34px; width: auto; display: block; }
+  @media (max-width: 768px) {
+    .nav-logo img { height: 26px; }
+  }
+
+  .nav-logo .wm, .footer-logo .wm { display: inline; }
+  .nav-logo .wm { color: var(--black); }
+  .nav-logo .wm span { color: var(--teal-dark); }
+  .footer-logo .wm { color: rgba(255,255,255,0.9); }
+  .footer-logo .wm span { color: var(--teal); }
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo">Thera<span>pilatics</span></a>
+  <a href="index.html" class="nav-logo"><img src="logo-mark.png" alt=""><span class="wm">Thera<span>pilatics</span></span></a>
   <span class="nav-tag">For Referring Providers</span>
 </nav>
 
