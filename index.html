@@ -4,6 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Therapilatics — Private Pilates Studio, Melbourne FL</title>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Therapilatics">
+<meta property="og:title" content="Therapilatics — Private Classical Pilates, Melbourne FL">
+<meta property="og:description" content="One room. One client. Every session. Private classical Pilates on a complete Gratz apparatus suite in Melbourne, Florida.">
+<meta property="og:url" content="https://therapilatics.com/">
+<meta property="og:image" content="https://therapilatics.com/og-card.png">
+<meta property="og:image:secure_url" content="https://therapilatics.com/og-card.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Therapilatics — One room. One client. Every session.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Therapilatics — Private Classical Pilates, Melbourne FL">
+<meta name="twitter:description" content="One room. One client. Every session. Private classical Pilates on a complete Gratz apparatus suite in Melbourne, Florida.">
+<meta name="twitter:image" content="https://therapilatics.com/og-card.png">
+<meta name="description" content="One room. One client. Every session. Private classical Pilates on a complete Gratz apparatus suite in Melbourne, Florida.">
+
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
@@ -183,7 +200,8 @@
 
   /* ── HERO ── */
   .hero {
-    min-height: 100vh;
+    min-height: 86vh;
+    min-height: 86svh;
     padding-top: 3.6rem;
     display: flex;
     flex-direction: column;
@@ -436,7 +454,9 @@
 
   .about-image-col {
     background: var(--grey);
-    min-height: 560px;
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+    align-self: stretch;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -777,7 +797,7 @@
 
   .apparatus-item-image {
     width: 100%;
-    aspect-ratio: 1;
+    aspect-ratio: 4 / 3;
     background: var(--grey);
     margin-top: 1.5rem;
     overflow: hidden;
@@ -791,7 +811,7 @@
   }
 
   .apparatus-item.featured .apparatus-item-image {
-    aspect-ratio: 3/4;
+    aspect-ratio: 9 / 16;
   }
 
   .apparatus-cta {
@@ -1007,7 +1027,9 @@
     background: var(--grey);
     overflow: hidden;
     position: relative;
-    min-height: 480px;
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+    align-self: stretch;
   }
 
   .movement-first-image img {
@@ -1052,6 +1074,7 @@
     }
 
     .hero-footer-right { display: none; }
+    .scroll-cue { align-self: flex-start; }
 
     .mobile-hero-cta {
       padding: 1.5rem 1.25rem;
@@ -1088,12 +1111,13 @@
     .here-adapts { padding: 1.25rem; }
 
     .movement-first { grid-template-columns: 1fr; }
-    .movement-first-image { min-height: 300px; order: -1; }
+    .movement-first-image { min-height: 0; aspect-ratio: 4 / 3; order: -1; }
     .movement-first-content { padding: 2.5rem 1.25rem; }
 
     .about { grid-template-columns: 1fr; }
     .about-image-col {
-      min-height: 320px;
+      min-height: 0;
+      aspect-ratio: 4 / 3;
       border-right: none;
       border-bottom: 1px solid var(--rule);
     }
@@ -1143,6 +1167,39 @@
   .nav-logo .wm span { color: var(--teal-dark); }
   .footer-logo .wm { color: rgba(255,255,255,0.9); }
   .footer-logo .wm span { color: var(--teal); }
+
+  .scroll-cue {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--light);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    min-height: 44px;
+  }
+  .scroll-cue:hover { color: var(--teal-dark); }
+  .scroll-cue svg { display: block; }
+  .scroll-cue svg path { stroke: var(--teal-dark); }
+  @keyframes cueNudge {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(5px); }
+  }
+  .scroll-cue .cue-arrow { animation: cueNudge 1.8s ease-in-out infinite; }
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-cue .cue-arrow { animation: none; }
+  }
+
+  .about-image-col img { object-position: center 45%; }
+  .movement-first-image img { object-position: center 40%; }
+  .apparatus-item-image img { object-position: center center; }
+  .apparatus-item.featured .apparatus-item-image img { object-position: center 35%; }
 </style>
 </head>
 <body>
@@ -1218,7 +1275,7 @@
       <div class="residency-dot"></div>
       <span class="residency-text">Sunday residency &mdash; <strong>Jonathan's Landing, Jupiter</strong></span>
     </div>
-    <span class="hero-footer-right">Full Gratz Apparatus &nbsp;&middot;&nbsp; Romana Kryzanowska Tradition</span>
+    <button class="scroll-cue" id="scrollCue" aria-label="Scroll to see more"><span>See More</span><span class="cue-arrow"><svg width="14" height="16" viewBox="0 0 14 16" fill="none" aria-hidden="true"><path d="M7 1 L7 14 M2 9.5 L7 14.5 L12 9.5" stroke-width="1.6" stroke-linecap="square" stroke-linejoin="miter"/></svg></span></button>
   </div>
 </section>
 
@@ -1484,6 +1541,14 @@
       mobileMenu.classList.remove('open');
     });
   });
+
+  const cue = document.getElementById('scrollCue');
+  if (cue) {
+    cue.addEventListener('click', () => {
+      const next = document.querySelector('.distinction');
+      if (next) next.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
 </script>
 </body>
 </html>
