@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>For Referring Providers — Therapilatics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #3D9A97;
+    --teal-dark: #2E7B78;
+    --teal-pale: #E4F2F1;
+    --black: #0E0E0D;
+    --dark: #1E1C1A;
+    --body: #2E2C2A;
+    --mid: #4A4745;
+    --light: #767270;
+    --rule: #C8C4BC;
+    --pale: #F0EEEB;
+    --grey: #E8E6E3;
+    --white: #FAFAF6;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--white);
+    color: var(--body);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--white);
+    border-top: 3px solid var(--black);
+    border-bottom: 1px solid var(--rule);
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 3rem; height: 3.6rem;
+  }
+  .nav-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.1rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--black); text-decoration: none;
+  }
+  .nav-logo span { color: var(--teal-dark); }
+  .nav-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.62rem; font-weight: 500; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--light);
+  }
+
+  .page-header {
+    padding: 3rem; background: var(--dark);
+    border-bottom: 3px solid var(--teal);
+  }
+  .page-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--teal);
+    display: block; margin-bottom: 0.75rem;
+  }
+  .page-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 600;
+    line-height: 1; letter-spacing: -0.01em; text-transform: uppercase;
+    color: var(--white);
+  }
+  .page-title span { color: var(--teal); }
+  .page-intro {
+    margin-top: 1.5rem; padding-top: 1.25rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 1.05rem; line-height: 1.75; color: rgba(255,255,255,0.7);
+    max-width: 640px;
+  }
+
+  .section-header {
+    padding: 1.5rem 3rem;
+    border-top: 2px solid var(--black); border-bottom: 1px solid var(--rule);
+  }
+  .section-header .eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.6rem; font-weight: 600; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--teal-dark);
+    display: block; margin-bottom: 0.25rem;
+  }
+  .section-header h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.4rem; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; color: var(--black);
+  }
+
+  .prose { padding: 2.5rem 3rem; max-width: 760px; }
+  .prose p { margin-bottom: 1.25rem; font-size: 1rem; line-height: 1.85; color: var(--body); }
+  .prose p strong { color: var(--black); font-weight: 600; }
+
+  /* Pathway */
+  .pathway { border-top: 2px solid var(--black); }
+  .pathway-step {
+    display: flex; gap: 1.5rem; align-items: flex-start;
+    padding: 2rem 3rem; border-bottom: 1px solid var(--rule);
+  }
+  .pathway-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.4rem; font-weight: 600; color: var(--teal-dark);
+    flex-shrink: 0; width: 2.5rem; line-height: 1.1;
+  }
+  .pathway-body h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.2rem; font-weight: 600; letter-spacing: 0.03em;
+    text-transform: uppercase; color: var(--black); margin-bottom: 0.5rem;
+  }
+  .pathway-body p { font-size: 0.95rem; line-height: 1.75; color: var(--mid); }
+
+  /* Credentials table */
+  .cred-table { border-top: 2px solid var(--black); }
+  .cred-row { display: grid; grid-template-columns: 240px 1fr; border-bottom: 1px solid var(--rule); }
+  .cred-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--mid);
+    padding: 1rem 1.5rem; background: var(--pale);
+  }
+  .cred-value { padding: 1rem 1.5rem; font-size: 0.95rem; color: var(--body); }
+
+  /* Conditions grid */
+  .conditions {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    background: var(--rule); gap: 1px;
+  }
+  .condition {
+    background: var(--white); padding: 1.75rem 2rem;
+  }
+  .condition h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem; font-weight: 600; letter-spacing: 0.03em;
+    text-transform: uppercase; color: var(--black); margin-bottom: 0.4rem;
+  }
+  .condition p { font-size: 0.88rem; line-height: 1.65; color: var(--mid); }
+
+  /* Scope callout */
+  .callout {
+    margin: 0; padding: 2rem 3rem; background: var(--teal-pale);
+    border-top: 2px solid var(--teal-dark); border-bottom: 2px solid var(--black);
+    display: flex; gap: 1.25rem; align-items: flex-start;
+  }
+  .callout-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--teal-dark); flex-shrink: 0; margin-top: 0.5rem; }
+  .callout-body h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.1rem; font-weight: 600; letter-spacing: 0.03em;
+    text-transform: uppercase; color: var(--black); margin-bottom: 0.5rem;
+  }
+  .callout-body p { font-size: 0.95rem; line-height: 1.75; color: var(--dark); }
+
+  /* Contact */
+  .provider-contact {
+    padding: 3rem; background: var(--dark); text-align: left;
+  }
+  .provider-contact .eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.62rem; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--teal); display: block; margin-bottom: 0.75rem;
+  }
+  .provider-contact h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.6rem; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.03em; color: var(--white); margin-bottom: 1rem;
+  }
+  .provider-contact p { color: rgba(255,255,255,0.7); margin-bottom: 1.5rem; max-width: 560px; }
+  .provider-contact a.email {
+    color: var(--teal); font-weight: 600; text-decoration: none;
+    border-bottom: 1px solid var(--teal);
+  }
+
+  footer {
+    background: var(--black); padding: 3rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.62rem; letter-spacing: 0.05em; color: rgba(255,255,255,0.3);
+    line-height: 2; text-transform: uppercase;
+  }
+  footer strong { color: rgba(255,255,255,0.6); font-weight: 600; }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 1.25rem; }
+    .nav-tag { display: none; }
+    .page-header { padding: 2rem 1.25rem; }
+    .section-header { padding: 1.25rem; }
+    .prose { padding: 1.75rem 1.25rem; }
+    .pathway-step { padding: 1.5rem 1.25rem; }
+    .cred-row { grid-template-columns: 1fr; }
+    .cred-label { padding: 0.75rem 1.25rem 0.25rem; background: var(--white); }
+    .cred-value { padding: 0 1.25rem 1rem; }
+    .conditions { grid-template-columns: 1fr; }
+    .callout { padding: 1.5rem 1.25rem; }
+    .provider-contact { padding: 2rem 1.25rem; }
+    footer { padding: 2rem 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Thera<span>pilatics</span></a>
+  <span class="nav-tag">For Referring Providers</span>
+</nav>
+
+<div class="page-header">
+  <span class="page-eyebrow">Clinical Partnership</span>
+  <h1 class="page-title">For Referring <span>Providers</span></h1>
+  <p class="page-intro">Therapilatics provides private, one-on-one classical Pilates instruction on original Gratz apparatus. This page outlines what your patients can expect, the structure of the work, and how referral operates.</p>
+</div>
+
+<!-- WHAT WE PROVIDE -->
+<div class="section-header">
+  <span class="eyebrow">The Practice</span>
+  <h2>What I Provide</h2>
+</div>
+<div class="prose">
+  <p>Therapilatics is a private classical Pilates practice operating under Pilates Footworks LLC in Melbourne, FL. Sessions are one-on-one, in a dedicated private room, on the complete Gratz apparatus suite — the equipment Joseph Pilates designed.</p>
+  <p>The practice is led by Laini Byfield, trained to Third Degree in the Romana Kryzanowska lineage and a National Board Certified Health and Wellness Coach. Her background in engineering shapes an assessment-first approach: every program is built from an individual movement assessment rather than a fixed protocol.</p>
+  <p><strong>This is not group instruction or a fitness class.</strong> It is individualized movement work suited to patients managing pain, structural limitations, post-surgical recovery, and mobility loss — patients who need attention a group setting cannot provide.</p>
+</div>
+
+<!-- PATHWAY -->
+<div class="section-header">
+  <span class="eyebrow">How It Works</span>
+  <h2>The Referral Pathway</h2>
+</div>
+<div class="pathway">
+  <div class="pathway-step">
+    <span class="pathway-num">01</span>
+    <div class="pathway-body">
+      <h3>Introductory Assessment</h3>
+      <p>Every referred patient begins with a one-hour movement assessment. History, movement screening, and a baseline are established. This determines whether and how the work fits the patient's needs.</p>
+    </div>
+  </div>
+  <div class="pathway-step">
+    <span class="pathway-num">02</span>
+    <div class="pathway-body">
+      <h3>A Program Built From Findings</h3>
+      <p>Most patients begin a structured program — typically six to eight weeks — designed around the assessment. Frequency and focus are matched to the individual. The patient receives a written summary of findings and direction.</p>
+    </div>
+  </div>
+  <div class="pathway-step">
+    <span class="pathway-num">03</span>
+    <div class="pathway-body">
+      <h3>Ongoing Maintenance</h3>
+      <p>Once the foundation is established, ongoing maintenance sessions hold the gains. Patients may reserve a standing weekly slot. Progress can be communicated back to the referring provider with patient consent.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CONDITIONS -->
+<div class="section-header">
+  <span class="eyebrow">Suitable Referrals</span>
+  <h2>Who This Serves</h2>
+</div>
+<div class="conditions">
+  <div class="condition">
+    <h4>Chronic Low Back &amp; SI</h4>
+    <p>Patients with persistent lumbar or sacroiliac dysfunction who have plateaued in traditional PT.</p>
+  </div>
+  <div class="condition">
+    <h4>Post-Surgical Recovery</h4>
+    <p>Patients cleared for movement who need graded, supervised reconditioning after discharge.</p>
+  </div>
+  <div class="condition">
+    <h4>Parkinson's &amp; Neuro</h4>
+    <p>Movement quality, balance, and confidence work. Brian Grant Foundation certified for Parkinson's.</p>
+  </div>
+  <div class="condition">
+    <h4>Mobility &amp; Aging</h4>
+    <p>Active older patients working to maintain strength, balance, and independence.</p>
+  </div>
+  <div class="condition">
+    <h4>Deconditioning</h4>
+    <p>Patients advised to increase activity who are intimidated by or unsuccessful in gym settings.</p>
+  </div>
+  <div class="condition">
+    <h4>Return to Sport</h4>
+    <p>Golfers, tennis players, and active patients rebuilding after injury without abandoning their sport.</p>
+  </div>
+</div>
+
+<!-- CREDENTIALS -->
+<div class="section-header">
+  <span class="eyebrow">Qualifications</span>
+  <h2>Credentials</h2>
+</div>
+<div class="cred-table">
+  <div class="cred-row"><div class="cred-label">Training</div><div class="cred-value">Third Degree Classical Pilates, Romana Kryzanowska Lineage — Real Pilates NYC</div></div>
+  <div class="cred-row"><div class="cred-label">Apparatus</div><div class="cred-value">Complete Gratz studio — original apparatus to Joseph Pilates' specifications</div></div>
+  <div class="cred-row"><div class="cred-label">Coaching</div><div class="cred-value">NBC-HWC — National Board Certified Health &amp; Wellness Coach</div></div>
+  <div class="cred-row"><div class="cred-label">Education</div><div class="cred-value">B.S. Engineering, Massachusetts Institute of Technology</div></div>
+  <div class="cred-row"><div class="cred-label">Specialized</div><div class="cred-value">Exercise for Parkinson's (Brian Grant Foundation) · Pre/Postnatal · Blind &amp; Low Vision · Rotational Athlete</div></div>
+  <div class="cred-row"><div class="cred-label">Location</div><div class="cred-value">478 N Babcock St, Melbourne, FL 32935 · Sunday residency, Jonathan's Landing, Jupiter</div></div>
+</div>
+
+<!-- SUPERBILL -->
+<div class="callout">
+  <div class="callout-dot"></div>
+  <div class="callout-body">
+    <h3>Payment &amp; Scope</h3>
+    <p>Therapilatics is cash-pay. I do not bill insurance, and I do not provide documentation for insurance billing by either party. This is post-rehabilitation movement work — fitness, not healthcare — and I stay firmly on that side of the line. No compensation is offered or accepted for referrals, in either direction.</p>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="provider-contact">
+  <span class="eyebrow">Start a Conversation</span>
+  <h2>Refer a Patient</h2>
+  <p>To refer a patient, discuss a partnership, or request printed materials for your office, reach out directly. Referred patients can be sent to the assessment booking, or contact us to coordinate.</p>
+  <a href="mailto:hello@therapilatics.com?subject=Provider%20Referral%20Inquiry" class="email">hello@therapilatics.com</a>
+</div>
+
+<footer>
+  <strong>Therapilatics</strong> — A Pilates Footworks LLC Practice<br>
+  478 N Babcock St, Melbourne, FL 32935 &nbsp;·&nbsp; By appointment only<br>
+  hello@therapilatics.com &nbsp;·&nbsp; +1 321-345-3797
+</footer>
+
+</body>
+</html>

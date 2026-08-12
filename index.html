@@ -106,7 +106,6 @@
 
   .nav-book:hover { background: var(--teal-dark); }
 
-  /* Hamburger — mobile only */
   .nav-hamburger {
     display: none;
     flex-direction: column;
@@ -134,7 +133,6 @@
   .nav-hamburger.open span:nth-child(2) { opacity: 0; }
   .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-  /* Mobile menu drawer */
   .mobile-menu {
     display: none;
     position: fixed;
@@ -167,10 +165,9 @@
     text-decoration: none;
     padding: 1rem 1.5rem;
     border-bottom: 1px solid var(--rule);
-    display: block;
-    min-height: 52px;
     display: flex;
     align-items: center;
+    min-height: 52px;
   }
 
   .mobile-menu a:last-child {
@@ -181,7 +178,7 @@
     letter-spacing: 0.2em;
   }
 
-  /* ── HERO — TYPOGRAPHIC ── */
+  /* ── HERO ── */
   .hero {
     min-height: 100vh;
     padding-top: 3.6rem;
@@ -192,7 +189,6 @@
     overflow: hidden;
   }
 
-  /* Subtle grid */
   .hero::before {
     content: '';
     position: absolute;
@@ -243,7 +239,6 @@
     color: var(--teal-dark);
   }
 
-  /* Typographic lines */
   .hero-type { margin-bottom: 0; }
 
   .hero-line {
@@ -302,7 +297,6 @@
     align-items: flex-start;
   }
 
-  /* Hero footer bar */
   .hero-footer-row {
     display: flex;
     justify-content: space-between;
@@ -352,7 +346,6 @@
     color: var(--light);
   }
 
-  /* Buttons */
   .btn-primary {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 0.72rem;
@@ -446,23 +439,15 @@
     justify-content: center;
     border-right: 1px solid var(--rule);
     position: relative;
+    overflow: hidden;
   }
 
-  .about-image-placeholder {
-    width: 70%;
-    aspect-ratio: 3/4;
-    background: var(--grey-mid);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .about-image-placeholder p {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.6rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--light);
+  .about-image-col img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    inset: 0;
   }
 
   .about-content {
@@ -529,7 +514,7 @@
 
   .inline-link:hover { color: var(--teal-dark); }
 
-  /* ── SERVICES ── */
+  /* ── SECTION HEADERS ── */
   .section-header {
     display: flex;
     justify-content: space-between;
@@ -558,6 +543,101 @@
     color: var(--black);
   }
 
+  /* ── TESTIMONIALS ── */
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: var(--rule);
+    gap: 1px;
+  }
+
+  .testimonial-card {
+    background: var(--white);
+    padding: 3rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+    position: relative;
+  }
+
+  .testimonial-card::before {
+    content: '\201C';
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 5rem;
+    font-weight: 700;
+    color: var(--teal-pale);
+    position: absolute;
+    top: 1.5rem;
+    left: 2rem;
+    line-height: 1;
+  }
+
+  .testimonial-quote {
+    padding-top: 2.5rem;
+  }
+
+  .testimonial-quote p {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.8;
+    color: var(--dark);
+  }
+
+  .testimonial-attribution {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  .testimonial-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--black);
+  }
+
+  .testimonial-location {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal-dark);
+  }
+
+  .testimonials-note {
+    padding: 1.25rem 3rem;
+    background: var(--pale);
+    border-top: 1px solid var(--rule);
+    border-bottom: 2px solid var(--black);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .testimonials-note-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--teal);
+    flex-shrink: 0;
+  }
+
+  .testimonials-note p {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--light);
+  }
+
+  /* ── SERVICES ── */
   .service-cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -697,20 +777,18 @@
     aspect-ratio: 1;
     background: var(--grey);
     margin-top: 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.6rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--light);
+    overflow: hidden;
+  }
+
+  .apparatus-item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   .apparatus-item.featured .apparatus-item-image {
     aspect-ratio: 3/4;
-    background: rgba(255,255,255,0.04);
-    color: rgba(255,255,255,0.2);
   }
 
   .apparatus-cta {
@@ -809,7 +887,134 @@
     line-height: 1.6;
   }
 
-  /* ── ANIMATIONS ── */
+  /* ── YOU MIGHT BE HERE ── */
+  .here-because {
+    padding: 0;
+    border-bottom: 2px solid var(--black);
+  }
+
+  .here-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--rule);
+    gap: 1px;
+  }
+
+  .here-item {
+    background: var(--white);
+    padding: 2rem 2.5rem;
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    transition: background 0.25s;
+  }
+
+  .here-item:hover { background: var(--pale); }
+
+  .here-item-mark {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--teal-dark);
+    flex-shrink: 0;
+    line-height: 1.5;
+  }
+
+  .here-item p {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.65;
+    color: var(--body);
+  }
+
+  .here-adapts {
+    padding: 1.5rem 3rem;
+    background: var(--pale);
+    border-top: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .here-adapts-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--teal);
+    flex-shrink: 0;
+  }
+
+  .here-adapts p {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--mid);
+  }
+
+  /* ── MOVEMENT FIRST ── */
+  .movement-first {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 2px solid var(--black);
+  }
+
+  .movement-first-content {
+    padding: 5rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--dark);
+  }
+
+  .movement-first-content .section-eyebrow {
+    color: var(--teal);
+  }
+
+  .movement-first-content .section-eyebrow::after {
+    background: var(--teal);
+  }
+
+  .movement-first-content h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+    font-weight: 500;
+    line-height: 1.15;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    color: var(--white);
+    margin-bottom: 1.75rem;
+  }
+
+  .movement-first-content p {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.85;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 1.25rem;
+  }
+
+  .movement-first-content p strong {
+    color: var(--white);
+    font-weight: 600;
+  }
+
+  .movement-first-image {
+    background: var(--grey);
+    overflow: hidden;
+    position: relative;
+    min-height: 480px;
+  }
+
+  .movement-first-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    inset: 0;
+  }
+
   @keyframes revealLine {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
@@ -821,117 +1026,16 @@
   .hero-line:nth-child(3) { animation: revealLine 0.6s ease both; animation-delay: 0.42s; }
   .hero-footer-row { animation: revealLine 0.6s ease both; animation-delay: 0.55s; }
 
-  /* ── TESTIMONIALS ── */
-  .testimonials-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    background: var(--rule);
-    gap: 1px;
-  }
-
-  .testimonial-card {
-    background: var(--white);
-    padding: 3rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 2rem;
-    position: relative;
-  }
-
-  .testimonial-card::before {
-    content: '\201C';
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 5rem;
-    font-weight: 700;
-    color: var(--teal-pale);
-    position: absolute;
-    top: 1.5rem;
-    left: 2.5rem;
-    line-height: 1;
-  }
-
-  .testimonial-quote {
-    padding-top: 2.5rem;
-  }
-
-  .testimonial-quote p {
-    font-size: 1.05rem;
-    font-weight: 400;
-    line-height: 1.85;
-    color: var(--dark);
-  }
-
-  .testimonial-attribution {
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
-    padding-top: 1.25rem;
-    border-top: 1px solid var(--rule);
-  }
-
-  .testimonial-name {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--black);
-  }
-
-  .testimonial-location {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.62rem;
-    font-weight: 400;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--teal-dark);
-  }
-
-  .testimonials-note {
-    padding: 1.25rem 3rem;
-    background: var(--pale);
-    border-top: 1px solid var(--rule);
-    border-bottom: 2px solid var(--black);
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .testimonials-note-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--teal);
-    flex-shrink: 0;
-  }
-
-  .testimonials-note p {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.62rem;
-    font-weight: 400;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--light);
-  }
-
   /* ── MOBILE ── */
   @media (max-width: 768px) {
-    nav {
-      padding: 0 1.25rem;
-    }
-
+    nav { padding: 0 1.25rem; }
     .nav-links { display: none; }
     .nav-book { display: none; }
     .nav-hamburger { display: flex; }
     .mobile-menu { display: flex; }
 
-    body { font-size: 18px; }
-
     .hero-inner { padding: 2.5rem 1.25rem 1.5rem; }
-
     .hero-pre { margin-bottom: 1.75rem; }
-
     .hero-line { padding: 0.85rem 0; }
     .hero-line-number { width: 2rem; font-size: 0.52rem; }
     .hero-line-text { font-size: clamp(2.8rem, 13vw, 4rem); }
@@ -942,12 +1046,10 @@
       flex-direction: column;
       align-items: flex-start;
       gap: 1rem;
-      background: var(--pale);
     }
 
     .hero-footer-right { display: none; }
 
-    /* Show CTA below hero lines on mobile */
     .mobile-hero-cta {
       padding: 1.5rem 1.25rem;
       border-bottom: 1px solid var(--rule);
@@ -966,36 +1068,32 @@
       text-align: center;
       padding: 0.85rem;
       border: 1px solid var(--rule);
-      border-bottom: 1px solid var(--rule);
       min-height: 44px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    .testimonials-grid { grid-template-columns: 1fr; }
-    .testimonial-card { padding: 2.5rem 1.25rem; }
-    .testimonials-note { padding: 1.25rem; }
-
-    .distinction {
-      grid-template-columns: 1fr 1fr;
-    }
-
+    .distinction { grid-template-columns: 1fr 1fr; }
     .distinction-item {
       padding: 1.25rem;
       border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
-    .about {
-      grid-template-columns: 1fr;
-    }
+    .here-list { grid-template-columns: 1fr; }
+    .here-item { padding: 1.5rem 1.25rem; }
+    .here-adapts { padding: 1.25rem; }
 
+    .movement-first { grid-template-columns: 1fr; }
+    .movement-first-image { min-height: 300px; order: -1; }
+    .movement-first-content { padding: 2.5rem 1.25rem; }
+
+    .about { grid-template-columns: 1fr; }
     .about-image-col {
-      min-height: 280px;
+      min-height: 320px;
       border-right: none;
       border-bottom: 1px solid var(--rule);
     }
-
     .about-content { padding: 2.5rem 1.25rem; }
 
     .section-header {
@@ -1005,18 +1103,15 @@
       gap: 1rem;
     }
 
-    .service-cards {
-      grid-template-columns: 1fr;
-    }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .testimonial-card { padding: 2.5rem 1.25rem; }
+    .testimonials-note { padding: 1.25rem; }
 
+    .service-cards { grid-template-columns: 1fr; }
     .service-card { padding: 2rem 1.25rem; }
 
-    .apparatus-grid {
-      grid-template-columns: 1fr;
-    }
-
+    .apparatus-grid { grid-template-columns: 1fr; }
     .apparatus-item.featured { grid-row: auto; }
-
     .apparatus-item { padding: 1.75rem 1.25rem; }
 
     .apparatus-cta {
@@ -1030,8 +1125,6 @@
       grid-template-columns: 1fr;
       padding: 2.5rem 1.25rem;
     }
-
-    .footer-logo { margin-bottom: 0.25rem; }
   }
 </style>
 </head>
@@ -1039,7 +1132,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">Thera<span>pilatics</span></a>
+  <a href="index.html" class="nav-logo">Thera<span>pilatics</span></a>
   <ul class="nav-links">
     <li><a href="services.html">Services</a></li>
     <li><a href="apparatus.html">The Apparatus</a></li>
@@ -1047,7 +1140,7 @@
     <li><a href="locations.html">Locations</a></li>
   </ul>
   <div class="nav-right">
-    <a href="https://therapilatics.setmore.com/book" class="nav-book">Book a Session</a>
+    <a href="book.html" class="nav-book">Book a Session</a>
     <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
@@ -1060,7 +1153,7 @@
   <a href="apparatus.html">The Apparatus</a>
   <a href="about.html">About</a>
   <a href="locations.html">Locations</a>
-  <a href="https://therapilatics.setmore.com/book">Book a Session</a>
+  <a href="book.html">Book a Session</a>
 </nav>
 
 <!-- HERO -->
@@ -1091,16 +1184,15 @@
         <span class="hero-line-number">03</span>
         <span class="hero-line-text accent">Every session.</span>
         <div class="hero-line-aside hero-line-aside-cta">
-          <a href="https://therapilatics.setmore.com/book" class="btn-primary">Schedule Your Assessment</a>
+          <a href="book.html" class="btn-primary">Schedule Your Assessment</a>
           <a href="services.html" class="btn-ghost">See Services &rarr;</a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Mobile CTA (hidden on desktop via CSS) -->
   <div class="mobile-hero-cta" style="display:none;" id="mobileCta">
-    <a href="https://therapilatics.setmore.com/book" class="btn-primary">Schedule Your Assessment</a>
+    <a href="book.html" class="btn-primary">Schedule Your Assessment</a>
     <a href="services.html" class="btn-ghost">See Services &rarr;</a>
   </div>
 
@@ -1137,19 +1229,70 @@
   </div>
 </div>
 
+<!-- YOU MIGHT BE HERE BECAUSE -->
+<section class="here-because">
+  <div class="section-header">
+    <div class="section-header-inner">
+      <span class="section-eyebrow" style="margin-bottom:0;">Is This You</span>
+      <h2>You Might Be Here Because</h2>
+    </div>
+  </div>
+  <div class="here-list">
+    <div class="here-item">
+      <span class="here-item-mark">&mdash;</span>
+      <p>You are active and fit, but something in your back, neck, or hip has not been right in months.</p>
+    </div>
+    <div class="here-item">
+      <span class="here-item-mark">&mdash;</span>
+      <p>Physical therapy helped, then plateaued, and you are not all the way back to yourself.</p>
+    </div>
+    <div class="here-item">
+      <span class="here-item-mark">&mdash;</span>
+      <p>You have been told to stay active, but the gym and group classes seem to make it worse.</p>
+    </div>
+    <div class="here-item">
+      <span class="here-item-mark">&mdash;</span>
+      <p>You are managing a diagnosis and want someone who works with you one-on-one, not a room full of people.</p>
+    </div>
+    <div class="here-item">
+      <span class="here-item-mark">&mdash;</span>
+      <p>You want to protect your golf or tennis game, not give it up because of your back.</p>
+    </div>
+    <div class="here-item">
+      <span class="here-item-mark">&mdash;</span>
+      <p>You want to stay strong, mobile, and independent for decades &mdash; and you want to do it right.</p>
+    </div>
+  </div>
+  <div class="here-adapts">
+    <div class="here-adapts-dot"></div>
+    <p>The work adapts &mdash; to injury, to recovery, to a golf swing, to age.</p>
+  </div>
+</section>
+
 <!-- ABOUT -->
 <section class="about" id="about">
   <div class="about-image-col">
-    <div class="about-image-placeholder">
-      <p>Practitioner photo</p>
-    </div>
+    <img src="img-hands-detail.png" alt="Hands-on classical Pilates instruction">
   </div>
   <div class="about-content">
-    <span class="section-eyebrow">The Practice</span>
-    <h2 class="section-title">Not a class.<br>Not a clinic.<br><span class="accent">Something else.</span></h2>
-    <p class="section-body">Most people who arrive here are already active. They go to the gym. They are not deconditioned. They have a back problem, a neck problem, a hip that has not been right since the surgery two years ago — and the workouts they are doing are not fixing it and may be making it worse.</p>
-    <p class="section-body">What they have not tried is work that is calibrated to their specific body, in a private room, with an instructor who came from engineering and approaches movement the way an engineer approaches a structural problem.</p>
+    <span class="section-eyebrow">The Work</span>
+    <h2 class="section-title">It's a workout.<br>It's a class of one.<br><span class="accent">It's a corrective way of moving.</span></h2>
+    <p class="section-body">You are probably already active. You go to the gym. You are not deconditioned. But you have a back problem, a neck problem, a hip that has not been right since the surgery two years ago — and the workouts you are doing are not fixing it, and may be making it worse.</p>
+    <p class="section-body">What you have not tried is work calibrated to your specific body, in a private room, with an instructor who came from engineering and looks at movement the way an engineer looks at a structural problem.</p>
     <a href="about.html" class="inline-link">About Laini &rarr;</a>
+  </div>
+</section>
+
+<!-- MOVEMENT FIRST -->
+<section class="movement-first">
+  <div class="movement-first-content">
+    <span class="section-eyebrow">The Difference</span>
+    <h2>Movement First</h2>
+    <p>I do not teach everyone the same workout. I assess how you move, identify what is limiting you, and build the work around your goals &mdash; walking farther, returning to your sport, reducing pain, or getting up from the floor with confidence.</p>
+    <p><strong>You are not buying a class. You are buying thoughtful, individualized movement work</strong> &mdash; from someone trained to the highest level of the classical method, on the original apparatus, with no one else in the room.</p>
+  </div>
+  <div class="movement-first-image">
+    <img src="img-male-client.png" alt="One-on-one classical Pilates session">
   </div>
 </section>
 
@@ -1165,37 +1308,27 @@
 
     <div class="testimonial-card">
       <div class="testimonial-quote">
-        <p>"I do Pilates twice a week and those two rounds that I play after Pilates are my lowest scores of the week."</p>
+        <p>"I do Pilates twice a week, and the two rounds of golf I play after Pilates are my lowest scores of the week. My drive is going further, too."</p>
       </div>
       <div class="testimonial-attribution">
-        <span class="testimonial-name">S. McCooey &nbsp;&middot;&nbsp; Retired Broker &nbsp;&middot;&nbsp; Avid Golfer</span>
+        <span class="testimonial-name">Retired Broker, Avid Golfer</span>
         <span class="testimonial-location">Jupiter, FL</span>
       </div>
     </div>
 
     <div class="testimonial-card">
       <div class="testimonial-quote">
-        <p>"I've definitely become more stronger because of Pilates. My golf ball is certainly going further since I started."</p>
+        <p>"My SI joints are greatly improved from my previous imaging. I didn't realize how much I needed that stability, or how it all connects. Thank you for teaching me to listen to my body."</p>
       </div>
       <div class="testimonial-attribution">
-        <span class="testimonial-name">H. McCooey &nbsp;&middot;&nbsp; Retired Broker &nbsp;&middot;&nbsp; Avid Golfer</span>
-        <span class="testimonial-location">Jupiter, FL</span>
-      </div>
-    </div>
-
-    <div class="testimonial-card">
-      <div class="testimonial-quote">
-        <p>"My SI joints are greatly improved from my previous xray. I didn't realize how much I needed that stability and how it all connects. Thank you so much for teaching me how to listen to my body."</p>
-      </div>
-      <div class="testimonial-attribution">
-        <span class="testimonial-name">Johanne &nbsp;&middot;&nbsp; Attorney</span>
+        <span class="testimonial-name">Attorney</span>
         <span class="testimonial-location">Melbourne, FL</span>
       </div>
     </div>
 
     <div class="testimonial-card">
       <div class="testimonial-quote">
-        <p>"My sciatica has not been a problem in a bit — and I've had ackee and saltfish for the first time in about 10 years without any abdominal problems. The only thing that has changed is Pilates."</p>
+        <p>"I'm stronger, my core supports my back, and problems that used to slow me down have stayed quiet. The only thing that changed was the Pilates."</p>
       </div>
       <div class="testimonial-attribution">
         <span class="testimonial-name">Physician</span>
@@ -1206,7 +1339,7 @@
   </div>
   <div class="testimonials-note">
     <div class="testimonials-note-dot"></div>
-    <p>Shared with permission. Results reflect individual client experience.</p>
+    <p>Shared with permission. Individual results vary.</p>
   </div>
 </section>
 
@@ -1214,29 +1347,29 @@
 <section id="services">
   <div class="section-header">
     <div class="section-header-inner">
-      <span class="section-eyebrow" style="margin-bottom:0;">What We Offer</span>
+      <span class="section-eyebrow" style="margin-bottom:0;">What I Offer</span>
       <h2>Services</h2>
     </div>
-    <a href="https://therapilatics.setmore.com/book" class="btn-primary">Book Now</a>
+    <a href="book.html" class="btn-primary">Book Now</a>
   </div>
   <div class="service-cards">
     <div class="service-card">
       <span class="service-card-number">01 &mdash;</span>
       <h3 class="service-card-title">Introductory Assessment</h3>
-      <p class="service-card-body">One hour. A full movement assessment for new clients — we establish what your body is doing, what it is not, and what that means for the work ahead. $85.</p>
-      <a href="https://therapilatics.setmore.com/book" class="service-card-link">Book &rarr;</a>
+      <p class="service-card-body">One hour. A full movement assessment for new clients — I establish what your body is doing, what it is not, and what that means for the work ahead. By appointment. $85.</p>
+      <a href="services.html" class="service-card-link">Details &rarr;</a>
     </div>
     <div class="service-card">
       <span class="service-card-number">02 &mdash;</span>
       <h3 class="service-card-title">Private Session</h3>
-      <p class="service-card-body">A full session on the Gratz apparatus. Tailored to your body, your history, and what you need that day. Nothing is rushed. Nothing is shared. $125.</p>
-      <a href="https://therapilatics.setmore.com/book" class="service-card-link">Book &rarr;</a>
+      <p class="service-card-body">A full session on the Gratz apparatus. Tailored to your body, your history, and what you need that day. Nothing is rushed. Nothing is shared. $130.</p>
+      <a href="services.html" class="service-card-link">Details &rarr;</a>
     </div>
     <div class="service-card">
       <span class="service-card-number">03 &mdash;</span>
       <h3 class="service-card-title">Monthly Retainer</h3>
-      <p class="service-card-body">A reserved weekly slot, same day and time each week. This is not a discount package — it is a held slot in a limited practice. Consistency is where results compound. $500/month.</p>
-      <a href="https://therapilatics.setmore.com/book" class="service-card-link">Reserve &rarr;</a>
+      <p class="service-card-body">A reserved weekly slot, same day and time each week — four 45-minute maintenance sessions. Not a discount; a held slot in a limited practice. $400/month.</p>
+      <a href="services.html" class="service-card-link">Details &rarr;</a>
     </div>
   </div>
 </section>
@@ -1254,26 +1387,26 @@
     <div class="apparatus-item featured">
       <span class="apparatus-item-label">Therapeutic Foundation</span>
       <h3 class="apparatus-item-name">Gratz Cadillac</h3>
-      <p class="apparatus-item-desc">The most versatile piece in classical Pilates. Allows full work with clients who cannot yet access the Reformer or mat — including post-surgical, severely deconditioned, or acute pain presentations.</p>
-      <div class="apparatus-item-image">Cadillac photograph</div>
+      <p class="apparatus-item-desc">The most versatile piece in classical Pilates. Allows full work when you cannot yet access the Reformer or mat — including post-surgical, severely deconditioned, or acute pain presentations.</p>
+      <div class="apparatus-item-image"><img src="img-cadillac.png" alt="Gratz Cadillac"></div>
     </div>
     <div class="apparatus-item">
       <span class="apparatus-item-label">The Familiar Anchor</span>
       <h3 class="apparatus-item-name">Gratz Reformer</h3>
       <p class="apparatus-item-desc">Built to original specifications by Gratz Industries — the manufacturer Joseph Pilates worked with directly.</p>
-      <div class="apparatus-item-image">Reformer photograph</div>
+      <div class="apparatus-item-image"><img src="img-reformer-detail.jpeg" alt="Gratz Reformer"></div>
     </div>
     <div class="apparatus-item">
       <span class="apparatus-item-label">Rare Specialist Piece</span>
       <h3 class="apparatus-item-name">Gratz Pedi-Pole</h3>
       <p class="apparatus-item-desc">Spinal alignment, postural feedback, and decompression work. Rarely found outside specialist classical studios.</p>
-      <div class="apparatus-item-image">Pedi-Pole photograph</div>
+      <div class="apparatus-item-image"><img src="img-pedi-pole.jpeg" alt="Gratz Pedi-Pole"></div>
     </div>
     <div class="apparatus-item">
       <span class="apparatus-item-label">Structural</span>
       <h3 class="apparatus-item-name">Ladder Barrel</h3>
       <p class="apparatus-item-desc">Spinal extension, lateral flexion, and hip work. Addresses restrictions from sitting, surgery, or chronic tension.</p>
-      <div class="apparatus-item-image">Barrel photograph</div>
+      <div class="apparatus-item-image"><img src="img-ladder-barrel.jpeg" alt="Gratz Ladder Barrel"></div>
     </div>
     <div class="apparatus-cta">
       <span class="apparatus-cta-text">Every piece is Gratz — original apparatus made to Joseph Pilates' specifications.</span>
@@ -1291,8 +1424,8 @@
   </div>
   <div>
     <p class="footer-heading">Contact</p>
-    <p class="footer-item">info@therapilatics.com</p>
-    <p class="footer-item">+1 561-766-7246</p>
+    <p class="footer-item">hello@therapilatics.com</p>
+    <p class="footer-item">+1 321-345-3797</p>
     <p class="footer-item" style="margin-top:1rem; font-size:0.62rem; color:rgba(255,255,255,0.2);">Scheduling via Setmore</p>
   </div>
   <div>
@@ -1313,7 +1446,6 @@
   const mobileMenu = document.getElementById('mobileMenu');
   const mobileCta = document.getElementById('mobileCta');
 
-  // Show mobile CTA on small screens
   function checkMobile() {
     if (window.innerWidth <= 768) {
       mobileCta.style.display = 'flex';
@@ -1321,7 +1453,6 @@
       mobileCta.style.display = 'none';
     }
   }
-
   checkMobile();
   window.addEventListener('resize', checkMobile);
 
@@ -1330,7 +1461,6 @@
     mobileMenu.classList.toggle('open');
   });
 
-  // Close menu on link click
   mobileMenu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       hamburger.classList.remove('open');

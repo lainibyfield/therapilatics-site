@@ -670,6 +670,67 @@
 
     footer { grid-template-columns: 1fr; padding: 2.5rem 1.25rem; }
   }
+  /* Request a time block */
+  .request-block {
+    padding: 3rem;
+    background: var(--teal-pale);
+    border-bottom: 2px solid var(--black);
+  }
+  .request-inner { max-width: 600px; }
+  .request-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal-dark);
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+  .request-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--black);
+    margin-bottom: 0.75rem;
+  }
+  .request-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--body);
+    margin-bottom: 1.5rem;
+  }
+  .request-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--black);
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    min-height: 52px;
+    transition: background 0.2s;
+  }
+  .request-btn:hover { background: var(--teal-dark); }
+  .request-desktop {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--dark);
+  }
+  .request-desktop a {
+    color: var(--teal-dark);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid var(--teal-dark);
+  }
+
 </style>
 </head>
 <body>
@@ -684,7 +745,7 @@
     <li><a href="locations.html">Locations</a></li>
   </ul>
   <div class="nav-right">
-    <a href="https://therapilatics.setmore.com/book" class="nav-book">Book a Session</a>
+    <a href="book.html" class="nav-book">Book a Session</a>
     <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
@@ -697,7 +758,7 @@
   <a href="apparatus.html">The Apparatus</a>
   <a href="about.html">About</a>
   <a href="locations.html">Locations</a>
-  <a href="https://therapilatics.setmore.com/book">Book a Session</a>
+  <a href="book.html">Book a Session</a>
 </nav>
 
 <!-- PAGE HEADER -->
@@ -719,7 +780,7 @@
       Appointment only — no walk-ins
       <span>New clients: select Introductory Assessment to get started. Existing clients may book directly.</span>
     </div>
-    <a href="mailto:info@therapilatics.com" class="notice-contact">Questions? Email us</a>
+    <a href="mailto:hello@therapilatics.com" class="notice-contact">Questions? Email us</a>
   </div>
 </div>
 
@@ -728,12 +789,12 @@
   <div class="step">
     <span class="step-number">Step 01</span>
     <h3 class="step-title">Book an Assessment</h3>
-    <p class="step-body">New clients start here. Select Introductory Assessment in the scheduler below. One hour. We establish what your body is doing and what the work should look like.</p>
+    <p class="step-body">New clients start here. Select Introductory Assessment in the scheduler below. One hour. I establish what your body is doing and what the work should look like.</p>
   </div>
   <div class="step">
     <span class="step-number">Step 02</span>
-    <h3 class="step-title">Complete Your Foundation</h3>
-    <p class="step-body">Following your assessment, most clients begin the Foundation Period — five sessions over three weeks. Frequency accelerates learning. This is where the work starts.</p>
+    <h3 class="step-title">Begin Your Program</h3>
+    <p class="step-body">Following your assessment, you will most likely begin a structured program built from your findings — typically six to eight weeks, matched to your body. This is where the work starts.</p>
   </div>
   <div class="step">
     <span class="step-number">Step 03</span>
@@ -749,7 +810,7 @@
       <span class="aside-eyebrow">Scheduling</span>
       <h2 class="aside-title">Select your service and choose a time.</h2>
       <p class="aside-body">All scheduling is managed through Setmore. Select your service type, choose an available time, and you'll receive confirmation directly. All services are prepaid at the time of booking.</p>
-      <p class="aside-body">If you have questions before booking, email <a href="mailto:info@therapilatics.com" style="color:var(--teal-dark); text-decoration:none; border-bottom: 1px solid var(--teal-pale);">info@therapilatics.com</a> or call <a href="tel:+13217667246" style="color:var(--teal-dark); text-decoration:none; border-bottom: 1px solid var(--teal-pale);">+1 321-766-7246</a>.</p>
+      <p class="aside-body">If you have questions before booking, email <a href="mailto:hello@therapilatics.com" style="color:var(--teal-dark); text-decoration:none; border-bottom: 1px solid var(--teal-pale);">hello@therapilatics.com</a> or call <a href="tel:+13213453797" style="color:var(--teal-dark); text-decoration:none; border-bottom: 1px solid var(--teal-pale);">+1 321-345-3797</a>.</p>
     </div>
     <div class="aside-bottom">
       <div class="service-ref">
@@ -762,24 +823,17 @@
         </div>
         <div class="service-ref-item">
           <div>
-            <div class="service-ref-name">Foundation Period</div>
-            <span class="service-ref-tag">New clients — 5 sessions / 3 weeks</span>
-          </div>
-          <span class="service-ref-price">$375</span>
-        </div>
-        <div class="service-ref-item">
-          <div>
             <div class="service-ref-name">Private Session</div>
-            <span class="service-ref-tag">Existing clients — one hour</span>
+            <span class="service-ref-tag">One hour, Gratz apparatus</span>
           </div>
-          <span class="service-ref-price">$125</span>
+          <span class="service-ref-price">$130</span>
         </div>
         <div class="service-ref-item">
           <div>
             <div class="service-ref-name">Monthly Retainer</div>
-            <span class="service-ref-tag">Existing clients — weekly held slot</span>
+            <span class="service-ref-tag">Four 45-min sessions, held slot</span>
           </div>
-          <span class="service-ref-price">$500</span>
+          <span class="service-ref-price">$400</span>
         </div>
       </div>
     </div>
@@ -789,7 +843,7 @@
   <div class="embed-container">
     <div class="embed-wrapper">
       <iframe
-        src="https://therapilatics.setmore.com/book"
+        src="https://therapilatics.setmore.com"
         title="Book a session at Therapilatics"
         loading="lazy"
         allow="payment">
@@ -803,12 +857,23 @@
   <div class="policy-block">
     <span class="policy-label">Scheduling Policy</span>
     <h3 class="policy-title">Appointment Only</h3>
-    <p class="policy-text">There is no walk-in availability at either location. All sessions are booked in advance through Setmore. New clients begin with an Introductory Assessment — this is not optional and cannot be skipped. Hands-on work begins at the Foundation Period.</p>
+    <p class="policy-text">There is no walk-in availability at either location. All sessions are booked in advance. New clients begin with an Introductory Assessment. Assessments are by appointment, including Sunday afternoons — if you do not see a time that works, request one below.</p>
   </div>
   <div class="policy-block">
     <span class="policy-label">Cancellation Policy</span>
     <h3 class="policy-title">24-Hour Notice Required</h3>
-    <p class="policy-text">All services are prepaid. Late arrivals receive the remainder of their scheduled hour. Cancellations with more than 24 hours notice may be rescheduled within the same calendar week, subject to availability. Cancellations within 24 hours forfeit the session.</p>
+    <p class="policy-text">All services are prepaid. Late arrivals receive the remainder of their scheduled hour. Cancellations with more than 24 hours notice may be rescheduled within 7 days of the original session, subject to availability. Cancellations within 24 hours forfeit the session.</p>
+  </div>
+</div>
+
+<!-- REQUEST A TIME -->
+<div class="request-block">
+  <div class="request-inner">
+    <span class="request-label">Don't See a Time?</span>
+    <h3 class="request-title">Request an Appointment</h3>
+    <p class="request-text">If the available times don't fit around work or family, send a quick message and I'll find a slot that does — including Sunday afternoons.</p>
+    <a href="#" class="request-btn" id="requestBtn">Text to Request a Time</a>
+    <p class="request-desktop" id="requestDesktop" style="display:none;">Text <a href="sms:+13213453797">+1 321-345-3797</a> or email <a href="mailto:hello@therapilatics.com">hello@therapilatics.com</a> with a few times that work for you.</p>
   </div>
 </div>
 
@@ -816,9 +881,9 @@
 <div class="contact-strip">
   <span class="contact-strip-text">Prefer to reach out directly before booking?</span>
   <div class="contact-strip-links">
-    <a href="mailto:info@therapilatics.com" class="contact-strip-link">info@therapilatics.com</a>
-    <a href="tel:+13217667246" class="contact-strip-link">+1 321-766-7246</a>
-    <a href="locations.html" class="contact-strip-link">Studio Locations &rarr;</a>
+    <a href="mailto:hello@therapilatics.com" class="contact-strip-link">hello@therapilatics.com</a>
+    <a href="tel:+13213453797" class="contact-strip-link">+1 321-345-3797</a>
+    <a href="providers.html" class="contact-strip-link">For Referring Providers &rarr;</a>
   </div>
 </div>
 
@@ -831,8 +896,8 @@
   </div>
   <div>
     <p class="footer-heading">Contact</p>
-    <p class="footer-item">info@therapilatics.com</p>
-    <p class="footer-item">+1 321-766-7246</p>
+    <p class="footer-item">hello@therapilatics.com</p>
+    <p class="footer-item">+1 321-345-3797</p>
     <p class="footer-item" style="margin-top:1rem; font-size:0.62rem; color:rgba(255,255,255,0.2);">Scheduling via Setmore</p>
   </div>
   <div>
@@ -863,6 +928,21 @@
       mobileMenu.classList.remove('open');
     });
   });
+
+  // Device-aware request-a-time button
+  (function() {
+    const btn = document.getElementById('requestBtn');
+    const desktop = document.getElementById('requestDesktop');
+    if (!btn) return;
+    const isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+    const smsBody = encodeURIComponent("Hi Laini — I'd like to book an assessment. My name is ___ and I'm dealing with ___. Times that work for me: ___");
+    if (isMobile) {
+      btn.setAttribute('href', 'sms:+13213453797?&body=' + smsBody);
+    } else {
+      btn.style.display = 'none';
+      if (desktop) desktop.style.display = 'block';
+    }
+  })();
 </script>
 </body>
 </html>
