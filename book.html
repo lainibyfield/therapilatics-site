@@ -784,16 +784,72 @@
   }
   .embed-openlink:hover { color: var(--teal-dark); }
 
-  .embed-fallback { display: none; padding: 2.5rem 1.5rem; text-align: center; }
-  .embed-fallback p { font-size: 1rem; color: var(--body); margin-bottom: 1.25rem; }
-  .embed-fallback-hint { font-size: 0.85rem; color: var(--light); margin: 1rem 0 0; }
+  .embed-fallback { display: none; }
 
-  /* Short viewports - landscape phones - cannot host the widget usefully */
-  @media (max-height: 620px) {
+  /* Touch devices - phones and tablets - never get a nested scrolling window */
+  @media (pointer: coarse), (max-width: 1024px), (max-height: 700px) {
     .embed-wrapper iframe { display: none; }
     .embed-wrapper, .embed-container { min-height: 0; }
     .embed-fallback { display: block; }
   }
+
+  .embed-fallback {
+    padding: 3rem 2rem;
+    text-align: center;
+    background: var(--pale);
+    border-top: 1px solid var(--rule);
+  }
+  .embed-fallback-label {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 0.6rem; font-weight: 600;
+    letter-spacing: 0.22em; text-transform: uppercase; color: var(--teal-dark);
+    display: block; margin-bottom: 0.75rem;
+  }
+  .embed-fallback-title {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 1.8rem; font-weight: 600;
+    letter-spacing: 0.03em; text-transform: uppercase; color: var(--black);
+    margin-bottom: 0.9rem;
+  }
+  .embed-fallback p {
+    font-size: 1rem; line-height: 1.7; color: var(--body);
+    max-width: 30rem; margin: 0 auto 1.75rem;
+  }
+  .embed-fallback-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; font-weight: 600;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--white); background: var(--black);
+    padding: 1.1rem 2.75rem; text-decoration: none;
+    min-height: 56px; width: 100%; max-width: 22rem;
+    transition: background 0.2s;
+  }
+  .embed-fallback-btn:hover { background: var(--teal-dark); }
+  .embed-fallback-hint {
+    font-size: 0.82rem; color: var(--light);
+    margin: 1.1rem auto 0; max-width: 30rem;
+  }
+
+  .embed-openrow-links {
+    display: flex; align-items: center; gap: 1.75rem; flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  .embed-openlink.alt { border-bottom-color: var(--rule); color: var(--mid); }
+  .embed-openlink.alt:hover { color: var(--teal-dark); border-bottom-color: var(--teal); }
+  @media (max-width: 768px) {
+    .embed-openrow { flex-direction: column; align-items: flex-start; gap: 0.5rem; padding: 1rem 1.25rem; }
+    .embed-openrow-links { justify-content: flex-start; gap: 1.25rem; }
+  }
+  /* the big panel below already carries this action on touch devices */
+  @media (pointer: coarse), (max-width: 1024px) {
+    .embed-openlink:not(.alt) { display: none; }
+  }
+
+  .nav-links a.active,
+  .mobile-menu a.active {
+    color: var(--teal-dark);
+    cursor: default;
+  }
+  .nav-links a.active { border-bottom: 2px solid var(--teal); padding-bottom: 2px; }
+  .mobile-menu a.active { background: var(--pale); }
 </style>
 </head>
 <body>
@@ -808,7 +864,7 @@
     <li><a href="locations.html">Locations</a></li>
   </ul>
   <div class="nav-right">
-    <a href="book.html" class="nav-book">Book a Session</a>
+    <a href="#scheduler" class="nav-book">Go to Scheduler</a>
     <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
@@ -821,7 +877,7 @@
   <a href="apparatus.html">The Apparatus</a>
   <a href="about.html">About</a>
   <a href="locations.html">Locations</a>
-  <a href="book.html">Book a Session</a>
+  <a href="#scheduler">Go to Scheduler</a>
 </nav>
 
 <!-- PAGE HEADER -->
@@ -918,11 +974,14 @@
 
 
   <!-- SETMORE EMBED -->
-  <div class="embed-openrow">
+  <div class="embed-openrow" id="scheduler">
     <span class="embed-openrow-label">Scheduler</span>
-    <a class="embed-openlink" href="https://therapilatics.setmore.com" target="_blank" rel="noopener">
-      Open booking in a new window &nearr;
-    </a>
+    <span class="embed-openrow-links">
+      <a class="embed-openlink" href="https://therapilatics.setmore.com" target="_blank" rel="noopener">
+        Open booking in a new window &nearr;
+      </a>
+      <a class="embed-openlink alt" href="#request">Don't see a time? &darr;</a>
+    </span>
   </div>
   <div class="embed-container">
     <div class="embed-wrapper">
@@ -933,16 +992,18 @@
         allow="payment">
       </iframe>
       <div class="embed-fallback">
-        <p>The scheduler needs more height than this screen has.</p>
-        <a class="btn-book" href="https://therapilatics.setmore.com" target="_blank" rel="noopener">Open Booking</a>
-        <p class="embed-fallback-hint">Or rotate your device to portrait.</p>
+        <span class="embed-fallback-label">Ready When You Are</span>
+        <h3 class="embed-fallback-title">Open the Scheduler</h3>
+        <p>Choose a service, pick a time, and pay at booking. The scheduler opens full screen so nothing is cramped.</p>
+        <a class="embed-fallback-btn" href="https://therapilatics.setmore.com" target="_blank" rel="noopener">Book a Session &nearr;</a>
+        <p class="embed-fallback-hint">Opens in a new tab &middot; you can come back here anytime</p>
       </div>
     </div>
   </div>
 </div>
 
 <!-- REQUEST A TIME -->
-<div class="request-block">
+<div class="request-block" id="request">
   <div class="request-inner">
     <span class="request-label">Don't See a Time?</span>
     <h3 class="request-title">Request an Appointment</h3>

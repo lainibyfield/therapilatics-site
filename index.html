@@ -1200,6 +1200,17 @@
   .movement-first-image img { object-position: center 40%; }
   .apparatus-item-image img { object-position: center center; }
   .apparatus-item.featured .apparatus-item-image img { object-position: center 35%; }
+
+  .nav-links a.active,
+  .mobile-menu a.active {
+    color: var(--teal-dark);
+    cursor: default;
+  }
+  .nav-links a.active { border-bottom: 2px solid var(--teal); padding-bottom: 2px; }
+  .mobile-menu a.active { background: var(--pale); }
+  .testimonials-grid > .testimonial-card:last-child:nth-child(3n+1) {
+    grid-column: 1 / -1;
+  }
 </style>
 </head>
 <body>
@@ -1379,20 +1390,69 @@
     </div>
   </div>
   <div class="testimonials-grid">
-
     <div class="testimonial-card">
       <div class="testimonial-quote">
-        <p>"I do Pilates twice a week, and the two rounds of golf I play after Pilates are my lowest scores of the week. My drive is going further, too."</p>
+        <p>"The exercises are aimed to correct body weaknesses by gradually pushing you out of your comfort zone to strengthen specific muscles &mdash; not easy at times, but our instructor Laini is always full of positive energy and encouragement. My husband feels that his neck's range of motion has improved and we are developing body awareness."</p>
       </div>
       <div class="testimonial-attribution">
-        <span class="testimonial-name">Retired Broker, Avid Golfer</span>
-        <span class="testimonial-location">Jupiter, FL</span>
+        <span class="testimonial-name">Farida R., Retired Educator</span>
+        <span class="testimonial-location">Verified Setmore Review</span>
       </div>
     </div>
 
     <div class="testimonial-card">
       <div class="testimonial-quote">
-        <p>"My SI joints are greatly improved from my previous imaging. I didn't realize how much I needed that stability, or how it all connects. Thank you for teaching me to listen to my body."</p>
+        <p>"Laini is absolutely amazing! This was my first time doing Pilates and can't wait for my next session. Her instructions guided me and her positivity was uplifting. A very comfortable environment that delivers privacy and inspires confidence."</p>
+      </div>
+      <div class="testimonial-attribution">
+        <span class="testimonial-name">Daphne S., Academic Coach &amp; Behavioral Consultant</span>
+        <span class="testimonial-location">Verified Setmore Review</span>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="testimonial-quote">
+        <p>"I am new to Pilates and the instructor took me through a revitalizing session. Many things were harder than I expected, but the instructor talked me through it. Can't wait to do it again!"</p>
+      </div>
+      <div class="testimonial-attribution">
+        <span class="testimonial-name">Kevin, Business Consultant</span>
+        <span class="testimonial-location">Verified Setmore Review</span>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="testimonial-quote">
+        <p>"My lower back had been painful and after workout my back felt so much better and the next day was pain free."</p>
+      </div>
+      <div class="testimonial-attribution">
+        <span class="testimonial-name">Verified Client</span>
+        <span class="testimonial-location">Verified Setmore Review</span>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="testimonial-quote">
+        <p>"I do Pilates twice a week and those two rounds that I play after Pilates are my lowest scores of the week."</p>
+      </div>
+      <div class="testimonial-attribution">
+        <span class="testimonial-name">Sean, Retired Broker</span>
+        <span class="testimonial-location">Avid Golfer &middot; Jupiter, FL</span>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="testimonial-quote">
+        <p>"I've definitely become stronger because of Pilates. My golf ball is certainly going further since I started."</p>
+      </div>
+      <div class="testimonial-attribution">
+        <span class="testimonial-name">Bert, Retired Broker</span>
+        <span class="testimonial-location">Avid Golfer &middot; Jupiter, FL</span>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="testimonial-quote">
+        <p>"My SI joints are greatly improved from my previous xray. I didn't realize how much I needed that stability and how it all connects. Thank you so much for teaching me how to listen to my body."</p>
       </div>
       <div class="testimonial-attribution">
         <span class="testimonial-name">Attorney</span>
@@ -1400,20 +1460,10 @@
       </div>
     </div>
 
-    <div class="testimonial-card">
-      <div class="testimonial-quote">
-        <p>"I'm stronger, my core supports my back, and problems that used to slow me down have stayed quiet. The only thing that changed was the Pilates."</p>
-      </div>
-      <div class="testimonial-attribution">
-        <span class="testimonial-name">Physician</span>
-        <span class="testimonial-location">Melbourne, FL</span>
-      </div>
-    </div>
-
   </div>
   <div class="testimonials-note">
     <div class="testimonials-note-dot"></div>
-    <p>Shared with permission. Individual results vary.</p>
+    <p>Client reviews, shared with permission. Individual results vary.</p>
   </div>
 </section>
 
