@@ -777,9 +777,43 @@
   .footer-logo .wm { color: rgba(255,255,255,0.9); }
   .footer-logo .wm span { color: var(--teal); }
   img { max-width: 100%; }
+
+  .room-band { margin: 0; border-top: 2px solid var(--black); }
+  .room-band img { display: block; width: 100%; height: 420px; object-fit: cover; object-position: center 45%; }
+  .room-band figcaption {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; font-weight: 500;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--light);
+    padding: 1rem 3rem; background: var(--pale); border-bottom: 2px solid var(--black);
+  }
+  @media (min-width: 769px) and (max-width: 1024px) { .room-band img { height: 340px; } }
+  @media (max-width: 768px) {
+    .room-band img { height: 240px; }
+    .room-band figcaption { padding: 0.9rem 1.25rem; font-size: 0.66rem; }
+  }
+
+  /* --- accessibility: visible only to assistive tech or on keyboard focus --- */
+  .visually-hidden {
+    position: absolute; width: 1px; height: 1px; margin: -1px;
+    padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+  }
+  .skip-link {
+    position: absolute; left: 0; top: 0; z-index: 200;
+    transform: translateY(-120%);
+    background: var(--black); color: var(--white);
+    font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    padding: 0.9rem 1.5rem; text-decoration: none;
+    transition: transform 0.15s ease;
+  }
+  .skip-link:focus { transform: translateY(0); outline: 3px solid var(--teal); outline-offset: 2px; }
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+    outline: 3px solid var(--teal-dark);
+    outline-offset: 2px;
+  }
 </style>
 </head>
 <body>
+<a href="#main" class="skip-link">Skip to main content</a>
 
 <!-- NAV -->
 <nav>
@@ -807,6 +841,8 @@
   <a href="book.html">Book a Session</a>
 </nav>
 
+
+<main id="main">
 <!-- PAGE HEADER -->
 <div class="page-header">
   <div class="page-header-inner">
@@ -828,7 +864,7 @@
 <div class="apparatus-piece dark" id="cadillac">
   <img
     src="img-cadillac.png"
-    alt="Gratz Cadillac — therapeutic foundation apparatus at Therapilatics Melbourne"
+    alt="Gratz Cadillac (trapeze table) with push-through bar, springs and straps — original Gratz Pilates apparatus at Therapilatics, Melbourne FL"
     class="piece-image"
   >
   <div class="piece-content">
@@ -845,7 +881,7 @@
 <div class="apparatus-piece reverse" id="reformer">
   <img
     src="img-reformer-detail.jpeg"
-    alt="Gratz Reformer springs and carriage detail at Therapilatics Melbourne"
+    alt="Gratz Reformer showing carriage, shoulder rests, headrest, footbar and four springs — original Gratz Pilates apparatus at Therapilatics, Melbourne FL"
     class="piece-image"
     style="object-position: center center;"
   >
@@ -898,10 +934,10 @@
 <!-- 05 — HIGH CHAIR / WUNDA CHAIR -->
 <div class="apparatus-piece dark" id="chair">
   <img
-    src="img-chair.png"
-    alt="Gratz High Chair and Wunda Chair at Therapilatics Melbourne studio"
+    src="img-chair.jpeg"
+    alt="Gratz High Chair (Wunda Chair) with pedal, springs and handles — original Gratz Pilates apparatus at Therapilatics, Melbourne FL"
     class="piece-image"
-    style="object-position: left center;"
+    style="object-position: center 40%;"
   >
   <div class="piece-content">
     <span class="piece-number">05</span>
@@ -1000,6 +1036,8 @@
 </div>
 
 <!-- FOOTER -->
+</main>
+
 <footer>
   <div>
     <div class="footer-logo"><img src="logo-mark.png" alt=""><span class="wm">Thera<span>pilatics</span></span></div>

@@ -247,14 +247,37 @@
   .nav-links a.active { border-bottom: 2px solid var(--teal); padding-bottom: 2px; }
   .mobile-menu a.active { background: var(--pale); }
   img { max-width: 100%; }
+
+  /* --- accessibility: visible only to assistive tech or on keyboard focus --- */
+  .visually-hidden {
+    position: absolute; width: 1px; height: 1px; margin: -1px;
+    padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+  }
+  .skip-link {
+    position: absolute; left: 0; top: 0; z-index: 200;
+    transform: translateY(-120%);
+    background: var(--black); color: var(--white);
+    font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    padding: 0.9rem 1.5rem; text-decoration: none;
+    transition: transform 0.15s ease;
+  }
+  .skip-link:focus { transform: translateY(0); outline: 3px solid var(--teal); outline-offset: 2px; }
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+    outline: 3px solid var(--teal-dark);
+    outline-offset: 2px;
+  }
 </style>
 </head>
 <body>
+<a href="#main" class="skip-link">Skip to main content</a>
 
 <nav>
   <a href="index.html" class="nav-logo"><img src="logo-mark.png" alt=""><span class="wm">Thera<span>pilatics</span></span></a>
   <span class="nav-tag">For Referring Providers</span>
 </nav>
+
+<main id="main">
 
 <div class="page-header">
   <span class="page-eyebrow">Clinical Partnership</span>
@@ -364,6 +387,8 @@
   <p>To refer a patient, discuss a partnership, or request printed materials for your office, reach out directly. Referred patients can be sent to the assessment booking, or contact us to coordinate.</p>
   <a href="mailto:hello@therapilatics.com?subject=Provider%20Referral%20Inquiry" class="email">hello@therapilatics.com</a>
 </div>
+
+</main>
 
 <footer>
   <strong>Therapilatics</strong> — A Pilates Footworks LLC Practice<br>
