@@ -45,6 +45,11 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
 
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
   body {
     font-family: 'Barlow', sans-serif;
     background: var(--white);
@@ -850,6 +855,97 @@
   }
   .nav-links a.active { border-bottom: 2px solid var(--teal); padding-bottom: 2px; }
   .mobile-menu a.active { background: var(--pale); }
+
+  .paths {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+    background: var(--rule);
+    border-top: 2px solid var(--black);
+  }
+  .path {
+    background: var(--white); padding: 2.5rem 2.25rem;
+    display: flex; flex-direction: column; text-decoration: none;
+    position: relative; transition: background .25s;
+  }
+  .path::before {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 4px; height: 0; background: var(--teal); transition: height .3s ease;
+  }
+  .path:hover { background: var(--pale); }
+  .path:hover::before { height: 100%; }
+  .path-label {
+    font-family: 'Barlow Condensed', sans-serif; font-size: .6rem; font-weight: 600;
+    letter-spacing: .22em; text-transform: uppercase; color: var(--teal-dark);
+    margin-bottom: .9rem;
+  }
+  .path-title {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 1.7rem; font-weight: 600;
+    letter-spacing: .03em; text-transform: uppercase; color: var(--black);
+    line-height: 1.1; margin-bottom: .35rem;
+  }
+  .path-price {
+    font-family: 'Barlow Condensed', sans-serif; font-size: .95rem; font-weight: 500;
+    letter-spacing: .06em; text-transform: uppercase; color: var(--mid);
+    margin-bottom: 1.1rem;
+  }
+  .path-body {
+    font-size: .95rem; line-height: 1.75; color: var(--body);
+    margin-bottom: 1.9rem; flex: 1;
+  }
+  .path-cta {
+    font-family: 'Barlow Condensed', sans-serif; font-size: .8rem; font-weight: 600;
+    letter-spacing: .18em; text-transform: uppercase; color: var(--white);
+    background: var(--black); padding: 1rem 1.75rem; text-align: center;
+    min-height: 54px; display: flex; align-items: center; justify-content: center;
+    transition: background .2s;
+  }
+  .path:hover .path-cta { background: var(--teal-dark); }
+  .paths-note {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1.1rem 3rem; background: var(--pale);
+    border-top: 1px solid var(--rule); border-bottom: 2px solid var(--black);
+  }
+  .paths-note-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); flex-shrink: 0; }
+  .paths-note p {
+    font-family: 'Barlow Condensed', sans-serif; font-size: .72rem; font-weight: 400;
+    letter-spacing: .1em; text-transform: uppercase; color: var(--light);
+  }
+  @media (max-width: 768px) {
+    .paths { grid-template-columns: 1fr; }
+    .path { padding: 2rem 1.25rem; }
+    .paths-note { padding: 1.1rem 1.25rem; }
+  }
+
+  .forms-block { border-top: 2px solid var(--black); }
+  .forms-head { padding: 2rem 3rem 1.25rem; }
+  .forms-label {
+    font-family:'Barlow Condensed',sans-serif; font-size:.6rem; font-weight:600;
+    letter-spacing:.22em; text-transform:uppercase; color:var(--teal-dark);
+    display:block; margin-bottom:.6rem;
+  }
+  .forms-title {
+    font-family:'Barlow Condensed',sans-serif; font-size:1.5rem; font-weight:600;
+    letter-spacing:.04em; text-transform:uppercase; color:var(--black); margin-bottom:.5rem;
+  }
+  .forms-intro { font-size:.95rem; line-height:1.7; color:var(--body); max-width:38rem; }
+  .forms-list { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--rule); border-top:1px solid var(--rule); }
+  .form-item {
+    background:var(--white); padding:1.5rem 1.75rem; text-decoration:none;
+    display:flex; flex-direction:column; gap:.35rem; min-height:44px;
+    border-left:3px solid transparent; transition:background .2s, border-color .2s;
+  }
+  .form-item:hover { background:var(--pale); border-left-color:var(--teal); }
+  .form-name {
+    font-family:'Barlow Condensed',sans-serif; font-size:1rem; font-weight:600;
+    letter-spacing:.04em; text-transform:uppercase; color:var(--black);
+  }
+  .form-meta { font-size:.82rem; color:var(--mid); line-height:1.5; }
+  .form-meta b { color:var(--teal-dark); font-weight:600; }
+  @media (max-width:768px){
+    .forms-head { padding:1.75rem 1.25rem 1rem; }
+    .forms-list { grid-template-columns:1fr; }
+    .form-item { padding:1.25rem; }
+  }
+  img { max-width: 100%; }
 </style>
 </head>
 <body>
@@ -887,7 +983,7 @@
       <span class="page-eyebrow">Schedule Your Visit</span>
       <h1 class="page-title">Book a<br><span>Session</span></h1>
     </div>
-    <p class="page-intro">Therapilatics is appointment only. There is no walk-in availability. New clients begin with an Introductory Assessment before scheduling ongoing sessions.</p>
+    <p class="page-intro">Therapilatics is appointment only &mdash; there is no walk-in availability. Choose the path that fits, and you will go straight to the scheduler.</p>
   </div>
 </div>
 
@@ -897,110 +993,36 @@
     <div class="notice-dot"></div>
     <div class="notice-text">
       Appointment only — no walk-ins
-      <span>New clients: select Introductory Assessment to get started. Existing clients may book directly.</span>
+      <span>New clients start with the Introductory Assessment. Existing clients may book directly.</span>
     </div>
     <a href="mailto:hello@therapilatics.com" class="notice-contact">Questions? Email us</a>
   </div>
 </div>
 
-<!-- HOW IT WORKS -->
-<div class="how-it-works">
-  <div class="step">
-    <span class="step-number">Step 01</span>
-    <h3 class="step-title">Book an Assessment</h3>
-    <p class="step-body">New clients start here. Select Introductory Assessment in the scheduler below. One hour. I establish what your body is doing and what the work should look like.</p>
-  </div>
-  <div class="step">
-    <span class="step-number">Step 02</span>
-    <h3 class="step-title">Begin Your Program</h3>
-    <p class="step-body">Following your assessment, you will most likely begin a structured program built from your findings — typically six to eight weeks, matched to your body. This is where the work starts.</p>
-  </div>
-  <div class="step">
-    <span class="step-number">Step 03</span>
-    <h3 class="step-title">Establish Your Practice</h3>
-    <p class="step-body">Ongoing clients book private sessions or hold a weekly slot through the Monthly Retainer. Consistency is where results compound. The slot is yours as long as the retainer is active.</p>
-  </div>
+<!-- CHOOSE YOUR PATH -->
+<div class="paths">
+  <a class="path path-new" href="https://therapilatics.setmore.com/services/9cd126ca-877e-450d-9613-22d306df21bc">
+    <span class="path-label">Start Here</span>
+    <span class="path-title">Introductory Assessment</span>
+    <span class="path-price">$85 &middot; One Hour</span>
+    <span class="path-body">For anyone new to the studio, or coming back after time away from classical work. You move &mdash; on the apparatus, within the first few minutes &mdash; while I take your history and watch what your body is actually doing. You leave with written findings and a plan built from them.</span>
+    <span class="path-cta">Book an Assessment &nearr;</span>
+  </a>
+
+  <a class="path path-exp" href="https://therapilatics.setmore.com/services/c070dca7-2410-433b-afc5-00f62be1aebb">
+    <span class="path-label">Already Training</span>
+    <span class="path-title">Visiting Practitioner Session</span>
+    <span class="path-price">$130 &middot; One Hour</span>
+    <span class="path-body">For experienced classical clients passing through Melbourne, or training at another studio and visiting. You know the order and the apparatus, so we go straight to work. A short health screen and signed waiver are required before your first session.</span>
+    <span class="path-cta">Book a Session &nearr;</span>
+  </a>
+</div>
+<div class="paths-note">
+  <span class="paths-note-dot"></span>
+  <p>Melbourne is home and you are new to me? Choose the assessment &mdash; it is the right start for almost everyone.</p>
 </div>
 
 <!-- EMBED + ASIDE -->
-<div class="embed-section">
-  <div class="embed-aside">
-    <div class="aside-top">
-      <span class="aside-eyebrow">Scheduling</span>
-      <h2 class="aside-title">Select your service and choose a time.</h2>
-      <p class="aside-body">All scheduling is managed through Setmore. Select your service type, choose an available time, and you'll receive confirmation directly. All services are prepaid at the time of booking.</p>
-      <p class="aside-body">If you have questions before booking, email <a href="mailto:hello@therapilatics.com" style="color:var(--teal-dark); text-decoration:none; border-bottom: 1px solid var(--teal-pale);">hello@therapilatics.com</a> or call <a href="tel:+13213453797" style="color:var(--teal-dark); text-decoration:none; border-bottom: 1px solid var(--teal-pale);">+1 321-345-3797</a>.</p>
-    </div>
-    <div class="aside-bottom">
-      <div class="service-ref">
-        <div class="service-ref-item">
-          <div>
-            <div class="service-ref-name">Introductory Assessment</div>
-            <span class="service-ref-tag">New clients — start here</span>
-          </div>
-          <span class="service-ref-price">$85</span>
-        </div>
-        <div class="service-ref-item">
-          <div>
-            <div class="service-ref-name">Private Session</div>
-            <span class="service-ref-tag">One hour, Gratz apparatus</span>
-          </div>
-          <span class="service-ref-price">$130</span>
-        </div>
-        <div class="service-ref-item">
-          <div>
-            <div class="service-ref-name">Monthly Retainer</div>
-            <span class="service-ref-tag">Four 45-min sessions, held slot</span>
-          </div>
-          <span class="service-ref-price">$400</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-<!-- POLICIES -->
-<div class="policies">
-  <div class="policy-block">
-    <span class="policy-label">Scheduling Policy</span>
-    <h3 class="policy-title">Appointment Only</h3>
-    <p class="policy-text">There is no walk-in availability at either location. All sessions are booked in advance. New clients begin with an Introductory Assessment. Assessments are by appointment, including Sunday afternoons — if you do not see a time that works, request one below.</p>
-  </div>
-  <div class="policy-block">
-    <span class="policy-label">Cancellation Policy</span>
-    <h3 class="policy-title">24-Hour Notice Required</h3>
-    <p class="policy-text">All services are prepaid. Late arrivals receive the remainder of their scheduled hour. Cancellations with more than 24 hours notice may be rescheduled within 7 days of the original session, subject to availability. Cancellations within 24 hours forfeit the session.</p>
-  </div>
-</div>
-
-
-  <!-- SETMORE EMBED -->
-  <div class="embed-openrow" id="scheduler">
-    <span class="embed-openrow-label">Scheduler</span>
-    <span class="embed-openrow-links">
-      <a class="embed-openlink" href="https://therapilatics.setmore.com" target="_blank" rel="noopener">
-        Open booking in a new window &nearr;
-      </a>
-      <a class="embed-openlink alt" href="#request">Don't see a time? &darr;</a>
-    </span>
-  </div>
-  <div class="embed-container">
-    <div class="embed-wrapper">
-      <iframe
-        src="https://therapilatics.setmore.com"
-        title="Book a session at Therapilatics"
-        loading="lazy"
-        allow="payment">
-      </iframe>
-      <div class="embed-fallback">
-        <span class="embed-fallback-label">Ready When You Are</span>
-        <h3 class="embed-fallback-title">Open the Scheduler</h3>
-        <p>Choose a service, pick a time, and pay at booking. The scheduler opens full screen so nothing is cramped.</p>
-        <a class="embed-fallback-btn" href="https://therapilatics.setmore.com" target="_blank" rel="noopener">Book a Session &nearr;</a>
-        <p class="embed-fallback-hint">Opens in a new tab &middot; you can come back here anytime</p>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- REQUEST A TIME -->
 <div class="request-block" id="request">
@@ -1010,6 +1032,45 @@
     <p class="request-text">If the available times don't fit around work or family, send a quick message and I'll find a slot that does — including Sunday afternoons.</p>
     <a href="#" class="request-btn" id="requestBtn">Text to Request a Time</a>
     <p class="request-desktop" id="requestDesktop" style="display:none;">Text <a href="sms:+13213453797">+1 321-345-3797</a> or email <a href="mailto:hello@therapilatics.com">hello@therapilatics.com</a> with a few times that work for you.</p>
+  </div>
+</div>
+
+<!-- POLICIES -->
+<div class="policies">
+  <div class="policy-block">
+    <span class="policy-label">Scheduling Policy</span>
+    <h3 class="policy-title">Appointment Only</h3>
+    <p class="policy-text">There is no walk-in availability at either location. All sessions are booked in advance. New clients begin with an Introductory Assessment. Assessments are by appointment, including Sunday afternoons — if you do not see a time that works, request one above.</p>
+  </div>
+  <div class="policy-block">
+    <span class="policy-label">Cancellation Policy</span>
+    <h3 class="policy-title">24-Hour Notice Required</h3>
+    <p class="policy-text">All services are prepaid. Late arrivals receive the remainder of their scheduled hour. Cancellations with more than 24 hours notice may be rescheduled within 7 days of the original session, subject to availability. Cancellations within 24 hours forfeit the session.</p>
+  </div>
+</div>
+
+
+  
+<!-- FORMS -->
+<div class="forms-block">
+  <div class="forms-head">
+    <span class="forms-label">Before Your First Session</span>
+    <h3 class="forms-title">Client Forms</h3>
+    <p class="forms-intro">Download, complete, and bring these with you &mdash; or email them ahead to hello@therapilatics.com.</p>
+  </div>
+  <div class="forms-list">
+    <a class="form-item" href="forms/therapilatics_client_intake.docx" download>
+      <span class="form-name">Client Intake Form</span>
+      <span class="form-meta">Required &middot; history, goals, health screening</span>
+    </a>
+    <a class="form-item" href="forms/therapilatics_scope_and_waiver.docx" download>
+      <span class="form-name">Scope, Waiver &amp; Consent</span>
+      <span class="form-meta">Required &middot; signed before your first session</span>
+    </a>
+    <a class="form-item" href="forms/therapilatics_provider_communication_authorization.docx" download>
+      <span class="form-name">Provider Communication Authorization</span>
+      <span class="form-meta"><b>Optional</b> &middot; only if you want me to speak with your doctor</span>
+    </a>
   </div>
 </div>
 

@@ -46,6 +46,11 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
 
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
   body {
     font-family: 'Barlow', sans-serif;
     background: var(--white);
@@ -771,6 +776,7 @@
   .nav-logo .wm span { color: var(--teal-dark); }
   .footer-logo .wm { color: rgba(255,255,255,0.9); }
   .footer-logo .wm span { color: var(--teal); }
+  img { max-width: 100%; }
 </style>
 </head>
 <body>

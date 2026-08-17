@@ -46,6 +46,11 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
 
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
   body {
     font-family: 'Barlow', sans-serif;
     background: var(--white);
@@ -454,23 +459,20 @@
 
   .about-image-col {
     background: var(--grey);
-    min-height: 0;
-    aspect-ratio: 4 / 3;
-    align-self: stretch;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    height: 460px;
+    align-self: center;
     border-right: 1px solid var(--rule);
-    position: relative;
     overflow: hidden;
   }
 
   .about-image-col img {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    position: absolute;
-    inset: 0;
   }
 
   .about-content {
@@ -1026,18 +1028,18 @@
   .movement-first-image {
     background: var(--grey);
     overflow: hidden;
-    position: relative;
-    min-height: 0;
-    aspect-ratio: 4 / 3;
-    align-self: stretch;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    height: 460px;
+    align-self: center;
   }
 
   .movement-first-image img {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    position: absolute;
-    inset: 0;
   }
 
   @keyframes revealLine {
@@ -1111,13 +1113,12 @@
     .here-adapts { padding: 1.25rem; }
 
     .movement-first { grid-template-columns: 1fr; }
-    .movement-first-image { min-height: 0; aspect-ratio: 4 / 3; order: -1; }
+    .movement-first-image { height: 280px; order: -1; }
     .movement-first-content { padding: 2.5rem 1.25rem; }
 
     .about { grid-template-columns: 1fr; }
     .about-image-col {
-      min-height: 0;
-      aspect-ratio: 4 / 3;
+      height: 280px;
       border-right: none;
       border-bottom: 1px solid var(--rule);
     }
@@ -1210,6 +1211,24 @@
   .mobile-menu a.active { background: var(--pale); }
   .testimonials-grid > .testimonial-card:last-child:nth-child(3n+1) {
     grid-column: 1 / -1;
+  }
+  .about > *, .movement-first > * { min-width: 0; }
+  .about, .movement-first { overflow: hidden; }
+
+  img { max-width: 100%; }
+
+  /* older Safari has no aspect-ratio - keep the panels from collapsing */
+  @supports not (aspect-ratio: 4 / 3) {
+    .apparatus-item-image { min-height: 240px; }
+    .apparatus-item.featured .apparatus-item-image { min-height: 420px; }
+  }
+
+  /* tablet: retire the fixed-width hero asides before they force the page wide */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .about-image-col, .movement-first-image { height: 360px; }
+    .hero-line-aside { display: none; }
+    .hero-footer-right { display: none; }
+    .hero-footer-row { flex-direction: column; align-items: flex-start; gap: 1rem; }
   }
 </style>
 </head>
@@ -1480,7 +1499,7 @@
     <div class="service-card">
       <span class="service-card-number">01 &mdash;</span>
       <h3 class="service-card-title">Introductory Assessment</h3>
-      <p class="service-card-body">One hour. A full movement assessment for new clients — I establish what your body is doing, what it is not, and what that means for the work ahead. By appointment. $85.</p>
+      <p class="service-card-body">One hour, new clients. Not a typical Pilates session — a movement screen and a fitness assessment on the apparatus, while I take your history. You leave with written findings and a plan. $85.</p>
       <a href="services.html" class="service-card-link">Details &rarr;</a>
     </div>
     <div class="service-card">
@@ -1571,7 +1590,7 @@
   const mobileCta = document.getElementById('mobileCta');
 
   function checkMobile() {
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 1024) {
       mobileCta.style.display = 'flex';
     } else {
       mobileCta.style.display = 'none';

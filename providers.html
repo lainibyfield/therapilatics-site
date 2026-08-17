@@ -44,6 +44,11 @@
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
   body {
     font-family: 'Barlow', sans-serif;
     background: var(--white);
@@ -241,6 +246,7 @@
   }
   .nav-links a.active { border-bottom: 2px solid var(--teal); padding-bottom: 2px; }
   .mobile-menu a.active { background: var(--pale); }
+  img { max-width: 100%; }
 </style>
 </head>
 <body>
