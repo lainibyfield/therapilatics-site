@@ -8,90 +8,85 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --teal:#3D9A97; --teal-dark:#2E7B78; --teal-pale:#E4F2F1;
-  --black:#0E0E0D; --dark:#1E1C1A; --body:#2E2C2A; --mid:#4A4745;
-  --light:#767270; --rule:#C8C4BC; --pale:#F0EEEB; --grey:#E8E6E3; --white:#FAFAF6;
-}
+:root{--teal:#3D9A97;--teal-dark:#2E7B78;--teal-pale:#E4F2F1;--black:#0E0E0D;--dark:#1E1C1A;
+--body:#2E2C2A;--mid:#4A4745;--light:#767270;--rule:#C8C4BC;--pale:#F0EEEB;--grey:#E8E6E3;--white:#FAFAF6;}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Barlow',sans-serif;background:var(--white);color:var(--body);font-size:15px;line-height:1.55}
-
-/* ---------- GATE ---------- */
 #gate{position:fixed;inset:0;background:var(--white);display:flex;align-items:center;justify-content:center;z-index:100}
 .gate-box{width:min(360px,90vw);text-align:center}
 .gate-box .wm{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:28px;letter-spacing:.06em;color:var(--black);text-transform:uppercase}
 .gate-box .wm span{color:var(--teal)}
 .gate-box p{color:var(--light);font-size:13px;margin:10px 0 22px}
-.gate-box input{width:100%;padding:12px 14px;font-size:18px;letter-spacing:.3em;text-align:center;border:1px solid var(--rule);background:#fff;color:var(--body);font-family:'Barlow',sans-serif}
-.gate-box input:focus{outline:2px solid var(--teal);outline-offset:1px}
+.gate-box input{width:100%;padding:12px 14px;font-size:18px;letter-spacing:.3em;text-align:center;border:1px solid var(--rule);background:#fff;font-family:'Barlow',sans-serif}
 .gate-box button{margin-top:14px;width:100%;padding:12px;background:var(--black);color:var(--white);border:0;font-family:'Barlow Condensed',sans-serif;font-size:16px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
-.gate-box button:hover{background:var(--teal-dark)}
 .gate-err{color:#a33;font-size:13px;margin-top:10px;min-height:18px}
-
-/* ---------- APP ---------- */
-#app{display:none;max-width:880px;margin:0 auto;padding:28px 20px 80px}
-header.bar{display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid var(--black);padding-bottom:12px;margin-bottom:22px;gap:12px;flex-wrap:wrap}
+#app{display:none;max-width:900px;margin:0 auto;padding:26px 18px 90px}
+header.bar{display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid var(--black);padding-bottom:12px;margin-bottom:18px;gap:12px;flex-wrap:wrap}
 header.bar .wm{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:20px;letter-spacing:.06em;text-transform:uppercase;color:var(--black)}
 header.bar .tag{font-size:11px;color:var(--light);letter-spacing:.08em;text-transform:uppercase}
-.filebar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
-.filebar button,.filebar label.btn{padding:9px 16px;border:1px solid var(--rule);background:#fff;color:var(--body);font-family:'Barlow Condensed',sans-serif;font-size:14px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
-.filebar button:hover,.filebar label.btn:hover{border-color:var(--teal-dark);color:var(--teal-dark)}
-.filebar .primary{background:var(--black);color:var(--white);border-color:var(--black)}
-.filebar .primary:hover{background:var(--teal-dark);border-color:var(--teal-dark);color:var(--white)}
-.note{font-size:12.5px;color:var(--light);margin-bottom:22px}
-.tabs{display:flex;gap:0;border-bottom:1px solid var(--rule);margin-bottom:22px;flex-wrap:wrap}
-.tabs button{padding:10px 16px;border:0;background:none;font-family:'Barlow Condensed',sans-serif;font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:var(--light);cursor:pointer;border-bottom:3px solid transparent}
+.btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.btnrow button,.btnrow label.btn{padding:9px 16px;border:1px solid var(--rule);background:#fff;color:var(--body);font-family:'Barlow Condensed',sans-serif;font-size:14px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.btnrow button:hover,.btnrow label.btn:hover{border-color:var(--teal-dark);color:var(--teal-dark)}
+.btnrow .primary{background:var(--black);color:var(--white);border-color:var(--black)}
+.btnrow .primary:hover{background:var(--teal-dark);border-color:var(--teal-dark)}
+.note{font-size:12.5px;color:var(--light);margin-bottom:18px}
+.tabs{display:flex;border-bottom:1px solid var(--rule);margin-bottom:20px;flex-wrap:wrap}
+.tabs button{padding:10px 15px;border:0;background:none;font-family:'Barlow Condensed',sans-serif;font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:var(--light);cursor:pointer;border-bottom:3px solid transparent}
 .tabs button.active{color:var(--black);border-bottom-color:var(--teal)}
-section.panel{display:none}
-section.panel.active{display:block}
-fieldset{border:1px solid var(--rule);padding:16px;margin-bottom:18px;background:#fff}
+section.panel{display:none}section.panel.active{display:block}
+fieldset{border:1px solid var(--rule);padding:15px;margin-bottom:16px;background:#fff}
 legend{font-family:'Barlow Condensed',sans-serif;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-dark);padding:0 8px;font-weight:600}
-.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:10px}
+.hint{font-size:12.5px;color:var(--light);margin:-2px 0 10px}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:12px;margin-bottom:10px}
 .row:last-child{margin-bottom:0}
 label.f{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--light);margin-bottom:4px}
 input[type=text],input[type=date],input[type=number],select,textarea{width:100%;padding:9px 10px;border:1px solid var(--rule);background:var(--white);color:var(--body);font-family:'Barlow',sans-serif;font-size:14px}
-textarea{min-height:64px;resize:vertical}
+textarea{min-height:62px;resize:vertical}
 input:focus,select:focus,textarea:focus{outline:2px solid var(--teal);outline-offset:0}
-.obs{border-bottom:1px solid var(--grey);padding:12px 0}
-.obs:last-child{border-bottom:0}
-.obs .q{font-weight:600;color:var(--dark)}
-.obs .how{font-size:12.5px;color:var(--light);margin:2px 0 8px}
-.obs .ctrls{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-.obs select{width:auto;min-width:110px}
-.obs input[type=text]{flex:1;min-width:160px}
-.test{border-bottom:1px solid var(--grey);padding:12px 0}
-.test:last-child{border-bottom:0}
-.test .q{font-weight:600;color:var(--dark)}
-.test .how{font-size:12.5px;color:var(--light);margin:2px 0 8px}
-.total{font-family:'Barlow Condensed',sans-serif;font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:var(--teal-dark);font-weight:600;padding:10px 0 0}
+.item{border-bottom:1px solid var(--grey);padding:11px 0}
+.item:last-of-type{border-bottom:0}
+.item .q{font-weight:600;color:var(--dark)}
+.item .how{font-size:12.5px;color:var(--light);margin:2px 0 8px}
+.ctrls{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.ctrls select{width:auto;min-width:105px}
+.ctrls input[type=number]{width:82px}
+.ctrls input[type=text]{flex:1;min-width:150px}
+.side{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--light);margin-right:2px}
+.sub{font-family:'Barlow Condensed',sans-serif;font-size:13.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--teal-dark);font-weight:600;margin-top:6px}
+.total{font-family:'Barlow Condensed',sans-serif;font-size:16px;letter-spacing:.06em;text-transform:uppercase;color:var(--black);font-weight:600;padding:10px 0 0;border-top:1px solid var(--grey);margin-top:8px}
 .prio{border-left:4px solid var(--teal-dark);background:var(--pale);padding:12px;margin-bottom:12px}
 .prio h4{font-family:'Barlow Condensed',sans-serif;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-dark);margin-bottom:8px}
-.genbar{margin-top:8px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-.genbar button{padding:11px 22px;background:var(--teal-dark);color:#fff;border:0;font-family:'Barlow Condensed',sans-serif;font-size:15px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
-.genbar button:hover{background:var(--black)}
-.genbar span{font-size:12px;color:var(--light)}
-
-/* ---------- PRINT REPORT ---------- */
+.summary{background:var(--pale);border-left:4px solid var(--black);padding:14px}
+.summary h4{font-family:'Barlow Condensed',sans-serif;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--black);margin-bottom:8px}
+.summary .line{font-size:14px;margin-bottom:5px}
+.summary .line b{color:var(--dark)}
+.summary .gen{margin-top:10px;padding-top:10px;border-top:1px solid var(--rule);color:var(--teal-dark);font-weight:600}
+.internal{font-size:11.5px;color:var(--light);margin-top:8px;font-style:italic}
+.photo{border:1px dashed var(--rule);padding:12px;margin-bottom:12px;background:var(--white)}
+.photocue{border-left:3px solid var(--teal);background:var(--teal-pale);padding:9px 12px;margin:12px 0 10px;font-size:13px;line-height:1.45}
+.photo .q{font-weight:600;color:var(--dark)}
+.photo .how{font-size:12.5px;color:var(--light);margin:2px 0 8px}
+.photo img{max-width:190px;max-height:150px;display:block;margin-top:8px;border:1px solid var(--rule)}
+.photo .fname{font-size:12px;color:var(--teal-dark);margin-top:6px;word-break:break-all}
+.endbar{border-top:2px solid var(--black);margin-top:26px;padding-top:16px}
+.endbar button{padding:11px 20px;border:1px solid var(--rule);background:#fff;font-family:'Barlow Condensed',sans-serif;font-size:15px;letter-spacing:.09em;text-transform:uppercase;cursor:pointer;margin-right:10px}
+.endbar .go{background:var(--teal-dark);color:#fff;border-color:var(--teal-dark)}
+.endbar .go:hover{background:var(--black);border-color:var(--black)}
+.endbar .save{background:var(--black);color:#fff;border-color:var(--black)}
 #report{display:none}
-@media print{
-  body{background:#fff}
-  #app,#gate{display:none!important}
-  #report{display:block;font-size:11pt;color:var(--body)}
-}
+@media print{body{background:#fff}#app,#gate{display:none!important}#report{display:block;font-size:11pt;color:var(--body)}}
 #report .rp-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6pt}
 #report .rp-wm{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13pt;letter-spacing:.06em;text-transform:uppercase;color:var(--black)}
 #report .rp-wm i{display:inline-block;width:20pt;height:2pt;background:var(--teal);margin-left:4pt;vertical-align:middle}
 #report .rp-lab{font-size:8pt;color:var(--light)}
 #report .kicker{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:9pt;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-dark);margin-top:10pt}
-#report h1{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:23pt;color:var(--black);margin:2pt 0 2pt}
-#report .sub{font-size:9.5pt;color:var(--light);margin-bottom:8pt}
+#report h1{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:23pt;color:var(--black);margin:2pt 0}
+#report .subt{font-size:9.5pt;color:var(--light);margin-bottom:8pt}
 #report .blackrule{border:0;border-top:2pt solid var(--black);margin:4pt 0 10pt}
 #report h2{font-family:'Barlow Condensed',sans-serif;font-size:12.5pt;letter-spacing:.04em;text-transform:uppercase;color:var(--black);margin:12pt 0 5pt}
 #report h3{font-size:10pt;font-weight:600;color:var(--dark);margin:7pt 0 2pt}
 #report p{margin-bottom:5pt}
-#report ul.sugg{margin:2pt 0 8pt 14pt}
-#report ul.sugg li{margin-bottom:3pt}
-#report ul.sugg b{color:var(--dark)}
+#report ul.sugg{margin:2pt 0 8pt 14pt}#report ul.sugg li{margin-bottom:3pt}
 #report .lead-teal{color:var(--teal-dark);font-weight:600}
 #report table{width:100%;border-collapse:collapse;font-size:9.5pt;margin:4pt 0 8pt}
 #report th{font-family:'Barlow Condensed',sans-serif;font-size:8.5pt;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--dark);padding:5pt 6pt;text-align:left}
@@ -101,9 +96,6 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--teal);outline-of
 #report .rprio{margin:0 0 8pt;border-bottom:.5pt solid var(--rule)}
 #report .rprio .tab{display:inline-block;background:var(--teal-dark);color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:8.5pt;letter-spacing:.1em;text-transform:uppercase;padding:3pt 8pt}
 #report .rprio .body{background:var(--pale);padding:6pt 8pt}
-#report .rprio dl{margin:4pt 0 6pt}
-#report .rprio dt{font-weight:600;font-size:9.5pt;color:var(--dark);margin-top:4pt}
-#report .rprio dd{margin:0 0 2pt}
 #report .rp-foot{margin-top:14pt;border-top:.75pt solid var(--rule);padding-top:6pt;font-size:8pt;color:var(--light)}
 #report .pagebreak{page-break-before:always}
 @page{margin:0.8in}
@@ -111,619 +103,1512 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--teal);outline-of
 </head>
 <body>
 
-<!-- ================= GATE ================= -->
 <div id="gate">
   <div class="gate-box">
     <div class="wm">Thera<span>pilatics</span></div>
     <p>Practitioner tools · enter access code</p>
-    <input type="password" id="gateCode" inputmode="numeric" autocomplete="off" aria-label="Access code">
+    <input type="password" id="gateCode" inputmode="numeric" autocomplete="off">
     <button onclick="checkGate()">Enter</button>
     <div class="gate-err" id="gateErr"></div>
   </div>
 </div>
 
-<!-- ================= APP ================= -->
 <div id="app">
   <header class="bar">
     <div class="wm">Therapilatics · Client Reports</div>
-    <div class="tag">Nothing is stored on this site — save your client file</div>
+    <div class="tag">Nothing is stored on this site</div>
   </header>
 
-  <div class="filebar">
+  <div class="btnrow">
     <label class="btn">Load client file<input type="file" id="loadFile" accept=".json" style="display:none" onchange="loadClient(event)"></label>
-    <button class="primary" onclick="saveClient()">Save client file</button>
-    <button onclick="if(confirm('Clear all entered data?')){resetData();bind();}">New client</button>
+    <label class="btn">Merge into existing file…<input type="file" id="mergeFile" accept=".json" style="display:none" onchange="mergeClient(event)"></label>
+    <button onclick="if(confirm('Clear all entered data?')){resetData();bind();recalc();}">New client</button>
   </div>
-  <p class="note">Answer what you saw — the report writes the interpretation for you. Data lives only on this screen until you save it. <b>Save client file</b> names the file from the client's name and downloads it (Files on iPhone, Downloads on laptop) — keep one file per client and load it back next session. Closing the page discards anything unsaved.</p>
+  <p class="note">Record what you see — the page handles left/right, totals, thresholds, and the recommendation. Save at the bottom when you're done. If you've entered a Foundation or Completion retest without first loading the client's existing file, use "Merge into existing file…" — it keeps what you just entered and attaches it to their real record instead of starting a new one.</p>
 
   <fieldset>
     <legend>Client</legend>
     <div class="row">
-      <div><label class="f">Client name</label><input type="text" id="c_name"></div>
+      <div><label class="f">Client name</label><input type="text" id="c_name" oninput="recalc()"></div>
       <div><label class="f">First name (used in reports)</label><input type="text" id="c_first"></div>
       <div><label class="f">Referred by</label><input type="text" id="c_ref"></div>
     </div>
   </fieldset>
 
   <div class="tabs">
-    <button class="active" data-tab="consult" onclick="showTab('consult')">1 · Initial Findings</button>
-    <button data-tab="baseline" onclick="showTab('baseline')">2 · Foundation (retest)</button>
+    <button class="active" data-tab="initial" onclick="showTab('initial')">1 · Initial Findings</button>
+    <button data-tab="foundation" onclick="showTab('foundation')">2 · Foundation (retest)</button>
     <button data-tab="completion" onclick="showTab('completion')">3 · Completion</button>
   </div>
 
-  <!-- ---- CONSULT ---- -->
-  <section class="panel active" id="panel-consult">
+  <!-- ============ TAB 1 ============ -->
+  <section class="panel active" id="panel-initial">
+
     <fieldset>
-      <legend>Assessment</legend>
+      <legend>Intake</legend>
       <div class="row">
         <div><label class="f">Assessment date</label><input type="date" id="k_date"></div>
+        <div><label class="f">Pain score (0–10)</label><input type="number" id="k_pain" min="0" max="10" oninput="recalc()"></div>
+        <div><label class="f">Pain location</label><input type="text" id="k_painloc" oninput="recalc()"></div>
+      </div>
+      <div class="row">
+        <div><label class="f">Age</label><input type="number" id="k_age" min="10" max="110"></div>
+        <div><label class="f">Sex (for strength reference)</label>
+          <select id="k_sex"><option value=""></option><option value="F">Female</option><option value="M">Male</option></select></div>
+      </div>
+      <div class="row">
+        <div><label class="f">Chief complaint</label><input type="text" id="k_chief" oninput="recalc()"></div>
         <div><label class="f">How long has this been going on?</label>
-          <select id="k_dur">
+          <select id="k_dur" onchange="recalc()">
             <option value=""></option>
-            <option>Under 6 weeks — recent</option>
+            <option>Under 6 weeks</option>
             <option>6 weeks – 3 months</option>
             <option>3 months – 1 year</option>
-            <option>Over 1 year — long-standing</option>
+            <option>Over 1 year</option>
           </select></div>
       </div>
     </fieldset>
+
     <fieldset>
-      <legend>Quick look — first few minutes, answer yes or no</legend>
-      <p class="note" style="margin:0 0 10px">Wall stand, forward fold, single-leg checks. Small and fast — this runs first, then Joe's fills the rest of the hour.</p>
-      <div id="obsList"></div>
+      <legend>1 · Structural screen</legend>
+      <p class="hint">Quick look, first few minutes. Each side recorded separately.</p>
+      <div id="msList"></div>
+      <div class="total" id="msTotal">Structural screen: —</div>
+      <div class="photocue"><b>Photo checkpoint 1 — optional</b><br>Take the side-view head-to-wall photo here, before cueing. Comparison record only; not scored.</div>
+      <div id="photo_ms"></div>
     </fieldset>
+
     <fieldset>
-      <legend>Joe's fitness assessment — the moving part of the hour</legend>
-      <p class="note" style="margin:0 0 10px">The rest of the hour. Run these as movement, not as a test block — this is where they get moving and feel the work. Score what you see; leave blank anything that isn't appropriate.</p>
-      <div id="tpList"></div>
-      <div class="total" id="tpTotal">Benchmark total: &mdash; / 51</div>
+      <legend>2 · Joe's 10 fitness assessment</legend>
+      <p class="hint">Run as movement, not a test block. Score each component — subtotals calculate themselves. Take the prone upper-back extension photo before beginning Joe's 10.</p>
+      <div class="photocue"><b>Photo checkpoint 2 — preferred</b><br>Before Joe's 10: front-facing prone upper-back extension. Not scored; before/after comparison only.</div>
+      <div id="photo_joe"></div>
+      <div id="joeList"></div>
+      <div class="total" id="joeTotal">Joe's total: —</div>
     </fieldset>
+
     <fieldset>
-      <legend>In your own words (optional)</legend>
-      <div class="row"><div><label class="f">Anything else you noticed</label><textarea id="k_obs"></textarea></div></div>
-    </fieldset>
-    <fieldset>
-      <legend>Recommended plan</legend>
+      <legend>Grip strength — hand dynamometer</legend>
+      <p class="hint">Seated, elbow at 90&deg;, upper arm against the body, same handle position every time. Three attempts per hand with a short rest between. Best of three is taken automatically for each side.</p>
       <div class="row">
-        <div><label class="f">Program length (weeks)</label><input type="number" id="k_weeks" value="8"></div>
-        <div><label class="f">Sessions</label><input type="number" id="k_sess" value="16"></div>
-        <div><label class="f">Begins</label><input type="date" id="k_begins"></div>
+        <div><label class="f">Units</label>
+          <select id="st_units" onchange="recalc()"><option value="kg">kg</option><option value="lb">lb</option></select></div>
+        <div><label class="f">Dynamometer used</label><input type="text" id="st_device" placeholder="model — keep it the same each time"></div>
+        <div><label class="f">Dominant hand</label>
+          <select id="st_dom" onchange="recalc()"><option value=""></option><option value="R">Right</option><option value="L">Left</option></select></div>
       </div>
-      <div class="row"><div><label class="f">Focus (one line)</label><input type="text" id="k_focus"></div></div>
+      <div class="item"><div class="q">Left hand</div>
+        <div class="ctrls"><span class="side">1</span><input type="number" id="st_l1" step="0.1" oninput="recalc()">
+          <span class="side">2</span><input type="number" id="st_l2" step="0.1" oninput="recalc()">
+          <span class="side">3</span><input type="number" id="st_l3" step="0.1" oninput="recalc()"></div></div>
+      <div class="item"><div class="q">Right hand</div>
+        <div class="ctrls"><span class="side">1</span><input type="number" id="st_r1" step="0.1" oninput="recalc()">
+          <span class="side">2</span><input type="number" id="st_r2" step="0.1" oninput="recalc()">
+          <span class="side">3</span><input type="number" id="st_r3" step="0.1" oninput="recalc()"></div></div>
+      <div class="total" id="stTotal">Grip: —</div>
+      <div class="row"><div><label class="f">Grip not completed (skips grip from routing)</label>
+        <select id="st_na" onchange="recalc()"><option value="">— completed as protocol —</option><option value="na">Not completed / not appropriate</option></select></div></div>
     </fieldset>
-    <div class="genbar">
-      <button onclick="generate('consult')">Generate Initial Findings PDF</button>
-      <span>Opens print — choose “Save as PDF”. On iPhone: Share → Print → Save as PDF.</span>
+
+    <fieldset>
+      <legend>3 · Short reformer assessment</legend>
+      <p class="hint">Each criterion scored 1 or 0 unless noted.</p>
+      <div id="refList"></div>
+      <div class="total" id="refTotal">Reformer: —</div>
+      <div class="photocue"><b>Photo checkpoints 3 &amp; 4 — optional</b><br>At stomach massage, take both views. Comparison record only; not scored.</div>
+      <div id="photo_ref"></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Assessor summary — not printed on the report</legend>
+      <div class="summary" id="assessorSummary"></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Additional focus observed during the assessment — optional</legend>
+      <p class="hint">Something you noticed that the scoring didn't capture.</p>
+      <textarea id="k_addfocus" oninput="recalc()"></textarea>
+    </fieldset>
+
+    <div class="row">
+      <div><label class="f">Begins</label><input type="date" id="k_begins"></div>
+      <div><label class="f">Sessions/week the client can commit to</label>
+        <select id="k_freq" onchange="recalc()"><option value=""></option><option value="2">2x per week</option><option value="3">3x per week</option></select></div>
+    </div>
+
+    <div class="endbar">
+      <button class="save" onclick="saveClient()">Save client file</button>
+      <button class="go" onclick="generate('initial')">Generate PDF</button>
+      <button onclick="if(confirm('Close this assessment? Anything unsaved is lost.')){resetData();bind();recalc();window.scrollTo(0,0);}">Exit</button>
     </div>
   </section>
 
-  <!-- ---- BASELINE ---- -->
-  <section class="panel" id="panel-baseline">
+  <!-- ============ TAB 2 ============ -->
+  <section class="panel" id="panel-foundation">
     <fieldset>
-      <legend>Report</legend>
+      <legend>Retest</legend>
       <div class="row">
-        <div><label class="f">Report date</label><input type="date" id="b_date"></div>
-        <div><label class="f">Resting heart rate (beats/min)</label><input type="number" id="b_hr_rest"></div>
-        <div><label class="f">HR drop 1 min after work (beats)</label><input type="number" id="b_hr_rec"></div>
+        <div><label class="f">Retest date</label><input type="date" id="f_date"></div>
+        <div><label class="f">Resting HR</label><input type="number" id="f_hrRest"></div>
+        <div><label class="f">HR drop 1 min after work</label><input type="number" id="f_hrRec"></div>
       </div>
     </fieldset>
+
     <fieldset>
-      <legend>Movement screen — near the end of the six weeks</legend>
-      <p class="note" style="margin:0 0 10px">Run near the end of the foundation period, folded into part of a session — not as a separate test block. Loaded patterns the first session doesn't reach: squats, lunges, stepping. The body is warm and known by now.</p>
+      <legend>Structural screen — retest</legend>
+      <div id="msList2"></div>
+      <div class="total" id="msTotal2">Structural screen: —</div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Joe's 10 — retest</legend>
+      <div id="joeList2"></div>
+      <div class="total" id="joeTotal2">Joe's total: —</div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Reformer — retest</legend>
+      <div id="refList2"></div>
+      <div class="total" id="refTotal2">Reformer: —</div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Deeper screen — optional, near Session 10</legend>
+      <p class="hint">Loaded patterns the first session doesn't reach. Folded into part of a session.</p>
       <div id="fmsList"></div>
-      <div class="total" id="fmsTotal">Screen total: &mdash; / 21</div>
+      <div class="total" id="fmsTotal">Deeper screen: —</div>
     </fieldset>
-    <fieldset>
-      <legend>Joe's benchmarks — retest</legend>
-      <p class="note" style="margin:0 0 10px">Same ten movements from the first session, scored again at the end of the foundation period. Leave blank any you didn't retest.</p>
-      <div id="tprList"></div>
-      <div class="total" id="tprTotal">Retest total: &mdash; / 51</div>
-    </fieldset>
+
     <fieldset>
       <legend>Three priorities</legend>
-      <div id="b_prios"></div>
+      <div id="f_prios"></div>
     </fieldset>
+
     <fieldset>
-      <legend>In your own words (optional)</legend>
-      <div class="row"><div><label class="f">Anything the scores don't capture</label><textarea id="b_notes"></textarea></div></div>
+      <legend>Assessor summary — not printed</legend>
+      <div class="summary" id="assessorSummary2"></div>
     </fieldset>
-    <div class="genbar">
-      <button onclick="generate('baseline')">Generate Baseline Report PDF</button>
+
+    <div class="endbar">
+      <button class="save" onclick="saveClient()">Save client file</button>
+      <button class="go" onclick="generate('foundation')">Generate PDF</button>
     </div>
   </section>
 
-  <!-- ---- COMPLETION ---- -->
+  <!-- ============ TAB 3 ============ -->
   <section class="panel" id="panel-completion">
     <fieldset>
-      <legend>Report</legend>
+      <legend>Completion</legend>
       <div class="row">
         <div><label class="f">Report date</label><input type="date" id="x_date"></div>
-        <div><label class="f">Sessions completed</label><input type="number" id="x_sess" value="16"></div>
-        <div><label class="f">Weeks</label><input type="number" id="x_weeks" value="8"></div>
+        <div><label class="f">Sessions completed</label><input type="number" id="x_sess"></div>
+        <div><label class="f">Weeks</label><input type="number" id="x_weeks"></div>
       </div>
       <div class="row">
-        <div><label class="f">Movement screen now (/21)</label><input type="number" id="x_fms"></div>
-        <div><label class="f">Joe's benchmarks now (/51)</label><input type="number" id="x_tp"></div>
-        <div><label class="f">Resting HR now</label><input type="number" id="x_hr_rest"></div>
-        <div><label class="f">HR drop now</label><input type="number" id="x_hr_rec"></div>
+        <div><label class="f">If continued work is next — sessions/week they can commit to</label>
+          <select id="x_freq" onchange="recalc()"><option value=""></option><option value="2">2x per week</option><option value="3">3x per week</option></select></div>
       </div>
       <div class="row">
-        <div><label class="f">Screen — what changed (one line)</label><input type="text" id="x_fms_note"></div>
-        <div><label class="f">Joe's benchmarks — what changed</label><input type="text" id="x_tp_note"></div>
+        <div><label class="f">Current pain score (0–10)</label><input type="number" id="x_pain" min="0" max="10" oninput="recalc()"></div>
+        <div><label class="f">Current pain location</label><input type="text" id="x_painloc" placeholder="where it is now — blank if none" oninput="recalc()"></div>
+        <div><label class="f">How long has this current pain been going on?</label>
+          <select id="x_dur" onchange="recalc()">
+            <option value=""></option>
+            <option>Under 6 weeks</option>
+            <option>6 weeks – 3 months</option>
+            <option>3 months – 1 year</option>
+            <option>Over 1 year</option>
+          </select></div>
       </div>
     </fieldset>
+
+    <fieldset>
+      <legend>Grip strength retest — hand dynamometer</legend>
+      <p class="hint">Same protocol as intake: seated, elbow at 90&deg;, upper arm against the body, same handle position, best of three per hand.</p>
+      <div class="row">
+        <div><label class="f">Units</label>
+          <select id="xst_units" onchange="recalc()"><option value="kg">kg</option><option value="lb">lb</option></select></div>
+        <div><label class="f">Dynamometer used</label><input type="text" id="xst_device" placeholder="model — keep it the same each time"></div>
+        <div><label class="f">Dominant hand</label>
+          <select id="xst_dom" onchange="recalc()"><option value=""></option><option value="R">Right</option><option value="L">Left</option></select></div>
+      </div>
+      <div class="item"><div class="q">Left hand</div>
+        <div class="ctrls"><span class="side">1</span><input type="number" id="xst_l1" step="0.1" oninput="recalc()">
+          <span class="side">2</span><input type="number" id="xst_l2" step="0.1" oninput="recalc()">
+          <span class="side">3</span><input type="number" id="xst_l3" step="0.1" oninput="recalc()"></div></div>
+      <div class="item"><div class="q">Right hand</div>
+        <div class="ctrls"><span class="side">1</span><input type="number" id="xst_r1" step="0.1" oninput="recalc()">
+          <span class="side">2</span><input type="number" id="xst_r2" step="0.1" oninput="recalc()">
+          <span class="side">3</span><input type="number" id="xst_r3" step="0.1" oninput="recalc()"></div></div>
+      <div class="total" id="xstTotal">Grip: —</div>
+      <div class="row"><div><label class="f">Grip not completed (skips grip from routing)</label>
+        <select id="xst_na" onchange="recalc()"><option value="">— completed as protocol —</option><option value="na">Not completed / not appropriate</option></select></div></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Structural screen — completion</legend>
+      <div id="msList3"></div>
+      <div class="total" id="msTotal3">Structural screen: —</div>
+      <div class="photocue"><b>Photo checkpoint 1 — optional</b><br>Retake the side-view head-to-wall photo here, before cueing, for the before/after pair.</div>
+      <div id="photo_ms3"></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Joe's 10 — completion</legend>
+      <div class="photocue"><b>Photo checkpoint 2 — preferred</b><br>Before Joe's 10: front-facing prone upper-back extension. This is the comparison that usually shows the most visible change.</div>
+      <div id="photo_joe3"></div>
+      <div id="joeList3"></div>
+      <div class="total" id="joeTotal3">Joe's total: —</div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Reformer — completion</legend>
+      <div id="refList3"></div>
+      <div class="total" id="refTotal3">Reformer: —</div>
+      <div class="photocue"><b>Photo checkpoints 3 &amp; 4 — optional</b><br>At stomach massage, retake both views for the before/after pair.</div>
+      <div id="photo_ref3"></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>What changed — optional notes</legend>
+      <div class="row"><div><label class="f">Structural screen</label><input type="text" id="x_msNote"></div></div>
+      <div class="row"><div><label class="f">Joe's 10</label><input type="text" id="x_joeNote"></div></div>
+      <div class="row"><div><label class="f">Reformer</label><input type="text" id="x_refNote"></div></div>
+    </fieldset>
+
     <fieldset>
       <legend>Priorities — then / now / what maintains it</legend>
       <div id="x_prios"></div>
     </fieldset>
-    <div class="genbar">
-      <button onclick="generate('completion')">Generate Completion Report PDF</button>
+
+    <fieldset>
+      <legend>Assessor summary — not printed</legend>
+      <div class="summary" id="assessorSummary3"></div>
+    </fieldset>
+
+    <div class="endbar">
+      <button class="save" onclick="saveClient()">Save client file</button>
+      <button class="go" onclick="generate('completion')">Generate PDF</button>
     </div>
   </section>
 </div>
 
-<!-- ================= PRINT TARGET ================= -->
 <div id="report"></div>
 
 <script>
-/* ---------------- gate ---------------- */
-const GATE_HASH = "29ccb458944b1b774220a0f75117b05d124dfcb83b3c6809bf91b0c9585a8271";
-async function sha256(s){
-  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(s));
-  return [...new Uint8Array(buf)].map(b=>b.toString(16).padStart(2,"0")).join("");
-}
+/* ============ GATE ============ */
+const GATE_HASH="29ccb458944b1b774220a0f75117b05d124dfcb83b3c6809bf91b0c9585a8271";
+async function sha256(s){const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(s));
+  return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("");}
 async function checkGate(){
-  const v = document.getElementById("gateCode").value.trim();
-  if(await sha256(v) === GATE_HASH){
-    document.getElementById("gate").style.display="none";
-    document.getElementById("app").style.display="block";
-  } else {
-    document.getElementById("gateErr").textContent = "That code doesn't match.";
-  }
+  const v=document.getElementById("gateCode").value.trim();
+  if(await sha256(v)===GATE_HASH){document.getElementById("gate").style.display="none";
+    document.getElementById("app").style.display="block";}
+  else document.getElementById("gateErr").textContent="That code doesn't match.";
 }
 document.getElementById("gateCode").addEventListener("keydown",e=>{if(e.key==="Enter")checkGate();});
 
-/* ---------------- observation + test definitions ---------------- */
-/* Each consult observation: what to ask/do, and what YES or NO prints in the report. */
-const OBS = [
- {id:"wallHead", q:"Standing at the wall, does the back of the head touch without effort?",
-  how:"Heels about 2 inches from the wall, arms at the sides, standing naturally. Don't cue them — just look.",
+/* ============ DEFINITIONS ============ */
+/* Structural screen: yes/no items, bilateral where relevant. Max 15. */
+const MS=[
+ {id:"wallHead",q:"Back of the head touches the wall without effort",
+  how:"Heels about 2 inches from the wall, standing naturally. Don't cue it — just look.",type:"yn",
   yes:"the head and upper back are carrying in good alignment",
-  no:"the upper back has rounded and the head travels forward to compensate — an alignment focus for the work"},
- {id:"wallBack", q:"Behind the low back, does only a flat hand fit (not a whole fist)?",
-  how:"Same wall stand. Slide your hand behind their low back. A flat hand is typical; room for a fist is a large gap.",
-  yes:"the low back is carrying a typical, healthy curve",
-  no:"the low-back curve is exaggerated — often paired with a tight hip front; a focus for the work"},
- {id:"fold", q:"Folding forward with soft knees, do the fingertips reach the floor?",
-  how:"Feet together, knees soft but not bent. Let them hang at their deepest comfortable point.",
-  yes:"there is good length through the back of the body — spine and hamstrings",
-  no:"the back line of the body — hamstrings and spine — has shortened; restoring that length is part of the work"},
- {id:"hipLevel", q:"Standing on one leg for 30 seconds, does the opposite hip stay level? (check both sides)",
-  how:"Stand behind them, hands resting lightly on the top of the pelvis. Watch whether the free-leg side drops. Note which side in the notes.",
-  yes:"the hip stabilizers are holding the pelvis level on a single leg",
-  no:"the hip stabilizers are letting the pelvis drop to one side — a strengthening priority for the work"},
- {id:"balance", q:"On one leg with eyes closed, can they hold 10 seconds or more?",
-  how:"Have them stand near a wall for safety. Time to the first big wobble or foot-down.",
-  yes:"the balance system reads the body well even without vision",
-  no:"balance is leaning on vision — building the body's own position-sense is part of the work"},
- {id:"hipFront", q:"Lying on the back hugging one knee to the chest, does the other leg stay flat?",
-  how:"On the mat or table edge. Watch the straight leg — does it rise or the knee bend as the other knee comes in? Check both sides.",
-  yes:"the front-of-hip muscles have good length",
-  no:"the front of the hip has shortened — commonly from sitting; lengthening it is part of the work"},
- {id:"reach", q:"One arm over the shoulder, one up the back — do the hands come within about a hand-and-a-half of each other? (both sides)",
-  how:"Reach one hand down between the shoulder blades from above and the other up from below. Eyeball the gap. Note if one side is clearly tighter.",
-  yes:"the shoulders are rotating freely in both directions",
-  no:"one or both shoulders have lost rotation range — a mobility focus for the work"}
+  no:"the upper back has rounded and the head travels forward to compensate"},
+ {id:"wallBack",q:"Space behind the low back at the wall",
+  how:"Slide your hand behind the low back and pick the closest description.",type:"three",
+  opts:[["flat","Flat hand / expected space",2],["mid","More than a flat hand, less than a fist",1],["fist","Fist-width or greater",0]],
+  txt:{flat:"the low back is carrying a typical, healthy curve",
+       mid:"the low-back curve is deeper than expected — worth watching alongside hip-front length",
+       fist:"the low-back curve is pronounced — often paired with a tight hip front"}},
+ {id:"fold",q:"Forward fold — how far the hands travel",
+  how:"Feet together, knees soft but not bent. Deepest comfortable point. Pick the closest description.",type:"three",
+  opts:[["floor","Fingertips or palms reach the floor",2],["below","Reaches below the knee — shin or ankle",1],["above","Stops at or above the knee",0]],
+  txt:{floor:"good length through the whole back of the body",
+       below:"some shortening through the back line — hamstrings, spine, or both",
+       above:"the back line of the body has shortened significantly"}},
+ {id:"hipLevel",q:"Hip stays level standing on one leg (30 sec)",
+  how:"Stand behind, hands resting lightly on the top of the pelvis. Score the stance leg.",type:"lr",
+  yes:"the hip stabilizers hold the pelvis level on that side",
+  no:"the hip stabilizers let the pelvis drop on that side"},
+ {id:"balance",q:"One-leg balance, eyes closed — how long it holds",
+  how:"Near a wall for safety. Time to the first big wobble or foot-down. Score each side.",type:"lr3",
+  opts:[["ten","10 seconds or more",2],["mid","4 to 9 seconds",1],["short","Under 4 seconds",0]],
+  txt:{ten:"balance holds without vision on that side",
+       mid:"balance holds briefly without vision, then drifts on that side",
+       short:"balance is leaning heavily on vision on that side"}},
+ {id:"hipFront",q:"Opposite leg stays flat while hugging one knee in",
+  how:"On the mat or table edge. Watch the straight leg. Score the leg that stays down.",type:"lr",
+  yes:"the front-of-hip muscles have good length on that side",
+  no:"the front of the hip has shortened on that side"},
+ {id:"reach",q:"Hands come within about a hand-and-a-half behind the back",
+  how:"One hand down from above between the shoulder blades, the other up from below.",type:"lr",
+  yes:"that shoulder rotates freely",
+  no:"that shoulder has lost rotation range"}
 ];
+const MS_MAX=MS.reduce((t,m)=>{
+  if(m.type==="lr") return t+2;
+  if(m.type==="lr3") return t+2*Math.max(...m.opts.map(o=>o[2]));
+  if(m.type==="three") return t+Math.max(...m.opts.map(o=>o[2]));
+  return t+1;},0);
 
-/* Movement screen (7 tests, 0–3). Plain how-to + what each score prints. */
-const FMS = [
- {name:"Overhead squat", how:"Stick held straight overhead, feet shoulder-width. Squat as low as they can. Watch for: heels lifting, knees caving in, the stick drifting forward.",
-  s3:"the full squatting pattern is available and controlled",
-  s2:"the squat works, but the body borrows from somewhere — ankles, hips, or upper back — to get there",
-  s1:"the full squat isn't available yet; the work starts with supported versions"},
- {name:"Step over a line", how:"Stick across the shoulders. Step slowly over a shin-high line and touch the heel down, without wobbling or leaning.",
-  s3:"single-leg stance and stride are stable and level",
-  s2:"stepping works but the body tilts, hikes, or wobbles to manage it",
-  s1:"controlled single-leg stepping isn't available yet — a stability starting point"},
- {name:"Split-stance lunge on a line", how:"Feet on one straight line, stick held vertical against the back (head, upper back, tailbone touching). Lower the back knee toward the floor.",
-  s3:"the split stance is stable with the trunk staying tall",
-  s2:"the lunge works but the trunk shifts or the front knee dives inward",
-  s1:"the position can't be held yet — balance and hip stability come first"},
- {name:"Two-hand back reach", how:"One fist over the shoulder reaching down the back, the other fist up the back. Measure the gap between fists. Both sides.",
-  s3:"both shoulders rotate freely — the hands nearly meet",
-  s2:"the shoulders reach but with a clear gap, or one side is much tighter",
-  s1:"shoulder rotation is significantly limited — overhead work will be built gradually"},
- {name:"Straight-leg raise lying down", how:"Lying flat, raise one straight leg as high as possible while the other leg stays flat on the floor. Both sides.",
-  s3:"the back of the leg has full length with the pelvis staying quiet",
-  s2:"the leg rises partway before the other leg or pelvis starts to move",
-  s1:"leg length and pelvic control are limited — a flexibility starting point"},
- {name:"Body-as-one-piece push-up", how:"Lying face down, push the whole body up as a single unit. Watch whether the low back sags or the body lifts in segments.",
-  s3:"the trunk holds as one piece under a push",
-  s2:"the push works but the low back sags or the body lifts in stages",
-  s1:"the trunk can't yet hold under load — support work comes before pressing"},
- {name:"Opposite arm-and-leg reach on all fours", how:"On hands and knees, extend one arm and the opposite leg without tipping. If that fails, try same-side arm and leg.",
-  s3:"the trunk stays quiet while opposite limbs move — strong cross-body control",
-  s2:"same-side works but opposite-side reaching tips the body",
-  s1:"the trunk can't yet stay steady while limbs move — the foundation for coordinated work"}
+/* Joe's 10 — component-level entry. */
+const JOE=[
+ {id:"arm",name:"1 · Supine arm reach",max:3,parts:[{k:"s",label:"Score"}],theme:"overhead reach",
+  how:"Lying on the back, arms overhead — do the elbows rest on the floor while the low back stays down?",
+  low:"the upper back and lats are limiting overhead reach",mid:"overhead reach is close — the low back lifts to help",high:"overhead reach is at the standard"},
+ {id:"rollup",name:"2 · Roll up",max:3,parts:[{k:"s",label:"Score"}],theme:"spinal articulation",
+  how:"Roll up one segment at a time into a continuous C-curve, knees straight, bar clearing flexed feet.",
+  low:"the spine isn't yet articulating segment by segment",mid:"the roll up works but hinges at one segment",high:"spinal articulation is at the standard"},
+ {id:"bender",name:"3 · The Bender",max:3,parts:[{k:"s",label:"Score"}],theme:"deep abdominal control",
+  how:"Arms perpendicular as the target, not a support. Straight legs lift to the hands — tailbone stays flat.",
+  low:"the hip front is doing the abdominals' job",mid:"the legs get there but the tailbone lifts",high:"deep abdominal control anchors the pelvis"},
+ {id:"rollover",name:"4 · Roll over",max:3,parts:[{k:"s",label:"Score"}],theme:"spinal mobility overhead",
+  how:"Over together, open overhead, roll down open, then reverse. For neck history or another reason the movement isn't appropriate, score 0 and select \"Not appropriate\" — don't leave it blank.",
+  low:"mobility and control overhead are limited",mid:"the basic movement works but the reverse is not yet controlled",high:"full mobility and control in both directions"},
+ {id:"circle",name:"5 · One leg circle",max:12,theme:"pelvic stability",
+  parts:[{k:"lcw",label:"Left — dir 1"},{k:"lccw",label:"Left — dir 2"},{k:"rcw",label:"Right — dir 1"},{k:"rccw",label:"Right — dir 2"}],
+  how:"Full arc each direction with the pelvis completely still. Score each leg, each direction.",
+  low:"the pelvis can't yet stay quiet while a leg moves",mid:"the arc is there but the pelvis shifts",high:"the leg moves independent of a quiet pelvis"},
+ {id:"stretch",name:"6 · One leg stretch",max:12,theme:"core and limb coordination",
+  parts:[{k:"legR",label:"Leg out — R"},{k:"legL",label:"Leg out — L"},{k:"noseR",label:"Nose to knee — R"},{k:"noseL",label:"Nose to knee — L"}],
+  how:"Hovering leg parallel to the mat; nose to the centre of the bent knee, chin tucked.",
+  low:"core support and limb coordination are limited",mid:"the pieces work separately but not together",high:"core support and coordination are at the standard"},
+ {id:"rocker",name:"7 · Open leg rocker",max:3,parts:[{k:"s",label:"Score"}],theme:"hamstring length and balance",
+  how:"Score the more restricted side. Note both grab locations — ankles is full length, above the knee is significant.",
+  low:"hamstring length and sit-bone balance are limited",mid:"balance holds at mid-shin — length is close",high:"full length and balance"},
+ {id:"teaser",name:"8 · Teaser",max:3,parts:[{k:"s",label:"Score"}],theme:"core endurance",
+  how:"Arms and legs parallel, balanced on the sit bones, through 3 full breath cycles. Note cycles held.",
+  low:"core endurance and breath don't yet hold the position",mid:"the position is there but breathing changes the shape",high:"core endurance holds under load with full breath"},
+ {id:"headknee",name:"9 · Head to knee",max:6,theme:"hip rotation and side-body length",
+  parts:[{k:"r",label:"Right"},{k:"l",label:"Left"}],
+  how:"Bent knee open to the floor, both sit bones down, nose reaching to the calf.",
+  low:"hip rotation and side-body length are restricted",mid:"the shape is close but a sit bone lifts",high:"hip rotation and side-body length are at the standard"},
+ {id:"seated",name:"10 · Seated spinal alignment",max:3,parts:[{k:"s",label:"Score"}],theme:"postural endurance",
+  how:"Legs long, arms reaching forward parallel to the floor. Vertical without visible effort.",
+  low:"the postural muscles fatigue before the body sits tall",mid:"vertical is there but the back gives or the arms drop",high:"the body sits tall unsupported"}
 ];
-const SCORE_OPTS = `<option value=""></option>
- <option value="3">3 — clean and controlled</option>
- <option value="2">2 — done, but with compensation</option>
- <option value="1">1 — can't do it yet</option>
- <option value="0">0 — pain (note it, keep going)</option>`;
-
-/* Classical benchmarks (Joe's 10). Plain how-to; interpretation by score band. */
-const TP = [
- {name:"Arms overhead lying down (elbows to floor)", max:3, how:"Lying on the back, arms reach overhead — do the elbows rest on the floor while the low back stays down? Photograph the endpoint, not the start.",
-  low:"the upper back and lats are limiting overhead reach",
-  mid:"overhead reach is close — the low back lifts to help, or the elbows almost make it",
-  high:"overhead reach is at the standard"},
- {name:"Roll up to sitting, legs straight", max:3, how:"Lying flat holding a bar or towel, roll up one segment at a time into a continuous C-curve and reach past flexed feet, knees straight. Watch for hinging at one segment.",
-  low:"the spine isn't yet articulating segment by segment, or the back line is short",
-  mid:"the roll up works with effort — one part of the spine hinges instead of curling",
-  high:"spinal articulation and back-line length are at the standard"},
- {name:"Straight legs lift to the hands, tailbone flat", max:3, how:"Lying with arms reaching straight up, perpendicular to the mat — the arms are the target, not a support. Straight legs lift toward the hands. Tailbone staying flat is the whole test.",
-  low:"the hip front is doing the abdominals' job — the tailbone lifts early",
-  mid:"the legs get there but the tailbone pops up",
-  high:"deep abdominal control anchors the pelvis through the full lift"},
- {name:"Legs overhead and back down", max:3, how:"Straight legs travel up and overhead until the feet touch the floor behind, then return with control — over together, open overhead, roll down open, then reverse. Skip entirely for neck history, osteoporosis, or fused segments; note as modified rather than scoring.",
-  low:"spinal mobility and control through the overhead direction are limited",
-  mid:"the basic movement works but the return or the reverse is not yet controlled",
-  high:"full spinal mobility and control in both directions"},
- {name:"One-leg circles, pelvis still", max:12, how:"Lying flat, one leg raised to perpendicular, the other flat on the mat. The raised leg draws a full arc — up, across midline, down, and back — each direction, with the pelvis completely still. Score each leg each direction (4 scores, add them).",
-  low:"the pelvis can't yet stay quiet while a leg moves independently",
-  mid:"the arc is there but the pelvis shifts, or hip restriction cuts it short",
-  high:"the leg moves fully independent of a quiet pelvis"},
- {name:"Knee hugs with the other leg hovering", max:12, how:"One knee pulls in while the other leg hovers straight and parallel to the mat, nose reaching to the center of the bent knee with the chin tucked. Score the hovering leg and the head reach, each side (4 scores, add them).",
-  low:"coordinating core support with independent limb movement is limited",
-  mid:"the pieces work separately but not yet together",
-  high:"core support and limb coordination are at the standard"},
- {name:"Balanced V with hands down the legs", max:3, how:"Balanced on the sit bones, legs open and extended — how far down the legs can the hands hold? Ankles or feet is full length; above the knee is significant restriction. Score the more restricted side; note both grab locations.",
-  low:"hamstring length and sit-bone balance are limited",
-  mid:"balance holds at mid-shin to below the knee — length is close",
-  high:"full length and balance — the hands hold the ankles or feet"},
- {name:"V-sit hold with breathing", max:3, how:"Balanced on the sit bones, legs extended and arms reaching forward along lines parallel to the legs. Can they hold it through 3 full breaths without the shape changing? Note how many cycles they held. Photograph either way — the partial position is the baseline.",
-  low:"core endurance and breath don't yet hold the position under load",
-  mid:"the position is there but breathing through it changes the shape",
-  high:"core endurance holds under load with full breath"},
- {name:"Side reach over a bent knee", max:6, how:"Sitting with one leg long and the other knee dropped open, outside of the foot on the floor — reach the nose toward the calf of the bent leg with both sit bones down. Score each side (2 scores, add them).",
-  low:"hip rotation and side-body length are restricted",
-  mid:"the shape is close but a sit bone lifts, or the reach stops at the knee",
-  high:"hip rotation and side-body length are at the standard"},
- {name:"Sitting tall, arms reaching forward", max:3, how:"After everything else: legs long, arms reaching forward parallel to the floor. Does the spine hold vertical, with the arms staying level, without visible effort?",
-  low:"the postural muscles fatigue before the body can sit tall unsupported",
-  mid:"vertical is there but the low back or upper back gives, or the arms drop",
-  high:"the body sits tall unsupported — the closing standard of the system"}
+const JOE_MAX=JOE.reduce((t,j)=>t+j.max,0);
+const JOE_BANDS=[
+ {min:44,name:"Full mobility",meaning:"moving at the standard the classical system produces"},
+ {min:35,name:"Near full mobility",meaning:"close to the standard, with specific restrictions to address"},
+ {min:22,name:"Partial mobility",meaning:"a solid working starting point, with several areas the work addresses directly"},
+ {min:12,name:"Foundational mobility",meaning:"the apparatus carries the early work and the mat builds from there"},
+ {min:0, name:"Supported entry",meaning:"beginning supported and spring-assisted, building each shape before it is loaded"}
 ];
+function joeBand(total){return JOE_BANDS.find(b=>total>=b.min)||JOE_BANDS[JOE_BANDS.length-1];}
+/* Movement index: asymptotic curve. Rises fast as restrictions clear, flattens near the top,
+   never reaches 100 — there is always another degree of range, control or ease available. */
+/* ---------------------------------------------------------------
+   MOVEMENT INDEX — anchored curve, not a percentile.
+   Edit the anchors here as real client data accumulates, then bump
+   the version so reports say which version produced a number.
+     floor   = raw score that sits at the bottom of the index
+     ceiling = raw score that sits at the top of the index
+     bottom  = index value at the floor
+     top     = index value at the ceiling (kept under 100 on purpose)
+     k       = curve shape; higher = steeper early gains
+   ------------------------------------------------------------- */
+const INDEX={
+  version:"1.0",
+  announce:false,          /* set true only when anchors change, so reports say so */
+  announceText:"",         /* optional custom wording; blank uses the default line */
+  k:1.2, bottom:0, top:99,
+  anchors:{
+    joe:{floor:0, ceiling:51},
+    ms: {floor:0, ceiling:15},
+    ref:{floor:0, ceiling:11},
+    fms:{floor:0, ceiling:21}
+  }
+};
+function movementIndex(total,max,key){
+  const a=(key&&INDEX.anchors[key])?INDEX.anchors[key]:{floor:0,ceiling:max};
+  const span=a.ceiling-a.floor;
+  if(!span) return INDEX.bottom;
+  let r=(total-a.floor)/span;
+  r=Math.max(0,Math.min(1,r));
+  const shaped=(1-Math.exp(-INDEX.k*r))/(1-Math.exp(-INDEX.k));
+  return Math.round(INDEX.bottom+(INDEX.top-INDEX.bottom)*shaped);
+}
+function indexTable(key,max){
+  const out=[];
+  for(let i=0;i<=max;i++) out.push(i+"→"+movementIndex(i,max,key));
+  return out.join("  ");
+}
+const JOE_OPTS=`<option value=""></option>
+ <option value="3">3 — full shape, clean and controlled</option>
+ <option value="2">2 — completes it, with compensation</option>
+ <option value="1">1 — approximates the shape only</option>
+ <option value="0">0 — unable or unwilling to attempt, or pain</option>`;
+/* Only used when a part is scored 0 — keeps "pain" language from firing on a
+   decline or a simple inability to attempt. */
+const JOE_REASON_OPTS=`<option value="">if 0 — reason</option>
+ <option value="unable">Unable to attempt</option>
+ <option value="declined">Declined</option>
+ <option value="pain">Pain</option>
+ <option value="na">Not appropriate</option>`;
 
-/* ---------------- data model ---------------- */
-let D = {};
+/* Reformer — 1/0 criteria unless noted. Max 11. */
+const REF=[
+ {group:"Footwork",items:[
+   {id:"fw1",q:"Heels together when required"},
+   {id:"fw2",q:"Knees together when required"},
+   {id:"fw3",q:"Toes curled appropriately when required"},
+   {id:"fw4",q:"Feet stay correctly placed on the crease/bar"}],
+  low:"the feet and legs aren't yet holding their organisation under spring load",
+  high:"the feet and legs hold their organisation under spring load"},
+ {group:"Hundred",items:[
+   {id:"h1",q:"Head and shoulders stay lifted for the full set"},
+   {id:"h2",q:"Legs stay straight"},
+   {id:"h3",q:"Heels stay together"}],
+  low:"the position isn't yet sustainable for the full set",
+  high:"the position holds for the full set"},
+ {group:"Stomach massage",items:[
+   {id:"sm",q:"Holds the position — toes on the bar, carriage in, shoulders over the knees"}],
+  note:"Hands down or hands up both acceptable. Holding the carriage is not.",
+  low:"the seated shape isn't yet held without assistance",
+  high:"the seated shape is held without assistance"},
+ {group:"Knee stretches",items:[
+   {id:"ks",q:"Hips stay organised — no dipping down, no moving forward of the knees"}],
+  low:"the hips aren't yet staying organised in the closed shape",
+  high:"the hips stay organised in the closed shape"},
+ {group:"Knee stretches — knees off",items:[
+   {id:"ko",q:"Knees off",type:"012"}],
+  low:"the knees-off position isn't yet available",
+  high:"the knees-off position is available and sustained"}
+];
+const REF_MAX=REF.reduce((t,g)=>t+g.items.reduce((s,i)=>s+(i.type==="012"?2:1),0),0);
+
+/* Deeper screen (optional) */
+const FMS=[
+ {name:"Deep squat",how:"Stick overhead, feet shoulder-width. Watch heels, knees, and stick drift."},
+ {name:"Step over a line",how:"Stick across the shoulders, step over a shin-high line and touch the heel down."},
+ {name:"Split-stance lunge on a line",how:"Feet on one line, stick vertical against head, upper back and tailbone."},
+ {name:"Two-hand back reach",how:"One fist over the shoulder, one up the back. Measure the gap. Both sides."},
+ {name:"Straight-leg raise lying down",how:"One straight leg rises while the other stays flat. Both sides."},
+ {name:"Body-as-one-piece push-up",how:"Push the whole body up as a single unit. Watch for the low back sagging."},
+ {name:"Opposite arm-and-leg reach on all fours",how:"Extend one arm and the opposite leg without tipping."}
+];
+const FMS_MAX=FMS.length*3;
+
+const PHOTOS=[
+ {id:"wallSidePhoto",at:"ms",q:"Photo 1 — side view, head to wall",how:"During the structural screen, before cueing. Tracks forward-head position, thoracic rounding, overall postural line, and the rib/pelvis relationship."},
+ {id:"proneExtensionFrontPhoto",at:"joe",q:"Photo 2 — front view, prone upper-back extension",how:"Before Joe's 10. Lying prone, hands under shoulders, lift the head and chest to a comfortable held endpoint. Tracks upper-back extension height and left/right evenness. Preferred checkpoint. Not scored."},
+ {id:"stomachMassageSidePhoto",at:"ref",q:"Photo 3 — side view, stomach massage",how:"During the reformer portion. Tracks spinal organisation, pelvic position, and ability to stay lifted."},
+ {id:"stomachMassageFrontPhoto",at:"ref",q:"Photo 4 — front view, stomach massage",how:"During the reformer portion. Tracks hip asymmetry, shoulder height, lateral shift, and centering."}
+];
+const PHOTO_PHASES=["initial","completion"];
+function blankPhotos(){const o={};PHOTOS.forEach(p=>o[p.id]="");return o;}
+
+/* ============ DATA ============ */
+let D={};
+function blankMS(){const o={};MS.forEach(m=>{o[m.id]=(m.type==="lr"||m.type==="lr3")?{l:"",r:"",note:""}:{v:"",note:""};});return o;}
+function blankJoe(){const o={};JOE.forEach(j=>{o[j.id]={};j.parts.forEach(p=>o[j.id][p.k]="");o[j.id].note="";});return o;}
+function blankRef(){const o={};REF.forEach(g=>g.items.forEach(i=>o[i.id]=""));return o;}
 function resetData(){
-  D = {schema:"therapilatics-client-v2",
+  D={schema:"therapilatics-client-v3",
     client:{name:"",first:"",referredBy:""},
-    consult:{date:"",duration:"",observed:"",weeks:8,sessions:16,begins:"",focus:"",
-      obs:Object.fromEntries(OBS.map(o=>[o.id,{ans:"",note:""}]))},
-    baseline:{date:"",hrRest:"",hrRec:"",notes:"",
+    initial:{date:"",age:"",sex:"",pain:"",painLoc:"",chief:"",duration:"",begins:"",addFocus:"",gripNA:"",
+      ms:blankMS(),joe:blankJoe(),ref:blankRef(),
+      strength:{units:"kg",device:"",dom:"",l1:"",l2:"",l3:"",r1:"",r2:"",r3:""},
+      photos:blankPhotos()},
+    foundation:{date:"",hrRest:"",hrRec:"",ms:blankMS(),joe:blankJoe(),ref:blankRef(),
       fms:FMS.map(()=>({score:"",note:""})),
-      retest:TP.map(()=>({score:"",note:""})),
-      tenpoint:TP.map(()=>({score:"",note:""})),
       priorities:[{finding:"",means:"",work:""},{finding:"",means:"",work:""},{finding:"",means:"",work:""}]},
-    completion:{date:"",sessions:16,weeks:8,fms:"",tp:"",hrRest:"",hrRec:"",fmsNote:"",tpNote:"",
+    completion:{date:"",sessions:"",weeks:"",freq:"",pain:"",painLoc:"",duration:"",gripNA:"",ms:blankMS(),joe:blankJoe(),ref:blankRef(),
+      photos:blankPhotos(),
+      msNote:"",joeNote:"",refNote:"",
+      strength:{units:"kg",device:"",dom:"",l1:"",l2:"",l3:"",r1:"",r2:"",r3:""},
       priorities:[{then:"",now:"",maintains:""},{then:"",now:"",maintains:""},{then:"",now:"",maintains:""}]}};
 }
 resetData();
+const PHASES=["initial","foundation","completion"];
+const SUF={initial:"",foundation:"2",completion:"3"};
 
-/* ---------------- build dynamic form parts ---------------- */
+/* ============ BUILD FORM ============ */
+function msHTML(sfx){
+  return MS.map(m=>{
+    let ctrl;
+    if(m.type==="yn") ctrl=`<select id="ms_${m.id}${sfx}" onchange="recalc()"><option value=""></option><option value="yes">Yes</option><option value="no">No</option></select>`;
+    else if(m.type==="three") ctrl=`<select id="ms_${m.id}${sfx}" onchange="recalc()"><option value=""></option>`+m.opts.map(o=>`<option value="${o[0]}">${o[1]}</option>`).join("")+`</select>`;
+    else if(m.type==="lr3"){
+      const opts=`<option value=""></option>`+m.opts.map(o=>`<option value="${o[0]}">${o[1]}</option>`).join("");
+      ctrl=`<span class="side">L</span><select id="ms_${m.id}_l${sfx}" onchange="recalc()">${opts}</select>
+        <span class="side">R</span><select id="ms_${m.id}_r${sfx}" onchange="recalc()">${opts}</select>`;
+    }
+    else ctrl=`<span class="side">L</span><select id="ms_${m.id}_l${sfx}" onchange="recalc()"><option value=""></option><option value="yes">Yes</option><option value="no">No</option></select>
+      <span class="side">R</span><select id="ms_${m.id}_r${sfx}" onchange="recalc()"><option value=""></option><option value="yes">Yes</option><option value="no">No</option></select>`;
+    return `<div class="item"><div class="q">${m.q}</div><div class="how">${m.how}</div>
+      <div class="ctrls">${ctrl}<input type="text" id="msn_${m.id}${sfx}" placeholder="Note (optional)"></div></div>`;
+  }).join("");
+}
+function joeHTML(sfx){
+  return JOE.map(j=>{
+    const parts=j.parts.map(p=>`<span class="side">${p.label}</span><select id="joe_${j.id}_${p.k}${sfx}" onchange="recalc()">${JOE_OPTS}</select><select id="joe_${j.id}_${p.k}_reason${sfx}" onchange="recalc()" title="Only matters if the score is 0" style="min-width:135px;display:none">${JOE_REASON_OPTS}</select>`).join(" ");
+    const sub=j.parts.length>1?`<div class="sub" id="joesub_${j.id}${sfx}">Subtotal: — / ${j.max}</div>`:"";
+    return `<div class="item"><div class="q">${j.name} <span style="color:var(--light);font-weight:400">· max ${j.max}</span></div>
+      <div class="how">${j.how}</div><div class="ctrls">${parts}</div>${sub}
+      <div class="ctrls" style="margin-top:6px"><input type="text" id="joen_${j.id}${sfx}" placeholder="Note (optional)"></div></div>`;
+  }).join("");
+}
+function refHTML(sfx){
+  return REF.map(g=>{
+    const items=g.items.map(i=>{
+      const ctrl=i.type==="012"
+        ? `<select id="ref_${i.id}${sfx}" onchange="recalc()"><option value=""></option><option value="0">0 — cannot lift</option><option value="1">1 — can lift</option><option value="2">2 — lift and maintain</option></select>`
+        : `<select id="ref_${i.id}${sfx}" onchange="recalc()"><option value=""></option><option value="1">1 — yes</option><option value="0">0 — no</option></select>`;
+      return `<div class="item"><div class="q">${i.q}</div><div class="ctrls">${ctrl}</div></div>`;
+    }).join("");
+    return `<div style="margin-bottom:10px"><div class="sub">${g.group}</div>${g.note?`<div class="how">${g.note}</div>`:""}${items}
+      <div class="sub" id="refsub_${g.group.replace(/[^a-z]/gi,"")}${sfx}"></div></div>`;
+  }).join("");
+}
+function priosHTML(kind){
+  if(kind==="foundation") return [1,2,3].map(n=>`<div class="prio"><h4>Priority ${n}</h4>
+    <div class="row"><div><label class="f">The finding</label><input type="text" id="fp_${n}_f"></div></div>
+    <div class="row"><div><label class="f">What this means</label><textarea id="fp_${n}_m"></textarea></div></div>
+    <div class="row"><div><label class="f">How the work addresses it</label><textarea id="fp_${n}_w"></textarea></div></div></div>`).join("");
+  return [1,2,3].map(n=>`<div class="prio"><h4>Priority ${n}</h4>
+    <div class="row"><div><label class="f">Then</label><input type="text" id="xp_${n}_t"></div></div>
+    <div class="row"><div><label class="f">Now</label><input type="text" id="xp_${n}_n"></div></div>
+    <div class="row"><div><label class="f">What maintains it</label><input type="text" id="xp_${n}_m"></div></div></div>`).join("");
+}
 function buildForm(){
-  document.getElementById("obsList").innerHTML = OBS.map(o=>`
-    <div class="obs">
-      <div class="q">${o.q}</div>
-      <div class="how">${o.how}</div>
-      <div class="ctrls">
-        <select id="obs_${o.id}"><option value=""></option><option value="yes">Yes</option><option value="no">No</option></select>
-        <input type="text" id="obsn_${o.id}" placeholder="Note (optional — e.g. which side)">
-      </div>
-    </div>`).join("");
-  document.getElementById("fmsList").innerHTML = FMS.map((t,i)=>`
-    <div class="test">
-      <div class="q">${i+1}. ${t.name}</div>
-      <div class="how">${t.how}</div>
-      <div class="ctrls" style="display:flex;gap:10px;flex-wrap:wrap">
-        <select id="fms_${i}" style="width:auto;min-width:230px">${SCORE_OPTS}</select>
-        <input type="text" id="fmsn_${i}" placeholder="Note (optional)" style="flex:1;min-width:160px">
-      </div>
-    </div>`).join("");
-  document.getElementById("tpList").innerHTML = TP.map((t,i)=>`
-    <div class="test">
-      <div class="q">${i+1}. ${t.name} <span style="color:var(--light);font-weight:400">· out of ${t.max}</span></div>
-      <div class="how">${t.how}</div>
-      <div class="ctrls" style="display:flex;gap:10px;flex-wrap:wrap">
-        <input type="number" id="tp_${i}" min="0" max="${t.max}" placeholder="0–${t.max}" style="width:90px">
-        <input type="text" id="tpn_${i}" placeholder="Note (optional)" style="flex:1;min-width:160px">
-      </div>
-    </div>`).join("");
-  document.getElementById("tprList").innerHTML = TP.map((t,i)=>`
-    <div class="test">
-      <div class="q">${i+1}. ${t.name} <span style="color:var(--light);font-weight:400">· out of ${t.max}</span></div>
-      <div class="ctrls" style="display:flex;gap:10px;flex-wrap:wrap">
-        <input type="number" id="tpr_${i}" min="0" max="${t.max}" placeholder="0–${t.max}" style="width:90px">
-        <input type="text" id="tprn_${i}" placeholder="Note (optional)" style="flex:1;min-width:160px">
-      </div>
-    </div>`).join("");
-  document.getElementById("b_prios").innerHTML = [1,2,3].map(n=>`
-    <div class="prio"><h4>Priority ${n}</h4>
-      <div class="row"><div><label class="f">The finding (plain language)</label><input type="text" id="bp_${n}_f"></div></div>
-      <div class="row"><div><label class="f">What this means for this body</label><textarea id="bp_${n}_m"></textarea></div></div>
-      <div class="row"><div><label class="f">How the work addresses it</label><textarea id="bp_${n}_w"></textarea></div></div>
-    </div>`).join("");
-  document.getElementById("x_prios").innerHTML = [1,2,3].map(n=>`
-    <div class="prio"><h4>Priority ${n}</h4>
-      <div class="row"><div><label class="f">Then — what the baseline showed</label><input type="text" id="xp_${n}_t"></div></div>
-      <div class="row"><div><label class="f">Now — what reassessment shows</label><input type="text" id="xp_${n}_n"></div></div>
-      <div class="row"><div><label class="f">What weekly maintenance holds</label><input type="text" id="xp_${n}_m"></div></div>
-    </div>`).join("");
-  document.querySelectorAll("#fmsList select, #tpList input[type=number], #tprList input[type=number]").forEach(el=>el.addEventListener("input",totals));
-}
-function totals(){
-  let f=0, any=false;
-  FMS.forEach((_,i)=>{const v=document.getElementById("fms_"+i).value; if(v!==""){f+=+v;any=true;}});
-  document.getElementById("fmsTotal").textContent="Screen total: "+(any?f:"—")+" / 21";
-  let t=0, anyT=false;
-  TP.forEach((_,i)=>{const v=document.getElementById("tp_"+i).value; if(v!==""){t+=+v;anyT=true;}});
-  document.getElementById("tpTotal").textContent="Benchmark total: "+(anyT?t:"—")+" / 51";
-  let rt=0, anyR=false;
-  TP.forEach((_,i)=>{const v=document.getElementById("tpr_"+i).value; if(v!==""){rt+=+v;anyR=true;}});
-  document.getElementById("tprTotal").textContent="Retest total: "+(anyR?rt:"—")+" / 51";
+  document.getElementById("msList").innerHTML=msHTML("");
+  document.getElementById("msList2").innerHTML=msHTML("2");
+  document.getElementById("msList3").innerHTML=msHTML("3");
+  document.getElementById("joeList").innerHTML=joeHTML("");
+  document.getElementById("joeList2").innerHTML=joeHTML("2");
+  document.getElementById("joeList3").innerHTML=joeHTML("3");
+  document.getElementById("refList").innerHTML=refHTML("");
+  document.getElementById("refList2").innerHTML=refHTML("2");
+  document.getElementById("refList3").innerHTML=refHTML("3");
+  document.getElementById("fmsList").innerHTML=FMS.map((t,i)=>`
+    <div class="item"><div class="q">${i+1}. ${t.name}</div><div class="how">${t.how}</div>
+    <div class="ctrls"><select id="fms_${i}" onchange="recalc()">${JOE_OPTS}</select>
+    <input type="text" id="fmsn_${i}" placeholder="Note (optional)"></div></div>`).join("");
+  PHOTO_PHASES.forEach(ph=>{
+    const sfx=SUF[ph];
+    ["ms","joe","ref"].forEach(sec=>{
+      const host=document.getElementById(`photo_${sec}${sfx}`);
+      if(!host) return;
+      host.innerHTML=PHOTOS.filter(p=>p.at===sec).map(p=>`
+        <div class="photo"><div class="q">${p.q}${p.id==="proneExtensionFrontPhoto"?' <span style="color:var(--teal-dark)">— preferred</span>':""}</div><div class="how">${p.how}</div>
+          <div class="ctrls">
+            <label class="btn" style="padding:8px 14px;border:1px solid var(--rule);cursor:pointer;font-family:'Barlow Condensed',sans-serif;letter-spacing:.08em;text-transform:uppercase;font-size:13px">
+              Take / choose photo<input type="file" accept="image/*" capture="environment" style="display:none" onchange="pickPhoto(event,'${p.id}','${ph}')"></label>
+            <button type="button" onclick="clearPhoto('${p.id}','${ph}')" style="padding:8px 14px;border:1px solid var(--rule);background:#fff;cursor:pointer;font-family:'Barlow Condensed',sans-serif;letter-spacing:.08em;text-transform:uppercase;font-size:13px">Remove</button>
+          </div>
+          <div class="fname" id="fn_${p.id}${sfx}"></div><div id="pv_${p.id}${sfx}"></div></div>`).join("");
+    });
+  });
+  document.getElementById("f_prios").innerHTML=priosHTML("foundation");
+  document.getElementById("x_prios").innerHTML=priosHTML("completion");
 }
 
-/* ---------------- bind form <-> data ---------------- */
-const map=[["c_name","client.name"],["c_first","client.first"],["c_ref","client.referredBy"],
-  ["k_date","consult.date"],["k_dur","consult.duration"],["k_obs","consult.observed"],
-  ["k_weeks","consult.weeks"],["k_sess","consult.sessions"],["k_begins","consult.begins"],["k_focus","consult.focus"],
-  ["b_date","baseline.date"],["b_hr_rest","baseline.hrRest"],["b_hr_rec","baseline.hrRec"],["b_notes","baseline.notes"],
-  ["x_date","completion.date"],["x_sess","completion.sessions"],["x_weeks","completion.weeks"],
-  ["x_fms","completion.fms"],["x_tp","completion.tp"],["x_hr_rest","completion.hrRest"],["x_hr_rec","completion.hrRec"],
-  ["x_fms_note","completion.fmsNote"],["x_tp_note","completion.tpNote"]];
-function getPath(o,p){return p.split(".").reduce((a,k)=>a&&a[k],o);}
-function setPath(o,p,v){const ks=p.split(".");ks.slice(0,-1).reduce((a,k)=>a[k],o)[ks.at(-1)]=v;}
+/* ============ PHOTOS ============ */
+function slug(s){return (s||"client").trim().toLowerCase().replace(/[^a-z0-9]+/g,"_").replace(/^_|_$/g,"");}
+function pickPhoto(ev,id,ph){
+  ph=ph||"initial";
+  const sfx=SUF[ph];
+  const f=ev.target.files[0]; if(!f) return;
+  const ext=(f.name.split(".").pop()||"jpg").toLowerCase();
+  const dateField=(ph==="completion")?"x_date":"k_date";
+  const date=(v(dateField)||new Date().toISOString().slice(0,10));
+  const name=`${slug(D.client.name||v("c_name"))}_${id.replace(/Photo$/,"")}_${ph}_${date}.${ext}`;
+  D[ph].photos[id]=name;
+  const url=URL.createObjectURL(f);
+  /* Actually save a copy under the constructed filename — a preview URL alone
+     is not a file you possess, and the JSON claims one exists. */
+  const dl=document.createElement("a");
+  dl.href=url; dl.download=name;
+  document.body.appendChild(dl); dl.click(); document.body.removeChild(dl);
+  document.getElementById("fn_"+id+sfx).textContent="Saved as: "+name+" — check your downloads/Files app and keep it with the client record.";
+  document.getElementById("pv_"+id+sfx).innerHTML=`<img src="${url}" alt="">`;
+  ev.target.value="";
+}
+function clearPhoto(id,ph){
+  ph=ph||"initial";
+  const sfx=SUF[ph];
+  D[ph].photos[id]="";
+  const fn=document.getElementById("fn_"+id+sfx), pv=document.getElementById("pv_"+id+sfx);
+  if(fn) fn.textContent="";
+  if(pv) pv.innerHTML="";
+}
+
+/* ============ COLLECT / BIND ============ */
 function el(id){return document.getElementById(id);}
+function v(id){const e=el(id);return e?e.value:"";}
+function collectPhase(ph){
+  const sfx=SUF[ph], o=D[ph];
+  MS.forEach(m=>{
+    if(m.type==="lr"||m.type==="lr3") o.ms[m.id]={l:v(`ms_${m.id}_l${sfx}`),r:v(`ms_${m.id}_r${sfx}`),note:v(`msn_${m.id}${sfx}`)};
+    else o.ms[m.id]={v:v(`ms_${m.id}${sfx}`),note:v(`msn_${m.id}${sfx}`)};
+  });
+  JOE.forEach(j=>{const rec={};j.parts.forEach(p=>{rec[p.k]=v(`joe_${j.id}_${p.k}${sfx}`);rec[p.k+"_reason"]=v(`joe_${j.id}_${p.k}_reason${sfx}`);});rec.note=v(`joen_${j.id}${sfx}`);o.joe[j.id]=rec;});
+  REF.forEach(g=>g.items.forEach(i=>o.ref[i.id]=v(`ref_${i.id}${sfx}`)));
+}
 function collect(){
-  map.forEach(([id,p])=>setPath(D,p,el(id).value));
-  OBS.forEach(o=>{D.consult.obs[o.id]={ans:el("obs_"+o.id).value,note:el("obsn_"+o.id).value};});
-  FMS.forEach((_,i)=>{D.baseline.fms[i]={score:el("fms_"+i).value,note:el("fmsn_"+i).value};});
-  TP.forEach((_,i)=>{D.baseline.retest[i]={score:el("tpr_"+i).value,note:el("tprn_"+i).value};});
-  TP.forEach((_,i)=>{D.baseline.tenpoint[i]={score:el("tp_"+i).value,note:el("tpn_"+i).value};});
+  D.client={name:v("c_name"),first:v("c_first"),referredBy:v("c_ref")};
+  Object.assign(D.initial,{date:v("k_date"),age:v("k_age"),sex:v("k_sex"),pain:v("k_pain"),painLoc:v("k_painloc"),chief:v("k_chief"),
+    duration:v("k_dur"),begins:v("k_begins"),freq:v("k_freq"),addFocus:v("k_addfocus"),gripNA:v("st_na"),
+    strength:{units:v("st_units")||"kg",device:v("st_device"),dom:v("st_dom"),
+      l1:v("st_l1"),l2:v("st_l2"),l3:v("st_l3"),r1:v("st_r1"),r2:v("st_r2"),r3:v("st_r3")}});
+  Object.assign(D.foundation,{date:v("f_date"),hrRest:v("f_hrRest"),hrRec:v("f_hrRec")});
+  Object.assign(D.completion,{date:v("x_date"),sessions:v("x_sess"),weeks:v("x_weeks"),freq:v("x_freq"),
+    pain:v("x_pain"),painLoc:v("x_painloc"),duration:v("x_dur"),gripNA:v("xst_na"),
+    msNote:v("x_msNote"),joeNote:v("x_joeNote"),refNote:v("x_refNote"),
+    strength:{units:v("xst_units")||"kg",device:v("xst_device"),dom:v("xst_dom"),
+      l1:v("xst_l1"),l2:v("xst_l2"),l3:v("xst_l3"),r1:v("xst_r1"),r2:v("xst_r2"),r3:v("xst_r3")}});
+  PHASES.forEach(collectPhase);
+  FMS.forEach((_,i)=>D.foundation.fms[i]={score:v("fms_"+i),note:v("fmsn_"+i)});
   [1,2,3].forEach(n=>{
-    D.baseline.priorities[n-1]={finding:el("bp_"+n+"_f").value,means:el("bp_"+n+"_m").value,work:el("bp_"+n+"_w").value};
-    D.completion.priorities[n-1]={then:el("xp_"+n+"_t").value,now:el("xp_"+n+"_n").value,maintains:el("xp_"+n+"_m").value};
+    D.foundation.priorities[n-1]={finding:v(`fp_${n}_f`),means:v(`fp_${n}_m`),work:v(`fp_${n}_w`)};
+    D.completion.priorities[n-1]={then:v(`xp_${n}_t`),now:v(`xp_${n}_n`),maintains:v(`xp_${n}_m`)};
   });
 }
+function set(id,val){const e=el(id);if(e)e.value=val??"";}
 function bind(){
-  map.forEach(([id,p])=>{el(id).value=getPath(D,p)??"";});
-  OBS.forEach(o=>{const v=D.consult.obs[o.id]||{};el("obs_"+o.id).value=v.ans??"";el("obsn_"+o.id).value=v.note??"";});
-  FMS.forEach((_,i)=>{const v=D.baseline.fms[i]||{};el("fms_"+i).value=v.score??"";el("fmsn_"+i).value=v.note??"";});
-  TP.forEach((_,i)=>{const v=(D.baseline.retest||[])[i]||{};el("tpr_"+i).value=v.score??"";el("tprn_"+i).value=v.note??"";});
-  TP.forEach((_,i)=>{const v=D.baseline.tenpoint[i]||{};el("tp_"+i).value=v.score??"";el("tpn_"+i).value=v.note??"";});
-  [1,2,3].forEach(n=>{
-    const b=D.baseline.priorities[n-1]||{}, x=D.completion.priorities[n-1]||{};
-    el("bp_"+n+"_f").value=b.finding??""; el("bp_"+n+"_m").value=b.means??""; el("bp_"+n+"_w").value=b.work??"";
-    el("xp_"+n+"_t").value=x.then??""; el("xp_"+n+"_n").value=x.now??""; el("xp_"+n+"_m").value=x.maintains??"";
+  set("c_name",D.client.name);set("c_first",D.client.first);set("c_ref",D.client.referredBy);
+  const i=D.initial;
+  set("k_date",i.date);set("k_age",i.age);set("k_sex",i.sex);set("k_pain",i.pain);set("k_painloc",i.painLoc);set("k_chief",i.chief);
+  set("k_dur",i.duration);set("k_begins",i.begins);set("k_freq",i.freq);set("k_addfocus",i.addFocus);set("st_na",i.gripNA);
+  set("st_units",i.strength.units||"kg");set("st_device",i.strength.device);set("st_dom",i.strength.dom);
+  set("st_l1",i.strength.l1);set("st_l2",i.strength.l2);set("st_l3",i.strength.l3);
+  set("st_r1",i.strength.r1);set("st_r2",i.strength.r2);set("st_r3",i.strength.r3);
+  set("f_date",D.foundation.date);set("f_hrRest",D.foundation.hrRest);set("f_hrRec",D.foundation.hrRec);
+  set("x_date",D.completion.date);set("x_sess",D.completion.sessions);set("x_weeks",D.completion.weeks);set("x_freq",D.completion.freq);
+  set("x_pain",D.completion.pain);set("x_painloc",D.completion.painLoc);set("x_dur",D.completion.duration);set("xst_na",D.completion.gripNA);
+  set("x_msNote",D.completion.msNote);set("x_joeNote",D.completion.joeNote);set("x_refNote",D.completion.refNote);
+  set("xst_units",D.completion.strength.units||"kg");set("xst_device",D.completion.strength.device);set("xst_dom",D.completion.strength.dom);
+  set("xst_l1",D.completion.strength.l1);set("xst_l2",D.completion.strength.l2);set("xst_l3",D.completion.strength.l3);
+  set("xst_r1",D.completion.strength.r1);set("xst_r2",D.completion.strength.r2);set("xst_r3",D.completion.strength.r3);
+  PHASES.forEach(ph=>{
+    const sfx=SUF[ph],o=D[ph];
+    MS.forEach(m=>{const r=o.ms[m.id]||{};
+      if(m.type==="lr"||m.type==="lr3"){set(`ms_${m.id}_l${sfx}`,r.l);set(`ms_${m.id}_r${sfx}`,r.r);}
+      else set(`ms_${m.id}${sfx}`,r.v);
+      set(`msn_${m.id}${sfx}`,r.note);});
+    JOE.forEach(j=>{const r=o.joe[j.id]||{};j.parts.forEach(p=>{set(`joe_${j.id}_${p.k}${sfx}`,r[p.k]);set(`joe_${j.id}_${p.k}_reason${sfx}`,r[p.k+"_reason"]);});set(`joen_${j.id}${sfx}`,r.note);});
+    REF.forEach(g=>g.items.forEach(it=>set(`ref_${it.id}${sfx}`,o.ref[it.id])));
   });
-  totals();
+  FMS.forEach((_,n)=>{const r=D.foundation.fms[n]||{};set("fms_"+n,r.score);set("fmsn_"+n,r.note);});
+  [1,2,3].forEach(n=>{
+    const f=D.foundation.priorities[n-1]||{},x=D.completion.priorities[n-1]||{};
+    set(`fp_${n}_f`,f.finding);set(`fp_${n}_m`,f.means);set(`fp_${n}_w`,f.work);
+    set(`xp_${n}_t`,x.then);set(`xp_${n}_n`,x.now);set(`xp_${n}_m`,x.maintains);
+  });
+  PHOTO_PHASES.forEach(ph=>{const sfx=SUF[ph];
+    PHOTOS.forEach(p=>{const n=(D[ph].photos||{})[p.id];
+      const fn=el("fn_"+p.id+sfx), pv=el("pv_"+p.id+sfx);
+      if(fn) fn.textContent=n?("Saved as: "+n):"";
+      if(pv) pv.innerHTML="";});});
 }
 
-/* ---------------- save / load (accepts v1 and v2 files) ---------------- */
+/* ============ SCORING ============ */
+/* Blank means incomplete, never zero. These render a measure's index only
+   when every item in it was entered — otherwise "Incomplete", so an
+   unfinished assessment can never be mistaken for a low score. */
+function idxCell(score,complete,max,key,emptyLabel){
+  if(!score.any) return emptyLabel;
+  if(!complete) return "Incomplete";
+  return String(movementIndex(score.total,max,key));
+}
+function deltaCell(now,nowC,base,baseC,max,key){
+  if(!base.any) return "N/A";
+  if(!now.any) return "—";
+  if(!nowC||!baseC) return "—";
+  const g=movementIndex(now.total,max,key)-movementIndex(base.total,max,key);
+  return (g>0?"+":"")+g;
+}
+function msScore(o){
+  let t=0,any=false;
+  MS.forEach(m=>{const r=o.ms[m.id]||{};
+    if(m.type==="lr"){["l","r"].forEach(k=>{if(r[k]){any=true;if(r[k]==="yes")t+=1;}});}
+    else if(m.type==="lr3"){["l","r"].forEach(k=>{if(r[k]){any=true;const o2=m.opts.find(x=>x[0]===r[k]);if(o2)t+=o2[2];}});}
+    else if(m.type==="three"){if(r.v){any=true;const o2=m.opts.find(x=>x[0]===r.v);if(o2)t+=o2[2];}}
+    else {if(r.v){any=true;if(r.v==="yes")t+=1;}}
+  });
+  return {total:t,any:any};
+}
+function joeSub(o,j){
+  let t=0,any=false;
+  j.parts.forEach(p=>{const s=(o.joe[j.id]||{})[p.k];if(s!==""&&s!==undefined){any=true;t+=+s;}});
+  return {total:t,any:any};
+}
+function joeScore(o){
+  let t=0,any=false;
+  JOE.forEach(j=>{const r=joeSub(o,j);if(r.any){any=true;t+=r.total;}});
+  return {total:t,any:any};
+}
+/* Every part must carry a value — including an explicit 0 — before the Joe's
+   total is treated as final. A blank part is a gap, not a zero, so it must
+   never silently count as zero in the index or the tier recommendation.
+   A 0 also needs its reason, so pain language can't fire on a decline and
+   the software rule matches the booklet rule. */
+function joeComplete(o){
+  return JOE.every(j=>j.parts.every(p=>{
+    const rec=o.joe[j.id]||{};
+    const s=rec[p.k];
+    if(s===""||s===undefined) return false;
+    if(s==="0"&&!rec[p.k+"_reason"]) return false;
+    return true;
+  }));
+}
+/* Blank means incomplete, never zero. An index is shown for a measure only
+   when every item in it has been entered — otherwise the number would be an
+   unfinished assessment dressed up as a low score. Unlike Joe's, these don't
+   drive the recommendation, so an incomplete one suppresses its own index
+   rather than blocking the whole report. */
+function msComplete(o){
+  return MS.every(m=>{
+    const r=o.ms[m.id]||{};
+    const keys=(m.type==="lr"||m.type==="lr3")?["l","r"]:["v"];
+    return keys.every(k=>r[k]!==""&&r[k]!==undefined);
+  });
+}
+function refComplete(o){
+  return REF.every(g=>g.items.every(i=>{const s=o.ref[i.id];return s!==""&&s!==undefined;}));
+}
+function fmsComplete(){
+  return D.foundation.fms.every(f=>f.score!==""&&f.score!==undefined);
+}
+function refScore(o){
+  let t=0,any=false;
+  REF.forEach(g=>g.items.forEach(i=>{const s=o.ref[i.id];if(s!==""&&s!==undefined){any=true;t+=+s;}}));
+  return {total:t,any:any};
+}
+function refGroupScore(o,g){
+  let t=0,any=false,max=0;
+  g.items.forEach(i=>{max+=(i.type==="012"?2:1);const s=o.ref[i.id];if(s!==""&&s!==undefined){any=true;t+=+s;}});
+  return {total:t,any:any,max:max};
+}
+function fmsScore(){
+  let t=0,any=false;
+  D.foundation.fms.forEach(f=>{if(f.score!==""&&f.score!==undefined){any=true;t+=+f.score;}});
+  return {total:t,any:any};
+}
+
+/* Grip norms — ranges supplied with consumer electronic hand dynamometers (Camry-type,
+   same class as the Handeful unit). Values in kg: [ageMin, ageMax, weakBelow, strongAbove] */
+const GRIP_NORMS={
+ M:[[10,11,12.6,22.4],[12,13,19.4,31.2],[14,15,28.5,44.3],[16,17,32.6,52.4],[18,19,35.7,55.5],
+    [20,24,36.8,56.6],[25,29,37.7,57.5],[30,34,36.0,55.8],[35,39,35.8,55.6],[40,44,35.5,55.3],
+    [45,49,34.7,54.5],[50,54,32.9,50.7],[55,59,30.7,48.5],[60,64,30.2,48.0],[65,69,28.2,44.0],
+    [70,99,21.3,35.1]],
+ F:[[10,11,11.8,21.6],[12,13,14.6,24.4],[14,15,15.5,27.3],[16,17,17.2,29.0],[18,19,19.2,31.0],
+    [20,24,21.5,35.3],[25,29,25.6,41.4],[30,34,21.5,35.3],[35,39,20.3,34.1],[40,44,18.9,32.7],
+    [45,49,18.6,32.4],[50,54,18.1,31.9],[55,59,17.7,31.5],[60,64,17.2,31.0],[65,69,15.4,27.2],
+    [70,99,14.7,24.5]]
+};
+function gripNorm(age,sex){
+  const a=parseInt(age,10);
+  if(isNaN(a)||!sex||!GRIP_NORMS[sex]) return null;
+  const row=GRIP_NORMS[sex].find(r=>a>=r[0]&&a<=r[1]);
+  if(!row) return null;
+  return {weakBelow:row[2],strongAbove:row[3],band:row[0]+"–"+row[1]};
+}
+function gripRating(value,units,age,sex){
+  const n=gripNorm(age,sex);
+  if(n===null||value===null) return null;
+  const kg=(units==="lb")?value/2.20462:value;
+  if(kg<n.weakBelow) return {word:"below the typical range",n:n};
+  if(kg>n.strongAbove) return {word:"above the typical range",n:n};
+  return {word:"within the typical range",n:n};
+}
+function bestOfThree(side,o){
+  const s=(o||D.initial).strength;
+  if(!s) return null;
+  const a=(side==="l"?[s.l1,s.l2,s.l3]:[s.r1,s.r2,s.r3]).filter(x=>x!==""&&x!==undefined&&x!==null).map(Number).filter(n=>!isNaN(n));
+  return a.length?Math.max(...a):null;
+}
+function gripSummary(o){
+  o=o||D.initial;
+  const s=o.strength; if(!s) return null;
+  const l=bestOfThree("l",o), r=bestOfThree("r",o), u=s.units||"kg";
+  if(l===null&&r===null) return null;
+  let diff=null, weaker=null, pct=null;
+  if(l!==null&&r!==null){
+    diff=Math.abs(l-r); const hi=Math.max(l,r);
+    pct=hi>0?Math.round((diff/hi)*100):0;
+    weaker=l<r?"left":(r<l?"right":null);
+  }
+  return {l,r,units:u,dom:s.dom,diff,pct,weaker};
+}
+/* Below Maintenance, program length follows Joseph Pilates' own benchmark —
+   10 sessions to feel it, 20 for others to notice, 30 for a rebuilt body —
+   converted to weeks by however often the client can actually get in.
+   Tier is set by the movement index, not raw points — the index is the
+   forgiving, front-loaded number by design, so the program length should
+   track what the client actually sees, not the harsher raw percentage. */
+function tierFor(joeTotal,freq){
+  const idx=movementIndex(joeTotal,JOE_MAX,'joe');
+  if(idx>=90) return {idx,tier:"Performance",weeks:null,sessions:null,freq:null,
+    rec:"Pilates as needed rather than as a program — 30 to 60 minute working sessions, as often as suits you, up to a few times a week or none at all."};
+  if(idx>=85) return {idx,tier:"Maintenance",weeks:null,sessions:null,freq:1,
+    rec:"Weekly maintenance — 45 minutes, one held slot, same day and time each week."};
+  let sessions,milestone;
+  if(idx>=75){sessions=10;milestone="you should genuinely feel a difference";}
+  else if(idx>=60){sessions=20;milestone="others should start to notice";}
+  else {sessions=30;milestone="this is the full rebuild toward a new working body";}
+  const f=(freq===3||freq==="3")?3:2;
+  const weeks=Math.ceil(sessions/f);
+  return {idx,tier:"Continued work",weeks,sessions,freq:f,
+    rec:`A ${weeks}-week program of ${sessions} private sessions at ${f}x/week, then reassessment — at that pace, ${milestone}.`};
+}
+/* Shared strength/mobility mismatch classifier — feeds both the internal
+   assessor labels and the client-facing "what today told us" line, so the
+   two can never drift out of sync. */
+/* Grip may only influence the recommendation when it satisfies its own
+   protocol: all three attempts on both hands, and not marked not-completed.
+   One attempt per hand is a reading, not the protocol — it can still be shown
+   on the report, but it must not override a movement index. */
+function gripRoutable(o){
+  o=o||D.initial;
+  if((o.gripNA||"")==="na") return false;
+  const s=o.strength; if(!s) return false;
+  return ["l1","l2","l3","r1","r2","r3"].every(k=>{
+    const val=s[k];
+    return val!==""&&val!==undefined&&val!==null&&!isNaN(Number(val));
+  });
+}
+function gripStrongLevel(o){
+  o=o||D.initial;
+  if(!gripRoutable(o)) return null;
+  const gg=gripSummary(o);
+  if(!gg) return null;
+  const rr=gripRating(gg.r,gg.units,D.initial.age,D.initial.sex),
+        rl=gripRating(gg.l,gg.units,D.initial.age,D.initial.sex);
+  const words=[rr,rl].filter(Boolean).map(x=>x.word);
+  if(!words.length) return null;
+  if(words.some(w=>w==="above the typical range")) return "high";
+  if(words.every(w=>w==="below the typical range")) return "low";
+  return "typical";
+}
+function profileKind(idx,gripLevel,lowPain){
+  if(idx>=85&&gripLevel==="high"&&lowPain) return "power";
+  if(idx>=85&&gripLevel==="low"&&lowPain) return "mobilityGrip";
+  if(idx>=85&&lowPain) return "mobilityForward";
+  if(idx<75&&gripLevel==="high") return "strengthDominant";
+  return null;
+}
+const PROFILE_INTERNAL={
+  power:{label:"Power–mobility profile",text:"strong grip and a high movement index with no significant pain — the gymnast / martial-arts build. Performance work or as-needed sessions fit far better than a 3×/week program."},
+  mobilityGrip:{label:"Mobility-dominant, grip-limited profile",text:"a high movement index with grip below the typical range for age and sex. Flexible and well-coordinated through the benchmarks, but hand/forearm strength lags behind — worth naming to the client, since it won't show up in how capable they feel moving, only in what they can grip and carry."},
+  mobilityForward:{label:"Mobility-forward profile",text:"a high movement index, no significant pain, grip within the typical range. Unlikely to want a 3×/week program — as-needed or performance sessions fit better."},
+  strengthDominant:{label:"Strength-dominant, mobility-limited profile",text:"grip above typical while the movement index sits low. Strong body, restricted range — the profile that gains the most from this work, and the one most likely to underestimate how much there is to do."}
+};
+/* Client-facing versions — same classification, written so a client reads
+   it and thinks "yes, that's me," not so they can decode the internal label. */
+const PROFILE_CLIENT={
+  power:"Today's assessment showed real strength and real mobility working together — not everyone has both, and you clearly do. Your body already knows how to move well, and it can hold its own under load too.",
+  mobilityGrip:"Today's assessment showed a body that moves with real ease — flexible, coordinated, comfortable through a wide range of positions. Grip and carrying strength is the one area with more room to build, which is common in people whose bodies have favored movement over load.",
+  mobilityForward:"Today's assessment showed a body that's already moving well, with good control and no significant pain standing in the way.",
+  strengthDominant:"Today's assessment showed real strength — grip like yours doesn't happen by accident. The opportunity now is unlocking that strength through a fuller range of motion, so more of the body gets to use it."
+};
+const PROFILE_CLIENT_DEFAULT="Today's assessment gave us a clear, honest starting point — exactly what a first session is for. Everything from here builds from what we saw today, one measurable step at a time.";
+/* The mobility-dominant, grip-limited profile already requires both hands
+   below the age/sex "typical" floor — that's baked into the classification.
+   Degree beyond that decides 10 vs 20 sessions: a meaningfully wide L/R gap,
+   or a hand that's more than 10% under the weak-range floor itself, calls
+   for the fuller pass. Otherwise it's the lighter, 10-session correction. */
+function gripProgramSessions(o){
+  o=o||D.initial;
+  if(!gripRoutable(o)) return null;
+  const g=gripSummary(o); if(!g||g.l===null||g.r===null) return null;
+  const n=gripNorm(D.initial.age,D.initial.sex); if(!n) return null;
+  const toKg=v=>(g.units==="lb")?v/2.20462:v;
+  const worstRatio=Math.min(toKg(g.l),toKg(g.r))/n.weakBelow;
+  const asym=g.pct;
+  if(worstRatio<0.90||(asym!==null&&asym>20)) return 20;
+  return 10;
+}
+/* Mobility-dominant, grip-limited clients skip Maintenance/Performance even
+   at a high movement index — the movement side is already there, so the
+   program targets the actual gap (grip/carrying strength) instead.
+   IMPORTANT: o is the phase-specific record (D.initial or D.completion) that
+   grip/pain/duration are read from. Age and sex don't change, so those still
+   always come from D.initial — but strength, pain, and duration are read
+   fresh per phase, so Completion routes off the retest and current pain, not
+   the intake numbers from months earlier. Calls that omit o default to
+   D.initial, which keeps every pre-existing call site (Foundation's summary
+   panel, which has no strength/pain/duration fields of its own) behaving
+   exactly as before. */
+function programFor(o,joeTotal,freq){
+  o=o||D.initial;
+  const idx=movementIndex(joeTotal,JOE_MAX,'joe');
+  const gripLevel=gripStrongLevel(o);
+  const painN=parseFloat(o.pain);
+  const lowPain=(isNaN(painN)||painN<3);
+  const kind=profileKind(idx,gripLevel,lowPain);
+  if(kind==="mobilityGrip"){
+    const sessions=gripProgramSessions(o);
+    if(sessions!==null){
+      const f=(freq===3||freq==="3")?3:2;
+      const weeks=Math.ceil(sessions/f);
+      return {idx,tier:"Continued work",weeks,sessions,freq:f,gripFocus:true,
+        rec:`A ${weeks}-week program of ${sessions} private sessions at ${f}x/week, focused on grip and carrying strength — the movement side is already there, so this closes the specific gap — then reassessment.`};
+    }
+  }
+  /* A high index doesn't cancel out real, current pain — someone can move
+     well on the benchmarks and still be in an acute or chronic pain state.
+     When pain is reported at 3+, duration (not the index) sets the program:
+     acute → 10, sub-acute → 20, transitioning toward chronic → 30 with a
+     repeat evaluation built in, and over a year → open-ended, since pain
+     held that long doesn't resolve on a fixed session count. */
+  if(idx>=85&&!lowPain){
+    const pp=painProgram(freq,o);
+    if(pp) return Object.assign({idx},pp);
+  }
+  return tierFor(joeTotal,freq);
+}
+function painProgram(freq,o){
+  o=o||D.initial;
+  const dur=o.duration||"";
+  const f=(freq===3||freq==="3")?3:2;
+  if(dur==="Under 6 weeks"){
+    const weeks=Math.ceil(10/f);
+    return {tier:"Continued work",sessions:10,weeks,freq:f,painDriven:true,
+      rec:`A ${weeks}-week program of 10 private sessions at ${f}x/week — acute pain calls for a focused early pass, then reassessment.`};
+  }
+  if(dur==="6 weeks – 3 months"){
+    const weeks=Math.ceil(20/f);
+    return {tier:"Continued work",sessions:20,weeks,freq:f,painDriven:true,
+      rec:`A ${weeks}-week program of 20 private sessions at ${f}x/week — sub-acute pain, then reassessment.`};
+  }
+  if(dur==="3 months – 1 year"){
+    const weeks=Math.ceil(30/f);
+    return {tier:"Continued work",sessions:30,weeks,freq:f,painDriven:true,
+      rec:`A ${weeks}-week program of 30 private sessions at ${f}x/week — this is transitioning toward chronic, so a repeat evaluation partway through is built in to track what's actually changing.`};
+  }
+  if(dur==="Over 1 year"){
+    return {tier:"Continued work",sessions:null,weeks:null,freq:f,painDriven:true,openEnded:true,
+      rec:`Ongoing one-on-one work, ${f}x/week to start and reassessed regularly — pain held this long can take more than a year of consistent sessions to feel your best again, and the pace from here is set by what each reassessment shows rather than a fixed count.`};
+  }
+  return null;
+}
+/* Blocks report generation with a clear ask, rather than silently falling
+   through to Maintenance, when pain is significant but duration was never
+   recorded — painProgram() can't pick a bucket without it. */
+function painDataMissing(o,joeTotal){
+  o=o||D.initial;
+  const idx=movementIndex(joeTotal,JOE_MAX,'joe');
+  const painN=parseFloat(o.pain);
+  const lowPain=isNaN(painN)||painN<3;
+  return idx>=85&&!lowPain&&!(o.duration||"").trim();
+}
+/* Whether the PDF needs a chosen weekly frequency before it can generate —
+   true for anything below Maintenance, for a mobility-dominant, grip-limited
+   client routed to grip-focused sessions, and for a high-index client whose
+   reported pain routes them to a duration-based program instead. */
+function needsFrequency(o,joeTotal){
+  o=o||D.initial;
+  const idx=movementIndex(joeTotal,JOE_MAX,'joe');
+  if(idx<85) return true;
+  const gripLevel=gripStrongLevel(o);
+  const painN=parseFloat(o.pain);
+  const lowPain=isNaN(painN)||painN<3;
+  const kind=profileKind(idx,gripLevel,lowPain);
+  if(kind==="mobilityGrip"&&gripProgramSessions(o)!==null) return true;
+  if(!lowPain&&(o.duration||"").trim()) return true;
+  return false;
+}
+function lowestJoe(o,n){
+  const rows=[];
+  JOE.forEach(j=>{const r=joeSub(o,j);if(r.any)rows.push({j:j,pct:r.total/j.max});});
+  rows.sort((a,b)=>a.pct-b.pct);
+  return rows.slice(0,n);
+}
+function generatedFocus(o){
+  const low=lowestJoe(o,2).filter(r=>r.pct<1);
+  const themes=low.map(r=>r.j.theme);
+  const themeTxt=themes.length===0?"maintaining the range and control the assessment already shows"
+    :(themes.length===1?themes[0]:themes[0]+" and "+themes[1]);
+  const pain=parseFloat(D.initial.pain);
+  if(!isNaN(pain)&&pain>=3&&(D.initial.painLoc||"").trim())
+    return `improving ${themeTxt}, particularly as they relate to ${D.initial.painLoc.trim()} pain`;
+  if((D.initial.chief||"").trim())
+    return `improving ${themeTxt}, particularly as they relate to ${D.initial.chief.trim()}`;
+  return `improving ${themeTxt}`;
+}
+
+/* ============ RECALC ============ */
+function recalc(){
+  collect();
+  PHASES.forEach(ph=>{
+    const sfx=SUF[ph],o=D[ph];
+    const ms=msScore(o),joe=joeScore(o),ref=refScore(o);
+    el("msTotal"+sfx).textContent=`Structural screen: ${ms.any?ms.total:"—"} / ${MS_MAX}`;
+    el("joeTotal"+sfx).textContent=`Joe's total: ${joe.any?joe.total:"—"} / ${JOE_MAX}`;
+    el("refTotal"+sfx).textContent=`Reformer: ${ref.any?ref.total:"—"} / ${REF_MAX}`;
+    JOE.forEach(j=>{if(j.parts.length>1){const e=el(`joesub_${j.id}${sfx}`);
+      if(e){const r=joeSub(o,j);e.textContent=`Subtotal: ${r.any?r.total:"—"} / ${j.max}`;}}
+      j.parts.forEach(p=>{const rsel=el(`joe_${j.id}_${p.k}_reason${sfx}`);
+        if(rsel) rsel.style.display=((o.joe[j.id]||{})[p.k]==="0")?"":"none";});});
+    REF.forEach(g=>{const e=el(`refsub_${g.group.replace(/[^a-z]/gi,"")}${sfx}`);
+      if(e){const r=refGroupScore(o,g);e.textContent=`${g.group} subtotal: ${r.any?r.total:"—"} / ${r.max}`;}});
+  });
+  const f=fmsScore();
+  el("fmsTotal").textContent=`Deeper screen: ${f.any?f.total:"—"} / ${FMS_MAX}`;
+  const g=gripSummary();
+  el("stTotal").textContent = g===null ? "Grip: —"
+    : `Grip — left ${g.l===null?"—":g.l+" "+g.units} · right ${g.r===null?"—":g.r+" "+g.units}`
+      + (g.pct!==null?`  ·  difference ${g.pct}%${g.weaker?" ("+g.weaker+" weaker)":" (even)"}`:"");
+  const xg=gripSummary(D.completion);
+  const xstEl=el("xstTotal");
+  if(xstEl) xstEl.textContent = xg===null ? "Grip: —"
+    : `Grip — left ${xg.l===null?"—":xg.l+" "+xg.units} · right ${xg.r===null?"—":xg.r+" "+xg.units}`
+      + (xg.pct!==null?`  ·  difference ${xg.pct}%${xg.weaker?" ("+xg.weaker+" weaker)":" (even)"}`:"");
+  renderSummaries();
+}
+function summaryFor(ph,label){
+  const o=D[ph];
+  const ms=msScore(o),joe=joeScore(o),ref=refScore(o);
+  if(!joe.any&&!ms.any&&!ref.any) return `<h4>${label}</h4><div class="line">Nothing scored yet.</div>`;
+  const t=programFor(o,joe.total,parseInt(o.freq,10));
+  const low=lowestJoe(o,3).filter(r=>r.pct<1).map(r=>r.j.name.replace(/^\d+ · /,""));
+  /* Raw totals always show; the index is withheld until the measure is
+     complete, so the internal panel can't imply a number the PDF refuses
+     to print. */
+  const idxNote=(score,complete,max,key)=>{
+    if(!score.any) return "—";
+    const base=score.total+" / "+max;
+    return complete ? base+"  ·  index "+movementIndex(score.total,max,key)
+                    : base+"  ·  index pending — incomplete";
+  };
+  let h=`<h4>${label}</h4>
+    <div class="line"><b>Structural screen:</b> ${idxNote(ms,msComplete(o),MS_MAX,'ms')}</div>
+    <div class="line"><b>Joe's 10:</b> ${joe.any?joe.total+" / "+JOE_MAX+(joeComplete(o)?"  ·  index "+t.idx:"  ·  index pending — incomplete")+"  ·  "+joeBand(joe.total).name:"—"}</div>
+    <div class="line"><b>Reformer:</b> ${idxNote(ref,refComplete(o),REF_MAX,'ref')}</div>
+    ${ph==="foundation"?`<div class="line"><b>Deeper screen:</b> ${fmsScore().any?fmsScore().total+" / "+FMS_MAX+(fmsComplete()?"  ·  index "+movementIndex(fmsScore().total,FMS_MAX,'fms'):"  ·  index pending — incomplete"):"—"}</div>`:""}`;
+  if(low.length) h+=`<div class="line"><b>Lowest Joe's scores:</b> ${low.join(", ")}</div>`;
+  if(joe.any&&!joeComplete(o)) h+=`<div class="line" style="color:#a33">Joe's 10 is not fully scored — index/tier below is provisional and the PDF will not generate until every part has a value.</div>`;
+  /* Grip and the profile read apply wherever grip is recorded — initial and
+     completion — since both now drive that phase's recommendation. */
+  if(ph!=="foundation"){
+    const g=gripSummary(o);
+    if(g) h+=`<div class="line"><b>Grip (best of three):</b> L ${g.l===null?"—":g.l+" "+g.units} · R ${g.r===null?"—":g.r+" "+g.units}`
+      +(g.pct!==null?` — ${g.pct}% difference${g.weaker?", "+g.weaker+" weaker":", even"}`:"")
+      +(g.dom?` · dominant ${g.dom==="R"?"right":"left"}`:"")
+      +(function(){const rr=gripRating(g.r,g.units,D.initial.age,D.initial.sex),
+                     rl=gripRating(g.l,g.units,D.initial.age,D.initial.sex);
+          if(!rr&&!rl) return " · enter age and sex for a norm comparison";
+          return ` · L ${rl?rl.word:"—"}, R ${rr?rr.word:"—"}`;})()+`</div>`;
+    if(g&&!gripRoutable(o)) h+=`<div class="line" style="color:#a33">Grip is recorded but not driving the recommendation — ${(o.gripNA||"")==="na"?"marked not completed":"needs all three attempts on both hands"}.</div>`;
+    const painN=parseFloat(o.pain);
+    const lowPain=(isNaN(painN)||painN<3);
+    const kind=joe.any?profileKind(t.idx,gripStrongLevel(o),lowPain):null;
+    if(kind) h+=`<div class="line" style="color:var(--teal-dark)"><b>${PROFILE_INTERNAL[kind].label}:</b> ${PROFILE_INTERNAL[kind].text}</div>`;
+    if(!lowPain&&!(o.duration||"").trim()) h+=`<div class="line" style="color:#a33">Pain is 3+ but duration isn't set — the PDF will not generate until you choose one, since it sets the program length.</div>`;
+  }
+  if(ph==="initial"){
+    h+=`<div class="gen">Generated focus: ${esc(generatedFocus(o))}</div>
+        <div class="gen" style="border:0;padding-top:4px">Recommended: ${t.tier}${t.gripFocus?" — grip-driven":t.painDriven?" — pain-driven":""} — ${esc(t.rec)}</div>`;
+    if(t.tier==="Continued work"&&!o.freq) h+=`<div class="line" style="color:#a33">Sessions/week not yet selected — weeks above assume 2x/week and the PDF will not generate until you choose 2 or 3.</div>`;
+  } else {
+    h+=`<div class="gen">Current tier from Joe's: ${t.tier}${t.gripFocus?" — grip-driven, not Maintenance":t.painDriven?" — pain-driven, not Maintenance":""} (index ${t.idx})</div>`;
+    if(ph==="completion"&&t.tier==="Continued work"&&!o.freq) h+=`<div class="line" style="color:#a33">Sessions/week not yet selected — weeks assume 2x/week and the PDF will not generate until you choose 2 or 3.</div>`;
+  }
+  h+=`<div class="internal">Index v${INDEX.version} — anchors: Joe's ${INDEX.anchors.joe.floor}–${INDEX.anchors.joe.ceiling}, screen ${INDEX.anchors.ms.floor}–${INDEX.anchors.ms.ceiling}, reformer ${INDEX.anchors.ref.floor}–${INDEX.anchors.ref.ceiling} · curve k=${INDEX.k}, scale ${INDEX.bottom}–${INDEX.top}.</div>`;
+  h+=`<div class="internal">This panel is for you. None of the score logic or "lowest score" reasoning appears on the PDF.</div>`;
+  return h;
+}
+function renderSummaries(){
+  el("assessorSummary").innerHTML=summaryFor("initial","Initial assessment");
+  el("assessorSummary2").innerHTML=summaryFor("foundation","Foundation retest");
+  el("assessorSummary3").innerHTML=summaryFor("completion","Completion");
+}
+
+/* ============ SAVE / LOAD ============ */
 function saveClient(){
   collect();
-  if(!(D.client.name||"").trim()){
-    alert("Enter the client's name first — the file is named from it.");
-    document.getElementById("c_name").focus();
-    return;
+  if(!(D.client.name||"").trim()){alert("Enter the client's name first — the file is named from it.");el("c_name").focus();return;}
+  const initialHasData=!!(D.initial.date||joeScore(D.initial).any||msScore(D.initial).any||refScore(D.initial).any);
+  const laterHasData=!!(D.foundation.date||fmsScore().any||joeScore(D.foundation).any||D.completion.date||joeScore(D.completion).any);
+  if(laterHasData&&!initialHasData){
+    const proceed=confirm("There's Foundation or Completion data here but no Initial assessment — that usually means an existing client's file wasn't loaded first.\n\nClick Cancel to pick that client's saved file now — this session's data will merge into it, not get lost.\n\nClick OK to save this as a new file anyway.");
+    if(!proceed){ el("mergeFile").click(); return; }
   }
-  const suggested = "therapilatics_" + D.client.name.trim().replace(/\s+/g,"_") + ".json";
-  const chosen = prompt("Save as — keep this name to overwrite this client's existing file:", suggested);
-  if(chosen===null) return;
-  let fname = chosen.trim() || suggested;
-  if(!/\.json$/i.test(fname)) fname += ".json";
+  const dateTag=D.initial.date||new Date().toISOString().slice(0,10);
+  const suggested="therapilatics_"+D.client.name.trim().replace(/\s+/g,"_")+"_"+dateTag+".json";
+  const chosen=prompt("Save as — one file per assessment cycle. Initial, Foundation and Completion for this cycle all save to this same name, so re-saving as you progress updates the one record. A returning client starting a new cycle gets a new date, and so a new file:",suggested);
+  if(chosen===null)return;
+  let fname=chosen.trim()||suggested;
+  if(!/\.json$/i.test(fname))fname+=".json";
   const blob=new Blob([JSON.stringify(D,null,2)],{type:"application/json"});
-  const a=document.createElement("a");
-  a.href=URL.createObjectURL(blob);
-  a.download=fname;
-  a.click(); URL.revokeObjectURL(a.href);
+  const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=fname;a.click();
+  URL.revokeObjectURL(a.href);
+}
+/* Parses and validates a client JSON file, resets D, and merges the file's
+   data in field-by-field so any newly-added fields (like Completion's grip
+   retest) keep their resetData() defaults when loading an older file.
+   Shared by loadClient (replace everything) and mergeClient (replace, then
+   re-apply whatever was already entered this session on top). */
+function applyLoadedFile(text){
+  const j=JSON.parse(text);
+  if(!/^therapilatics-client-v[123]$/.test(j.schema||"")) throw 0;
+  resetData();
+  if(j.client) Object.assign(D.client,j.client);
+  const NESTED=["ms","joe","ref","strength","photos"];
+  ["initial","foundation","completion"].forEach(k=>{
+    if(!j[k]) return;
+    Object.keys(D[k]).forEach(f=>{
+      const val=j[k][f];
+      if(val===undefined) return;
+      if(NESTED.includes(f)&&val&&typeof val==="object"&&!Array.isArray(val)){
+        // merge into the current shape so missing keys keep their defaults
+        Object.keys(val).forEach(sub=>{
+          if(D[k][f][sub]!==undefined||typeof val[sub]!=="object") D[k][f][sub]=val[sub];
+          else D[k][f][sub]=val[sub];
+        });
+      } else D[k][f]=val;
+    });
+  });
+  // carry forward pre-grip strength entries so they aren't silently lost
+  const s=D.initial.strength;
+  if(s&&(s.a1||s.a2||s.a3)&&!s.l1&&!s.r1){
+    s.r1=s.a1||"";s.r2=s.a2||"";s.r3=s.a3||"";
+    delete s.a1;delete s.a2;delete s.a3;delete s.name;
+    alert("This file has strength attempts recorded before grip was split by hand. They've been placed under Right hand — move them to Left if that's where they belong.");
+  }
+  if(s&&!s.units) s.units="kg";
+  if(j.schema!=="therapilatics-client-v3")
+    alert("Loaded an older client file. Names, dates and notes carried over; the new three-part scoring starts fresh.");
+  D.schema="therapilatics-client-v3";
 }
 function loadClient(ev){
-  const file=ev.target.files[0]; if(!file) return;
+  const file=ev.target.files[0];if(!file)return;
   const r=new FileReader();
-  r.onload=()=>{try{
-      const j=JSON.parse(r.result);
-      if(!/^therapilatics-client-v[12]$/.test(j.schema||"")) throw 0;
-      resetData();
-      // shallow-merge known branches; v1 files simply lack obs/notes and load cleanly
-      ["client","consult","baseline","completion"].forEach(k=>{
-        if(j[k]) Object.keys(D[k]).forEach(f=>{
-          if(j[k][f]!==undefined){
-            if(f==="fms"&&Array.isArray(j[k][f])) D[k][f]=j[k][f].map(x=>typeof x==="object"&&"score"in x?{score:x.score??"",note:x.note??""}:{score:"",note:""});
-            else if(f==="tenpoint"&&Array.isArray(j[k][f])) D[k][f]=j[k][f].map(x=>typeof x==="object"?{score:x.score??"",note:x.note??""}:{score:x??"",note:""});
-            else D[k][f]=j[k][f];
-          }});
-      });
-      D.schema="therapilatics-client-v2";
-      bind();
-    }catch(e){alert("That file isn't a Therapilatics client file.");}};
-  r.readAsText(file); ev.target.value="";
+  r.onload=()=>{
+    try{
+      applyLoadedFile(r.result);
+      bind();recalc();
+    }catch(e){alert("That file isn't a Therapilatics client file.");}
+  };
+  r.readAsText(file);ev.target.value="";
+}
+/* For the exact recovery case: a Foundation or Completion retest was typed
+   in without loading the client's existing file first. This captures that
+   in-progress work, loads the real file underneath it, then re-applies only
+   the phases that actually had data — so the retest just entered survives
+   the load instead of being wiped by it, and lands in the client's one
+   real record instead of becoming an orphan new file. */
+function mergeClient(ev){
+  const file=ev.target.files[0];if(!file)return;
+  /* Deliberately broad: this feature exists to rescue a workflow mistake, so
+     any sign of entered work counts — not just the three scored measures. */
+  const hasData=o=>{
+    if(!o) return false;
+    if(o.date||joeScore(o).any||msScore(o).any||refScore(o).any) return true;
+    if(o.pain||o.painLoc||o.duration||o.sessions||o.weeks||o.freq||o.gripNA) return true;
+    if(o.hrRest||o.hrRec) return true;
+    if(o.msNote||o.joeNote||o.refNote) return true;
+    if(o.strength&&["l1","l2","l3","r1","r2","r3","device","dom"].some(k=>o.strength[k])) return true;
+    if(o.photos&&Object.keys(o.photos).some(k=>o.photos[k])) return true;
+    if(Array.isArray(o.priorities)&&o.priorities.some(p=>Object.keys(p).some(k=>p[k]))) return true;
+    return false;
+  };
+  const pendingFoundation=JSON.parse(JSON.stringify(D.foundation));
+  const pendingCompletion=JSON.parse(JSON.stringify(D.completion));
+  const foundationHasData=hasData(pendingFoundation)||fmsScore().any;
+  const completionHasData=hasData(pendingCompletion);
+  if(!foundationHasData&&!completionHasData){
+    alert("There's no Foundation or Completion data entered this session to merge — Load client file is what you want instead.");
+    ev.target.value="";return;
+  }
+  const r=new FileReader();
+  r.onload=()=>{
+    try{
+      applyLoadedFile(r.result);
+      if(foundationHasData) D.foundation=pendingFoundation;
+      if(completionHasData) D.completion=pendingCompletion;
+      bind();recalc();
+      alert("Merged. "+(foundationHasData?"Foundation ":"")+(foundationHasData&&completionHasData?"and ":"")+(completionHasData?"Completion ":"")+"data from this session is now attached to "+(D.client.name||"this client")+"'s file — Save to write it out.");
+    }catch(e){alert("That file isn't a Therapilatics client file — nothing was merged, this session's data is unchanged.");}
+  };
+  r.readAsText(file);ev.target.value="";
 }
 
-/* ---------------- tabs ---------------- */
+/* ============ TABS ============ */
 function showTab(t){
   document.querySelectorAll(".tabs button").forEach(b=>b.classList.toggle("active",b.dataset.tab===t));
   document.querySelectorAll("section.panel").forEach(p=>p.classList.toggle("active",p.id==="panel-"+t));
+  window.scrollTo(0,0);
 }
 
-/* ---------------- report generation ---------------- */
+/* ============ REPORTS ============ */
 const CRED="Laini Byfield · Third Degree, Romana Kryzanowska Lineage — Real Pilates NYC · B.S. Engineering, MIT · NBC-HWC";
 const DISC="These are movement observations made within a classical Pilates context — not a medical diagnosis, and not a substitute for evaluation by a licensed medical provider.";
 const esc=s=>String(s??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\n/g,"<br>");
-const or=(s,alt)=>s&&String(s).trim()?esc(s):`<i style="color:var(--light)">${alt}</i>`;
+const or=(s,alt)=>s&&String(s).trim()?esc(s):`<i style="color:#767270">${alt}</i>`;
 function head(label,kicker,title,sub){
   return `<div class="rp-head"><div class="rp-wm">Therapilatics<i></i></div><div class="rp-lab">${label}</div></div>
-    <div class="kicker">${kicker}</div><h1>${title}</h1><div class="sub">${sub}</div><hr class="blackrule">`;
+    <div class="kicker">${kicker}</div><h1>${title}</h1><div class="subt">${sub}</div><hr class="blackrule">`;
 }
-function foot(){return `<div class="rp-foot">${CRED}<br>${DISC}<br>Therapilatics — A Pilates Footworks LLC Practice · 478 N Babcock St, Melbourne, FL 32935 · therapilatics.com</div>`;}
+function indexNote(){
+  if(!INDEX.announce) return "";
+  return (INDEX.announceText&&INDEX.announceText.trim()
+    ? INDEX.announceText
+    : `The movement index was adjusted in version ${INDEX.version}. Figures from earlier reports were produced on the previous scale and are not directly comparable.`)+"<br>";
+}
+function foot(){return `<div class="rp-foot">${indexNote()}${CRED}<br>${DISC}<br>Therapilatics — A Pilates Footworks LLC Practice · 478 N Babcock St, Melbourne, FL 32935 · therapilatics.com · hello@therapilatics.com · 321-345-3797</div>`;}
 
-function obsSuggestions(){
+function msLines(o){
   const out=[];
-  OBS.forEach(o=>{
-    const v=D.consult.obs[o.id]||{};
-    if(v.ans==="yes"||v.ans==="no"){
-      const txt=v.ans==="yes"?o.yes:o.no;
-      out.push(`<li><b>${o.q.replace(/\?$/,"")}:</b> ${v.ans==="yes"?"Yes":"No"} — suggests ${txt}${v.note?` <i>(${esc(v.note)})</i>`:""}.</li>`);
+  MS.forEach(m=>{
+    const r=o.ms[m.id]||{};
+    if(m.type==="lr3"){
+      ["l","r"].forEach(k=>{ if(!r[k])return;
+        const side=k==="l"?"Left":"Right";
+        const opt=m.opts.find(x=>x[0]===r[k]);
+        out.push(`<li><b>${m.q} — ${side}:</b> ${opt?opt[1]:""} — suggests ${m.txt[r[k]]}${r.note?` <i>(${esc(r.note)})</i>`:""}.</li>`);});
+    } else if(m.type==="lr"){
+      ["l","r"].forEach(k=>{ if(!r[k])return;
+        const side=k==="l"?"Left":"Right";
+        out.push(`<li><b>${m.q} — ${side}:</b> ${r[k]==="yes"?"Yes":"No"} — suggests ${r[k]==="yes"?m.yes:m.no}${r.note?` <i>(${esc(r.note)})</i>`:""}.</li>`);});
+    } else if(m.type==="three"){
+      if(!r.v)return;
+      const opt=m.opts.find(x=>x[0]===r.v);
+      out.push(`<li><b>${m.q}:</b> ${opt?opt[1]:""} — suggests ${m.txt[r.v]}${r.note?` <i>(${esc(r.note)})</i>`:""}.</li>`);
+    } else {
+      if(!r.v)return;
+      out.push(`<li><b>${m.q}:</b> ${r.v==="yes"?"Yes":"No"} — suggests ${r.v==="yes"?m.yes:m.no}${r.note?` <i>(${esc(r.note)})</i>`:""}.</li>`);
     }
   });
   return out;
 }
-function fmsSuggestions(){
+function joeLines(o){
   const out=[];
-  FMS.forEach((t,i)=>{
-    const v=D.baseline.fms[i]||{};
-    if(v.score==="") return;
-    const s=+v.score;
-    let txt;
-    if(s===0) txt="pain appeared in this movement — it is noted and set aside, and belongs with your medical provider before we train it";
-    else txt=s===3?t.s3:(s===2?t.s2:t.s1);
-    out.push(`<li><b>${t.name} — ${s}/3:</b> suggests ${txt}${v.note?` <i>(${esc(v.note)})</i>`:""}.</li>`);
+  JOE.forEach(j=>{
+    const r=joeSub(o,j); if(!r.any)return;
+    const pct=r.total/j.max;
+    const txt=pct>=0.99?j.high:(pct>=0.5?j.mid:j.low);
+    const rec=o.joe[j.id]||{};
+    const zeroParts=j.parts.filter(p=>rec[p.k]==="0");
+    const reasons=zeroParts.map(p=>rec[p.k+"_reason"]||"");
+    let body=txt;
+    if(reasons.includes("pain")) body="pain appeared in this movement — it is noted and set aside, and belongs with your medical provider before we train it";
+    else if(reasons.includes("na")) body="this movement was set aside as not appropriate for this body right now";
+    else if(zeroParts.length&&reasons.every(x=>x==="declined")) body="this movement was declined during the assessment";
+    else if(zeroParts.length) body="this movement could not be completed as assessed and is a starting point for the work ahead";
+    out.push(`<li><b>${j.name.replace(/^\d+ · /,"")} — ${r.total}/${j.max}:</b> suggests ${body}${rec.note?` <i>(${esc(rec.note)})</i>`:""}.</li>`);
   });
   return out;
 }
-function tpSuggestions(){
+function refLines(o){
   const out=[];
-  TP.forEach((t,i)=>{
-    const v=D.baseline.tenpoint[i]||{};
-    if(v.score==="") return;
-    const s=+v.score, r=s/t.max;
-    let txt;
-    if(r>=0.99) txt=t.high;
-    else if(r>=0.5) txt=t.mid;
-    else txt=t.low;
-    out.push(`<li><b>${t.name} — ${s}/${t.max}:</b> suggests ${txt}${v.note?` <i>(${esc(v.note)})</i>`:""}.</li>`);
+  REF.forEach(g=>{
+    const r=refGroupScore(o,g); if(!r.any)return;
+    const txt=(r.total/r.max)>=0.99?g.high:g.low;
+    out.push(`<li><b>${g.group} — ${r.total}/${r.max}:</b> suggests ${txt}.</li>`);
   });
   return out;
 }
+function scoreTable(o,label){
+  const ms=msScore(o),joe=joeScore(o),ref=refScore(o);
+  const b=joe.any?joeBand(joe.total):null;
+  const ix=(r,m,k)=>r.any?movementIndex(r.total,m,k)+"":"—";
+  return `<table><tr><th>Measure</th><th>${label}</th><th>What it describes</th></tr>
+   <tr><td>Structural screen</td><td class="val">${ix(ms,MS_MAX,'ms')}</td><td>Functional movement quality and symmetry</td></tr>
+   <tr><td>Joe's 10</td><td class="val">${ix(joe,JOE_MAX,'joe')}</td><td>${b?"<b>"+b.name+"</b> — "+b.meaning:"Benchmark mobility and control"}</td></tr>
+   <tr><td>Reformer</td><td class="val">${ix(ref,REF_MAX,'ref')}</td><td>Apparatus organisation and control</td></tr></table>`;
+}
+const NOT_A_GRADE="<p><b>How to read these numbers.</b> Each figure is a movement index, not a test score and not a percentage of questions right. The index climbs quickly as restrictions clear and more slowly as range, control and ease get finer, so the top of the scale is 99 — the last point stays open because there is always another degree of range, control or ease available. The scale is anchored to a fixed range for each measure, not to other people. What matters most is where you start and how the same measure changes over time.</p>";
 
-function retestSuggestions(){
-  const out=[];
-  TP.forEach((t,i)=>{
-    const v=(D.baseline.retest||[])[i]||{}, b=(D.baseline.tenpointInit||D.baseline.tenpoint||[])[i]||{};
-    if(v.score===""||v.score===undefined) return;
-    const s=+v.score, r=s/t.max;
-    const was=b.score!==""&&b.score!==undefined?+b.score:null;
-    const move=was===null?"":(s>was?` — up from ${was}`:(s<was?` — down from ${was}`:" — unchanged"));
-    let txt = r>=0.99?t.high:(r>=0.5?t.mid:t.low);
-    out.push(`<li><b>${t.name} — ${s}/${t.max}${move}:</b> suggests ${txt}${v.note?` <i>(${esc(v.note)})</i>`:""}.</li>`);
-  });
-  return out;
-}
 function generate(kind){
   collect();
-  const R=document.getElementById("report");
-  const c=D.client, k=D.consult, b=D.baseline, x=D.completion;
-  const fmsTot=b.fms.reduce((a,s)=>a+(s.score===""?0:+s.score),0);
-  const fmsAny=b.fms.some(s=>s.score!=="");
-  const tpTot=b.tenpoint.reduce((a,s)=>a+(s.score===""?0:+s.score),0);
-  const tpAny=b.tenpoint.some(s=>s.score!=="");
+  const R=el("report"),c=D.client;
 
-  if(kind==="consult"){
-    const sugg=obsSuggestions();
-    const ts0=tpSuggestions();
-    R.innerHTML = head("Initial Findings · Take-Home","YOUR MOVEMENT ASSESSMENT","Initial Findings",
-      `${esc(c.name)} · ${esc(k.date)}`)
-      +`<h2>What we looked at</h2><p>Today's hour was an assessment, not a workout — though you moved, on the original apparatus, because how a body moves tells us more than any questionnaire. We started with a few quick checks of how you stand, bend, and balance, and spent the rest of the hour moving.</p>
-      <h2>What we observed — and what it suggests</h2>`
-      +(sugg.length?`<ul class="sugg">${sugg.join("")}</ul>`:`<p><i>Observations recorded during the assessment.</i></p>`)
-      +(k.observed&&k.observed.trim()?`<p>${esc(k.observed)}</p>`:"")
-      +(ts0.length?`<h2>Joe's fitness assessment — what each result suggests</h2><p>These ten movements are the standard uncompromised human mobility produces. Joseph Pilates performed every one of them at age 80. Your results today are the starting point everything is measured against.</p><p class="lead-teal">Benchmark total: ${tpTot} / 51.</p><ul class="sugg">${ts0.join("")}</ul>`:"")
-      +`<h2>How long this has been going on — and why that matters</h2>
-      <p>The body responds differently depending on how long a pattern has been in place. Recent restrictions respond quickly; patterns held for a year or more take longer to unwind, because the body has learned them. Neither is a problem — but it shapes the timeline we set together.</p>
-      <p><b>Your picture:</b> ${or(k.duration,"—")}</p>
-      <h2>The recommended plan</h2>
-      <table><tr><th style="width:18%">Program</th><td>${or(k.weeks,"[ ]")} weeks · ${or(k.sessions,"[ ]")} private sessions · one-on-one, private room, full Gratz apparatus</td></tr>
-      <tr><th>Focus</th><td>${or(k.focus,"Set at the assessment")}</td></tr>
-      <tr><th>Begins</th><td>${or(k.begins,"—")}</td></tr></table>
-      <p>The benchmarks above are your starting point. A movement screen is observed within the work over your first sessions, and you will receive a written Baseline Report at Session 5 and a Completion Report at the end of the program — every finding measured against the numbers recorded today.</p>`
+  if(kind==="initial"){
+    const o=D.initial;
+    if(!joeComplete(o)){
+      alert("Joe's 10 isn't fully scored yet. Score every part — or mark it 0 with a reason of \"Not appropriate\" or \"Declined\" — before generating the Initial Findings report. The index and program recommendation depend on a complete Joe's 10.");
+      return;
+    }
+    const joe=joeScore(o);
+    if(painDataMissing(o,joe.total)){
+      alert("Pain is reported at 3 or higher but how long it's been going on isn't set — select a duration before generating this report, since it determines the program length.");
+      return;
+    }
+    if(needsFrequency(o,joe.total)&&o.freq!=="2"&&o.freq!=="3"){
+      alert("Select how many sessions per week the client can commit to (2 or 3) before generating this report — it determines the program length.");
+      return;
+    }
+    const t=programFor(o,joe.total,parseInt(o.freq,10));
+    const focus=generatedFocus(o);
+    const add=(o.addFocus||"").trim();
+    const plan=t.weeks?`${t.weeks} weeks · ${t.sessions} private sessions · one-on-one, private room, full Gratz apparatus`:t.rec;
+    R.innerHTML=head("Initial Findings · Take-Home","YOUR MOVEMENT ASSESSMENT","Initial Findings",
+      `${esc(c.name)}${o.age?" · "+esc(o.age):""}${o.sex?" · "+(o.sex==="F"?"Female":"Male"):""} · ${esc(o.date)}`)
+      +`<h2>What we looked at</h2>
+        <p>Today's hour had three parts: a structural screen — how you stand, bend and balance; ten classical Pilates benchmarks that challenge mobility, control, coordination and endurance; and a short session on the reformer. Each is measured separately, because each says something different.</p>
+        ${NOT_A_GRADE}
+        ${scoreTable(o,"Your result")}`
+      +(msLines(o).length?`<h2>The quick look — what it suggests</h2><ul class="sugg">${msLines(o).join("")}</ul>`:"")
+      +(joeLines(o).length?`<div class="pagebreak"></div><h2>Joe's 10 — what each result suggests</h2><p>These ten movements are drawn from the classical Pilates repertoire and used here as a fixed set of benchmarks for mobility, control and coordination.</p><ul class="sugg">${joeLines(o).join("")}</ul>`:"")
+      +(refLines(o).length?`<h2>On the reformer — what it suggests</h2><ul class="sugg">${refLines(o).join("")}</ul>`:"")
+      +(function(){const g=gripSummary(); if(!g) return "";
+          const age=D.initial.age,sex=D.initial.sex,u=g.units;
+          const n=gripNorm(age,sex);
+          const rl=gripRating(g.l,u,age,sex), rr=gripRating(g.r,u,age,sex);
+          const conv=k=>u==="lb"?Math.round(k*2.20462*10)/10:k;
+          const grp=(sex==="F"?"female":(sex==="M"?"male":""));
+          let t=`<h2>Grip strength</h2>
+            <p>Grip strength is one of the simplest measures of whole-body strength, and one of the easiest to track over time. Each hand is measured separately, best of three attempts.${D.initial.strength.device?" Measured on "+esc(D.initial.strength.device)+" — readings differ between devices, so the same one is used every time.":""}</p>`;
+          t+=`<table><tr><th>Hand</th><th>Result</th><th>Compared with typical${n?" for "+grp+"s aged "+n.band:""}</th></tr>`;
+          t+=`<tr><td>Left${g.dom==="L"?" (dominant)":""}</td><td class="val">${g.l===null?"—":g.l+" "+u}</td><td>${rl?rl.word:"—"}</td></tr>`;
+          t+=`<tr><td>Right${g.dom==="R"?" (dominant)":""}</td><td class="val">${g.r===null?"—":g.r+" "+u}</td><td>${rr?rr.word:"—"}</td></tr></table>`;
+          if(n) t+=`<p>For ${grp}s aged ${n.band}, the typical range on this kind of device runs from about ${conv(n.weakBelow)} to ${conv(n.strongAbove)} ${u}.</p>`;
+          if(g.pct!==null){
+            if(g.pct<=10) t+=`<p>The two hands are within ${g.pct}% of each other, which is the range usually seen between a dominant and non-dominant hand.</p>`;
+            else t+=`<p>There is a ${g.pct}% difference between hands, with the ${g.weaker} side weaker — a wider gap than the usual dominant to non-dominant difference, and worth attention in the work.</p>`;
+          }
+          return t;})()
+      +(function(){
+          const gripLevel=gripStrongLevel();
+          const painN=parseFloat(o.pain);
+          const lowPain=(isNaN(painN)||painN<3);
+          const kind=joe.any?profileKind(t.idx,gripLevel,lowPain):null;
+          const text=t.painDriven
+            ? "Today's assessment showed a body that already moves well in a lot of ways — the piece that matters most right now is the pain you came in with, and that's exactly where the next sessions are focused."
+            : (kind?PROFILE_CLIENT[kind]:PROFILE_CLIENT_DEFAULT);
+          return `<h2>What today told us about you</h2><p class="lead-teal">${text}</p>`;
+        })()
+      +`<h2>How long this has been going on</h2>
+        <p>The body responds differently depending on how long a pattern has been in place. Recent restrictions respond quickly; patterns held for a year or more take longer to unwind, because the body has learned them.</p>
+        <p><b>Your picture:</b> ${or(o.duration,"—")}${o.chief?` · ${esc(o.chief)}`:""}${(o.pain!==""&&o.pain!==undefined)?` · pain reported at ${esc(o.pain)}/10${o.painLoc?", "+esc(o.painLoc):""}`:""}</p>
+        <h2>Where the work is focused</h2>
+        <p class="lead-teal">The assessment suggests focusing on ${esc(focus)}.${add?` ${esc(add)} was also observed as an important focus.`:""}</p>
+        <h2>The recommended plan</h2>
+        <table><tr><th style="width:18%">Program</th><td>${esc(plan)}</td></tr>
+        <tr><th>Begins</th><td>${or(o.begins,"—")}</td></tr></table>
+        ${(t.idx>=85&&!t.painDriven&&!t.gripFocus)?`<p>At this level, some people do just as well in a group mat or reformer class instead of or in addition to one-on-one work — that's not a format I currently offer, but I'm glad to point you toward good options nearby if that fits what you're looking for better. If you'd rather keep working one-on-one, that door stays open too.</p>`:""}
+        <p>A deeper movement screen is folded into a session near Session 10, and every measure above is scored again — separately — so you can see exactly what changed and where.</p>`
       +foot();
   }
 
-  if(kind==="baseline"){
-    const fs=fmsSuggestions(), rs=retestSuggestions();
-    const rtTot=(b.retest||[]).reduce((a,s)=>a+(s.score===""||s.score===undefined?0:+s.score),0);
-    const rtAny=(b.retest||[]).some(s=>s.score!==""&&s.score!==undefined);
-    R.innerHTML = head("Foundation Report · Retest","MOVEMENT RESTORATION PROGRAM","Foundation Report",
-      `Prepared for ${esc(c.name)} · ${esc(b.date)} · Foundation period retest`)
-      +`<p>${or(c.first,"[First name]")}, this report summarizes what the foundation period revealed about how your body moves right now, and what that means for the work ahead. You will recognize everything in it — this is a record of a conversation we have already been having.</p>
-      <h2>Summary of findings</h2>
-      <table><tr><th>Measure</th><th>Your result</th><th>Reference</th></tr>
-      <tr><td>Joe's benchmarks <span style="color:#767270">(first session)</span></td><td>${tpAny?tpTot:"—"} / 51</td><td>51 = full mobility</td></tr>
-      <tr><td>Joe's benchmarks <span style="color:#767270">(retest)</span></td><td class="val">${rtAny?rtTot:"—"} / 51</td><td>${rtAny&&tpAny?((rtTot-tpTot>0?"+":"")+(rtTot-tpTot)+" from your first session"):"51 = full mobility"}</td></tr>
-      <tr><td>Movement screen</td><td class="val">${fmsAny?fmsTot:"—"} / 21</td><td>14 = functional baseline</td></tr>
-      <tr><td>Resting heart rate</td><td class="val">${or(b.hrRest,"—")} bpm</td><td>60–100 bpm typical</td></tr>
-      <tr><td>Heart-rate recovery</td><td class="val">${or(b.hrRec,"—")} bpm</td><td>12+ bpm drop in 1 min = good</td></tr></table>
-      <h2>The two measures, explained</h2>
-      <p>The <b>classical benchmarks</b>, recorded at your assessment, established what your body is designed to do. These ten movements are not advanced or elite — they are the standard that uncompromised human mobility produces. Joseph Pilates performed every one of them at age 80, outdoors, in March, because the system he built makes this normal.</p>
-      <p>The <b>movement screen</b> was folded into a session near the end of these six weeks — a deeper look at loaded patterns like squatting, lunging, and stepping that the first session doesn't reach. It establishes where your body is now relative to basic functional movement.</p>
-      <p class="lead-teal">The gap between the two measures is the work. That is what this program closes.</p>
-      <h2>The movement screen — what each result suggests</h2>`
-      +(fs.length?`<ul class="sugg">${fs.join("")}</ul>`:`<p><i>Scores recorded at Session 1.</i></p>`)
-      +(rs.length?`<div class="pagebreak"></div><h2>Joe's benchmarks — retested</h2><p>The same ten movements from your first session, scored again now that the work has had time to change them.</p><ul class="sugg">${rs.join("")}</ul>`:`<div class="pagebreak"></div>`)
-      +(b.notes&&b.notes.trim()?`<h3>Additional observations</h3><p>${esc(b.notes)}</p>`:"")
-      +`<h2>Three priorities for ongoing work</h2>
-      <p>The work so far has already begun addressing these. What follows is the specific focus of the remaining program, and the rationale behind each.</p>`
-      +b.priorities.map((p,i)=>`<div class="rprio"><span class="tab">Priority ${i+1}</span><div class="body"><b>${or(p.finding,"Finding")}</b>
-        <dl><dt>What this means</dt><dd>${or(p.means,"—")}</dd><dt>How the work addresses it</dt><dd>${or(p.work,"—")}</dd></dl></div></div>`).join("")
-      +`<h2>What the rest of the program addresses</h2>
-      <p>The remaining sessions carry these three priorities through the classical system — strengthening what the assessment found lengthened and weak, restoring length where it found shortening, and rebuilding the patterns your body has been compensating around. Your Completion Report, delivered in the final week, will measure every finding in this document against itself.</p>`
+  if(kind==="foundation"){
+    const b=D.initial,o=D.foundation;
+    const f=fmsScore();
+    if(joeScore(o).any&&!joeComplete(o)){
+      alert("Joe's 10 retest isn't fully scored yet. Score every part — or mark it 0 with a reason — before generating the Foundation report. A partial Joe's 10 can't produce a valid index.");
+      return;
+    }
+    const anyNA=[[msScore(o),msScore(b)],[joeScore(o),joeScore(b)],[refScore(o),refScore(b)]].some(p=>!p[1].any);
+    R.innerHTML=head("Foundation Report · Retest","MOVEMENT RESTORATION PROGRAM","Foundation Report",
+      `Prepared for ${esc(c.name)} · ${esc(o.date)}`)
+      +`<p>${or(c.first,"[First name]")}, this report compares the three measures from your first session against where they stand now. They are reported separately, because each describes something different about how your body is working.</p>
+        <p>As before, these are not pass marks. The only comparison that matters here is the one against your own first session.</p>
+        <h2>Then and now</h2>
+        <table><tr><th>Measure</th><th>First session</th><th>Now</th><th>Change</th><th>What it describes</th></tr>
+        <tr><td>Structural screen</td><td>${idxCell(msScore(b),msComplete(b),MS_MAX,'ms',"N/A")}</td><td class="val">${idxCell(msScore(o),msComplete(o),MS_MAX,'ms',"—")}</td><td class="val">${deltaCell(msScore(o),msComplete(o),msScore(b),msComplete(b),MS_MAX,'ms')}</td><td>Functional movement quality and symmetry</td></tr>
+        <tr><td>Joe's 10</td><td>${idxCell(joeScore(b),joeComplete(b),JOE_MAX,'joe',"N/A")}</td><td class="val">${idxCell(joeScore(o),joeComplete(o),JOE_MAX,'joe',"—")}</td><td class="val">${deltaCell(joeScore(o),joeComplete(o),joeScore(b),joeComplete(b),JOE_MAX,'joe')}</td><td>${joeScore(o).any?"<b>"+joeBand(joeScore(o).total).name+"</b> — "+joeBand(joeScore(o).total).meaning:"Benchmark mobility and control"}</td></tr>
+        <tr><td>Reformer</td><td>${idxCell(refScore(b),refComplete(b),REF_MAX,'ref',"N/A")}</td><td class="val">${idxCell(refScore(o),refComplete(o),REF_MAX,'ref',"—")}</td><td class="val">${deltaCell(refScore(o),refComplete(o),refScore(b),refComplete(b),REF_MAX,'ref')}</td><td>Apparatus organisation and control</td></tr>
+        ${f.any?`<tr><td>Deeper screen</td><td>N/A</td><td class="val">${fmsComplete()?movementIndex(f.total,FMS_MAX,'fms'):"Incomplete"}</td><td>—</td><td>Loaded patterns — squats, lunges, stepping</td></tr>`:""}
+        </table>
+        ${anyNA?"<p><i>N/A means that measure was not recorded at the first session, so there is no earlier figure to compare against. It becomes a baseline from today.</i></p>":""}`
+      +(msLines(o).length?`<h2>The quick look — where it stands</h2><ul class="sugg">${msLines(o).join("")}</ul>`:"")
+      +(joeLines(o).length?`<div class="pagebreak"></div><h2>Joe's 10 — where it stands</h2><ul class="sugg">${joeLines(o).join("")}</ul>`:"")
+      +(refLines(o).length?`<h2>On the reformer — where it stands</h2><ul class="sugg">${refLines(o).join("")}</ul>`:"")
+      +`<h2>Three priorities for the rest of the program</h2>`
+      +o.priorities.map((p,n)=>`<div class="rprio"><span class="tab">Priority ${n+1}</span><div class="body"><b>${or(p.finding,"Finding")}</b>
+         <dl><dt>What this means</dt><dd>${or(p.means,"—")}</dd><dt>How the work addresses it</dt><dd>${or(p.work,"—")}</dd></dl></div></div>`).join("")
       +foot();
   }
 
   if(kind==="completion"){
-    const delta=(now,base)=>{const n=parseFloat(now),bs=parseFloat(base);
-      return isNaN(n)||isNaN(bs)?"—":(n-bs>0?"+":"")+(n-bs);};
-    const pct = x.tp!=="" ? Math.round((+x.tp/51)*100) : null;
-    const tierTable = `<table><tr><th>Benchmark range</th><th>What it means</th><th>Recommendation</th></tr>
-      <tr><td>90–100%</td><td>At or near the classical standard</td><td>Performance — Pilates as needed, not as a program</td></tr>
-      <tr><td>80–89%</td><td>Standard within reach; gains need holding</td><td>Maintenance — weekly 45-minute session</td></tr>
-      <tr><td>Below 80%</td><td>Capacity still being built</td><td>Continued full working sessions, then reassess</td></tr></table>`;
-    let nextBlock;
-    if(pct===null){
-      nextBlock = `<p>The work of this program built capacity. The recommendation below is set by where your reassessment lands against the classical standard.</p>${tierTable}`;
-    } else if(pct>=90){
-      nextBlock = `<p><span class="val">Your benchmarks sit at ${pct}% of the classical standard — performance range.</span> Structured weekly work is no longer required to hold this. The recommendation is Pilates as a practice, not a program: working sessions of 30–60 minutes, as often as suits you — up to a few times a week, or none. If the energy of frequent group classes appeals to you, a good nearby studio is the right home for that, and we are glad to point you to one. This door stays open for as-needed sessions, and we reassess if anything changes.</p>${tierTable}`;
-    } else if(pct>=80){
-      nextBlock = `<p><span class="val">Your benchmarks sit at ${pct}% of the classical standard — maintenance range.</span> Weekly maintenance is what keeps what this program built — 45 minutes, one held slot, same day and time each week, addressing the priorities above so they stay closed and keep gradually improving. Bodies drift back toward old patterns without input; a weekly session is the input.</p>${tierTable}`;
-    } else {
-      nextBlock = `<p><span class="val">Your benchmarks sit at ${pct}% of the classical standard — continued-work range.</span> The program built real capacity, and the reassessment shows the body is still in the building phase. Stepping down to maintenance now would let the remaining gap settle back in. The recommendation is continued full working sessions, with reassessment once the benchmarks move into the 80s — that is when a weekly maintenance slot becomes the right structure.</p>${tierTable}`;
+    const b=D.initial,o=D.completion;
+    if(!joeComplete(o)){
+      alert("Joe's 10 isn't fully scored yet for this completion assessment. Score every part — or mark it 0 with a reason — before generating the Completion report. The index and next-step recommendation depend on a complete Joe's 10.");
+      return;
     }
-    nextBlock = nextBlock.replace("</p>", " The findings inform the recommendation — the next step is yours to determine.</p>");
-    R.innerHTML = head("Completion Report · Program End","MOVEMENT RESTORATION PROGRAM","Completion Report",
-      `Prepared for ${esc(c.name)} · ${esc(x.date)} · ${or(x.sessions,"[ ]")} sessions · ${or(x.weeks,"[ ]")} weeks`)
-      +`<p>${or(c.first,"[First name]")}, ${or(x.weeks,"eight")} weeks ago we established a baseline. This report measures your body against that baseline — not against a chart, not against anyone else. Every number below is yours, then and now.</p>
-      <h2>Then and now</h2>
-      <table><tr><th>Measure</th><th>Baseline</th><th>Now</th><th>Change</th><th>What changed</th></tr>
-      <tr><td>Joe's benchmarks</td><td>${tpAny?tpTot:"—"} / 51</td><td class="val">${or(x.tp,"—")} / 51</td><td class="val">${delta(x.tp,tpAny?tpTot:"")}</td><td>${or(x.tpNote,"—")}</td></tr>
-      <tr><td>Movement screen</td><td>${fmsAny?fmsTot:"—"} / 21</td><td class="val">${or(x.fms,"—")} / 21</td><td class="val">${delta(x.fms,fmsAny?fmsTot:"")}</td><td>${or(x.fmsNote,"—")}</td></tr>
-      <tr><td>Resting heart rate</td><td>${or(b.hrRest,"—")} bpm</td><td class="val">${or(x.hrRest,"—")} bpm</td><td class="val">${delta(x.hrRest,b.hrRest)}</td><td></td></tr>
-      <tr><td>Heart-rate recovery</td><td>${or(b.hrRec,"—")} bpm</td><td class="val">${or(x.hrRec,"—")} bpm</td><td class="val">${delta(x.hrRec,b.hrRec)}</td><td></td></tr></table>
-      <h2>Your three priorities — where they stand</h2>`
-      +x.priorities.map((p,i)=>`<div class="rprio"><span class="tab">Priority ${i+1}</span><div class="body"><b>${or(b.priorities[i].finding,"Finding")}</b>
-        <dl><dt>Then</dt><dd>${or(p.then,"—")}</dd><dt>Now</dt><dd>${or(p.now,"—")}</dd><dt>What maintains it</dt><dd>${or(p.maintains,"—")}</dd></dl></div></div>`).join("")
-      +`<h2>What happens next</h2>`
-      +nextBlock
+    const joePre=joeScore(o);
+    if(painDataMissing(o,joePre.total)){
+      alert("Pain is reported at 3 or higher but how long it's been going on isn't set — select a duration before generating this report, since it determines the program length.");
+      return;
+    }
+    if(needsFrequency(o,joePre.total)&&o.freq!=="2"&&o.freq!=="3"){
+      alert("If continued work is the next step, select how many sessions per week the client can commit to (2 or 3) before generating this report — it determines the program length.");
+      return;
+    }
+    const joe=joePre,t=programFor(o,joe.total,parseInt(o.freq,10));
+    const di=(now,base,max,key)=>{if(!base.any)return "N/A";if(!now.any)return "—";
+      const g=movementIndex(now.total,max,key)-movementIndex(base.total,max,key);
+      return (g>0?"+":"")+g;};
+    const anyNA=[[msScore(o),msScore(b)],[joe,joeScore(b)],[refScore(o),refScore(b)]].some(p=>!p[1].any);
+    let next;
+    if(!joe.any) next=`<p>The recommendation is set by where the benchmarks land against the classical standard.</p>`;
+    else if(t.gripFocus) next=`<p><span class="val">Your movement index is already high.</span> The work that's left isn't more mobility — it's closing the grip and carrying-strength gap this assessment found. ${t.rec}</p>`;
+    else if(t.painDriven) next=`<p><span class="val">Your movement index is high, but the pain reported at this assessment changes what's recommended here.</span> ${t.rec}</p>`;
+    else if(t.idx>=90) next=`<p><span class="val">Your movement index is at the top of its range.</span> Structured weekly work is no longer required to hold this. ${t.rec} This door stays open for as-needed sessions.</p>`;
+    else if(t.idx>=85) next=`<p><span class="val">Your movement index has reached the range where the work shifts from building to holding.</span> ${t.rec} Weekly maintenance provides regular practice and correction.</p>`;
+    else next=`<p><span class="val">Your movement index is climbing and still has room in it.</span> The program built real capacity, and the body is still in the building phase. ${t.rec}</p>`;
+    next=next.replace("</p>"," The findings inform the recommendation — the next step is yours to determine.</p>");
+    if(joe.any&&t.idx>=85&&!t.painDriven&&!t.gripFocus) next+=`<p>Some people at this level do just as well in a group mat or reformer class instead of or in addition to one-on-one work — that's not a format I currently offer, but I'm glad to point you toward good options nearby if that's what fits. If you'd rather keep going one-on-one, that's absolutely fine too.</p>`;
+    R.innerHTML=head("Completion Report · Program End","MOVEMENT RESTORATION PROGRAM","Completion Report",
+      `Prepared for ${esc(c.name)} · ${esc(o.date)} · ${or(o.sessions,"[ ]")} sessions · ${or(o.weeks,"[ ]")} weeks`)
+      +`<p>${or(c.first,"[First name]")}, this report measures your body against the baseline we set at your first session — not against a chart, not against anyone else. Every number below is yours, then and now.</p>
+        ${NOT_A_GRADE}
+        <h2>Then and now</h2>
+        <table><tr><th>Measure</th><th>Baseline</th><th>Now</th><th>Change</th><th>What changed</th></tr>
+        <tr><td>Structural screen</td><td>${idxCell(msScore(b),msComplete(b),MS_MAX,'ms',"N/A")}</td><td class="val">${idxCell(msScore(o),msComplete(o),MS_MAX,'ms',"—")}</td><td class="val">${deltaCell(msScore(o),msComplete(o),msScore(b),msComplete(b),MS_MAX,'ms')}</td><td>${or(o.msNote,"—")}</td></tr>
+        <tr><td>Joe's 10</td><td>${idxCell(joeScore(b),joeComplete(b),JOE_MAX,'joe',"N/A")}</td><td class="val">${idxCell(joe,joeComplete(o),JOE_MAX,'joe',"—")}</td><td class="val">${deltaCell(joe,joeComplete(o),joeScore(b),joeComplete(b),JOE_MAX,'joe')}</td><td>${joe.any?"<b>"+joeBand(joe.total).name+"</b>"+(o.joeNote&&o.joeNote.trim()?" — "+esc(o.joeNote):""):or(o.joeNote,"—")}</td></tr>
+        <tr><td>Reformer</td><td>${idxCell(refScore(b),refComplete(b),REF_MAX,'ref',"N/A")}</td><td class="val">${idxCell(refScore(o),refComplete(o),REF_MAX,'ref',"—")}</td><td class="val">${deltaCell(refScore(o),refComplete(o),refScore(b),refComplete(b),REF_MAX,'ref')}</td><td>${or(o.refNote,"—")}</td></tr>
+        </table>
+        ${anyNA?"<p><i>N/A means that measure was not recorded at the baseline session, so there is no earlier figure to compare against.</i></p>":""}
+        ${[msComplete(o),joeComplete(o),refComplete(o)].some(x=>!x)?"<p><i>Incomplete means that measure wasn't finished at this assessment, so no index is reported for it. A blank item is a missing observation, not a zero.</i></p>":""}`
+      /* Pain and grip now influence the recommendation below, so they belong
+         in the evidence the client can see — not hidden in the logic. */
+      +(function(){
+          const pb=parseFloat(b.pain), pn=parseFloat(o.pain);
+          if(isNaN(pb)&&isNaN(pn)) return "";
+          const then=isNaN(pb)?"—":`${pb}/10${b.painLoc?" "+esc(b.painLoc):""}`;
+          const now=isNaN(pn)?"—":`${pn}/10${o.painLoc?" "+esc(o.painLoc):""}`;
+          let note="";
+          if(!isNaN(pb)&&!isNaN(pn)){
+            const bl=(b.painLoc||"").trim().toLowerCase(), nl=(o.painLoc||"").trim().toLowerCase();
+            if(pn===0) note="<p>Nothing reported today.</p>";
+            else if(bl&&nl&&bl!==nl) note="<p>Note that this is a different location than the one recorded at baseline, so it is tracked as a new finding rather than as the original complaint continuing.</p>";
+          }
+          return `<h2>Pain — then and now</h2>
+            <table><tr><th>Baseline</th><th>Now</th></tr>
+            <tr><td>${then}</td><td class="val">${now}</td></tr></table>${note}`;
+        })()
+      +(function(){
+          const gb=gripSummary(b), gn=gripSummary(o);
+          if(!gb&&!gn) return "";
+          const cell=(g,side)=>{
+            if(!g) return "—";
+            const val=g[side];
+            if(val===null) return "—";
+            const r=gripRating(val,g.units,b.age,b.sex);
+            return `${val} ${g.units}${r?` <span style="color:var(--light)">(${r.word})</span>`:""}`;
+          };
+          const change=side=>{
+            if(!gb||!gn||gb[side]===null||gn[side]===null) return "—";
+            const bk=(gb.units==="lb")?gb[side]/2.20462:gb[side];
+            const nk=(gn.units==="lb")?gn[side]/2.20462:gn[side];
+            const d=nk-bk;
+            return (d>0?"+":"")+d.toFixed(1)+" kg";
+          };
+          const na=(o.gripNA||"")==="na";
+          return `<h2>Grip strength — then and now</h2>
+            <table><tr><th>Hand</th><th>Baseline</th><th>Now</th><th>Change</th></tr>
+            <tr><td>Left</td><td>${cell(gb,"l")}</td><td class="val">${cell(gn,"l")}</td><td class="val">${change("l")}</td></tr>
+            <tr><td>Right</td><td>${cell(gb,"r")}</td><td class="val">${cell(gn,"r")}</td><td class="val">${change("r")}</td></tr></table>
+            ${na?"<p><i>Grip was not completed to protocol at this assessment, so it is recorded for reference only and does not affect the recommendation below.</i></p>":(gripRoutable(o)?"":"<p><i>Grip was not recorded to full protocol (three attempts per hand) at this assessment, so it is shown for reference only and does not affect the recommendation below.</i></p>")}`;
+        })()
+      +`<h2>Your three priorities — where they stand</h2>`
+      +o.priorities.map((p,n)=>`<div class="rprio"><span class="tab">Priority ${n+1}</span><div class="body"><b>${or((D.foundation.priorities[n]||{}).finding,"Finding")}</b>
+         <dl><dt>Then</dt><dd>${or(p.then,"—")}</dd><dt>Now</dt><dd>${or(p.now,"—")}</dd><dt>What maintains it</dt><dd>${or(p.maintains,"—")}</dd></dl></div></div>`).join("")
+      +`<h2>What happens next</h2>`+next
       +`<p>Reassessment for ongoing clients occurs at six months of consistent attendance, after any significant gap, after a new injury or health event, or at a plateau — against the baselines in this report.</p>`
       +foot();
   }
   window.print();
 }
 
-buildForm(); bind();
+buildForm();bind();recalc();
 </script>
 </body>
 </html>
