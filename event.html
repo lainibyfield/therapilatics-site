@@ -86,6 +86,25 @@
   .lede{font-size:1.1rem;margin:0 0 2rem}
 
 
+  /* logo */
+  .mark img{height:42px;width:auto;display:block}
+  /* long-form assessment detail */
+  .detail{background:var(--mist)}
+  .detail h3.sub{font-family:var(--display);font-weight:700;font-size:1.6rem;color:var(--teal-deep);margin:2.2rem 0 .6rem}
+  .detail .items{list-style:none;margin:1rem 0 0;padding:0;display:grid;gap:1.1rem}
+  .detail .items li{background:#fff;border-left:4px solid var(--teal);padding:1rem 1.2rem;border-radius:0 4px 4px 0}
+  .detail .items strong{display:block;font-family:var(--display);font-size:1.2rem;color:var(--teal-deep);margin-bottom:.2rem}
+  @media (min-width:860px){.detail .items{grid-template-columns:1fr 1fr}}
+  .detail .plain{margin:.6rem 0 0;padding-left:1.2rem}
+  .detail .plain li{margin-bottom:.3rem}
+  .detail .question{font-family:var(--display);font-weight:600;font-size:1.35rem;color:var(--teal-deep);margin:1rem 0 0}
+  .cta-row{margin:2rem 0 0;display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1.2rem}
+  .cta-row .small{font-size:.92rem;color:#4A5E5C;margin:0;max-width:30rem}
+  /* dedication */
+  .dedication{background:var(--night);color:#DDEDEB;padding:2.5rem 0}
+  .dedication p{margin:0;max-width:40rem;font-size:1.05rem}
+  .dedication .label{font-family:var(--display);font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--bulb);font-size:.95rem;margin-bottom:.5rem}
+  .dedication a{color:#fff}
   /* comparison */
   .compare{padding-top:3rem}
   .tbl{overflow-x:auto;margin:0 0 2rem}
@@ -182,7 +201,7 @@
 
   <div class="wrap">
     <div class="topbar">
-      <a class="mark" href="https://therapilatics.com/">THERAPILATICS</a>
+      <a class="mark" href="https://therapilatics.com/"><img src="https://therapilatics.com/logo-yellow.png" alt="Therapilatics" onerror="this.outerHTML='THERAPILATICS'"></a>
       <a class="tel" href="tel:+13213453797">321-345-3797</a>
     </div>
 
@@ -197,7 +216,7 @@
       <div class="price">
         <div class="amt"><sup>$</sup>89</div>
         <!-- STANDARD_RATE -->
-        <div class="note">Standard rate <s>$225</s><br>HSA/FSA reimbursable*</div>
+        <div class="note">Standard rate <s>$225</s><br>Approx. 90 minutes · allow up to 2 hours<br>HSA/FSA reimbursable*</div>
       </div>
       <a class="btn btn-primary" href="SETMORE_EVENT_LINK">Schedule Your Assessment</a>
       <p class="slots">It's $4 more than the standard assessment on my site and covers a great deal more. <a href="#compare" style="color:#fff">Here's the difference.</a></p>
@@ -232,18 +251,18 @@
 <section class="compare" id="compare">
   <div class="wrap">
     <h2>How this differs from the $85 assessment on my site</h2>
-    <p class="lede measure">The assessment on my site is a good starting point. You move through a screen and a classical fitness assessment, and you leave knowing where you stand. This one keeps all of that and adds a closer look at the two things bothering you most, plus a health coaching plan from me as a board-certified health coach. It's also a much longer session. The one on my site runs about 50 minutes. This one runs 80 to 120, and that additional time goes into a deeper analysis of your core issues. Normally it's $225. For people I meet at The Exchange, it's $89 through October.</p>
+    <p class="lede measure">The assessment on my site is a good starting point. You move through a screen and a classical fitness assessment, and you leave knowing where you stand. This one keeps all of that and adds a closer look at the two things bothering you most, plus a health coaching plan from me as a board-certified health coach. It's also a much longer session. The one on my site runs about 50 minutes. This one usually takes about 90 minutes, and I ask you to allow up to two hours. That additional time goes into a deeper analysis of your core issues. Normally it's $225. For people I meet at The Exchange, it's $89 through October.</p>
     <div class="tbl">
       <table>
         <thead>
           <tr><th scope="col"><span class="sr">Included</span></th><th scope="col">On my site</th><th scope="col" class="hi">The Exchange</th></tr>
         </thead>
         <tbody>
-          <tr><th scope="row">Session length</th><td>About 50 minutes</td><td class="hi">80 to 120 minutes</td></tr>
+          <tr><th scope="row">Session length</th><td>About 50 minutes</td><td class="hi">About 90 minutes (allow up to 2 hours)</td></tr>
           <tr><th scope="row">Movement screen and classical fitness assessment on the mat and apparatus</th><td>Yes</td><td class="hi">Yes</td></tr>
           <tr><th scope="row">Deeper look at your top two concerns: hips, knees, shoulders, back, weight management, or GLP-1 (muscle protection, side effects, or a stalled result)</th><td>—</td><td class="hi">Yes</td></tr>
           <tr><th scope="row">Health coaching strategy from a board-certified health coach (NBC-HWC)</th><td>—</td><td class="hi">Yes</td></tr>
-          <tr><th scope="row">What you leave with</th><td>Written findings and a movement plan</td><td class="hi">Findings, a movement plan, and a habits plan for the next six to eight weeks</td></tr>
+          <tr><th scope="row">What you leave with</th><td>Written findings and a movement plan</td><td class="hi">A written assessment and a practical 5–6 week plan, including health coaching priorities</td></tr>
           <tr class="cost"><th scope="row">Price</th><td>$85</td><td class="hi">$89 now<br><span class="std">$225 standard</span></td></tr>
         </tbody>
       </table>
@@ -266,27 +285,60 @@
         <p>Maybe the scale stopped moving no matter what you did. Or you started a GLP-1, lost weight, and now you're wondering how much of it was muscle. Or you couldn't tolerate the medication at all. In every one of those situations, strength is what protects you, and building it is my job. Decisions about the medication itself belong to you and your prescriber.</p>
       </div>
     </div>
+    <div class="cta-row">
+      <a class="btn btn-teal" href="SETMORE_EVENT_LINK">Schedule Your Assessment</a>
+    </div>
   </div>
 </section>
 
-<section class="how">
+<section class="detail" id="details">
   <div class="wrap">
-    <h2>What happens in your assessment</h2>
-    <p class="lede measure">This is not a typical Pilates session. It's a working session where I'm watching closely and writing things down, so that you leave knowing what's going on and what to do about it.</p>
-    <ol class="steps">
-      <li>
-        <h3>You tell me the history</h3>
-        <p>I want to hear what hurts, what stalled, and what you've already tried. Expect a lot of follow-up questions.</p>
-      </li>
-      <li>
-        <h3>Then you move</h3>
-        <p>A short movement screen, then real work on the mat and the apparatus. I'll be cueing and adjusting you as you go.</p>
-      </li>
-      <li>
-        <h3>You leave with a plan</h3>
-        <p>Written findings, a movement plan, and a health coaching plan for the next six to eight weeks, based on what I actually saw in you.</p>
-      </li>
-    </ol>
+    <h2>A comprehensive look at how you move, how strong you are, and what your body needs next.</h2>
+    <p class="measure">This private, one-on-one assessment is designed to give you a useful baseline, not just a first Pilates workout.</p>
+    <p class="measure">I'll look at your movement quality, strength, mobility, body composition, health habits, and any specific areas that may be limiting you. The goal is to understand where you are now, what deserves attention, and what your next 5–6 weeks should look like.</p>
+
+    <h3 class="sub">What to expect</h3>
+    <p class="measure">Plan for 80–120 minutes, with most assessments taking about 90 minutes. The exact length depends on your goals, history, and how much additional movement analysis is appropriate.</p>
+    <p class="measure">You will spend much of the appointment moving. I'll begin with a broad assessment and then take a closer look at the areas most relevant to you.</p>
+    <p class="measure">Your session may include:</p>
+    <ul class="items">
+      <li><strong>Whole-body movement assessment</strong>I'll look at balance, mobility, control, coordination, alignment, and overall movement patterns.</li>
+      <li><strong>Strength assessment</strong>I'll evaluate functional strength and identify areas where you may be stronger, weaker, or compensating. This helps establish an appropriate starting point and gives both of us something measurable to build from.</li>
+      <li><strong>Pilates-based movement assessment</strong>You may work on the mat and classical Pilates apparatus so I can observe how your body responds to different positions, loads, and movement demands.</li>
+      <li><strong>Localized movement analysis</strong>If you have a particular concern, I can take a closer look at areas such as the knee, hip, shoulder, elbow, spine, ankle, or other joints relevant to your movement and goals.</li>
+      <li><strong>Body-fat assessment</strong>When appropriate, I can include a body-fat estimate as part of your overall baseline and progress tracking.</li>
+      <li><strong>Health, activity, and goal review</strong>You and I will discuss what you are doing now, what you want to be able to do, previous injuries or limitations, and other factors that may affect your program.</li>
+      <li><strong>Potential intake-pattern inventory</strong>If nutrition, energy, body composition, or health habits are part of your goals, I may also review your usual intake patterns with you to identify areas worth exploring through health coaching.</li>
+    </ul>
+
+    <h3 class="sub">What you leave with</h3>
+    <p class="measure">This is not simply an hour of testing followed by a conversation.</p>
+    <p class="measure">You'll leave with a written assessment summarizing the major findings from your session, along with a practical 5–6 week plan outlining the areas to prioritize next.</p>
+    <p class="measure">Your recommendations may include:</p>
+    <ul class="plain">
+      <li>strength priorities</li>
+      <li>mobility or movement work</li>
+      <li>Pilates exercises or apparatus work</li>
+      <li>areas that should be monitored or reassessed</li>
+      <li>health-coaching priorities</li>
+      <li>suggested frequency and progression for the next several weeks</li>
+    </ul>
+    <p class="measure">At the end of those 5–6 weeks, the original assessment can also serve as a baseline for seeing what has changed.</p>
+    <div class="cta-row">
+      <a class="btn btn-teal" href="SETMORE_EVENT_LINK">Schedule Your Assessment</a>
+      <p class="small">Approx. 90 minutes · allow up to 2 hours</p>
+    </div>
+
+    <h3 class="sub">You do not need to prepare for this</h3>
+    <p class="measure">You do not need to be fit, flexible, strong, familiar with Pilates, or already know exactly what is causing a problem.</p>
+    <p class="measure">Come with the body you have now.</p>
+    <p class="measure">The purpose of the assessment is to help answer:</p>
+    <p class="question">What is my body doing now, what should I work on, and where do I go from here?</p>
+    <div class="cta-row">
+      <a class="btn btn-teal" href="SETMORE_EVENT_LINK">Schedule Your Assessment</a>
+      <p class="small">No time that works? Book the closest one anyway, then email <a href="mailto:hello@therapilatics.com">hello@therapilatics.com</a> after booking to let me know you need to reschedule.</p>
+    </div>
+
     <div class="studio">
       <img src="https://therapilatics.com/img-studio-room.jpeg" alt="Private classical Pilates studio in Melbourne FL with Gratz high chair, ladder barrel, and reformer in one room" onerror="this.parentNode.style.display='none'">
     </div>
@@ -323,8 +375,9 @@
     <h2>Not ready to book yet?</h2>
     <p class="measure">Join the Therapilatics Insider List. When sessions open up, you'll hear about it early, along with workshops and events, including Teasers for Tatas this October. Teasers for Tatas is a breast cancer awareness event built around the Teaser, one of the signature exercises in classical Pilates. Joining the list doesn't commit you to anything.</p>
     <!-- FORM_ENDPOINT: GitHub Pages can't process forms on its own -->
-    <form class="optin" action="FORM_ENDPOINT" method="POST" id="optin">
-      <input type="hidden" name="source" value="the-exchange-bbn">
+    <form class="optin" action="https://formspree.io/f/xppwllze" method="POST" id="optin">
+      <input type="hidden" name="source" value="therapilatics.com/event (The Exchange, Black Brilliance Network)">
+      <input type="hidden" name="_subject" value="Insider List signup from the Exchange event page">
       <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
       <div><label for="fn">First name</label><input type="text" id="fn" name="first_name" autocomplete="given-name" required></div>
       <div><label for="em">Email</label><input type="email" id="em" name="email" autocomplete="email" required></div>
@@ -335,6 +388,13 @@
   </div>
 </section>
 </main>
+
+<section class="dedication">
+  <div class="wrap">
+    <p class="label">Dedication</p>
+    <p>This page is dedicated to Kathy Grant, one of only two people Joseph Pilates ever personally certified to teach his method. She spent five decades adapting the work to bodies he never trained for, and she made room for the rest of us. <a href="https://therapilatics.com/kathy-grant.html">Read her story.</a></p>
+  </div>
+</section>
 
 <footer>
   <div class="wrap cols">
@@ -412,8 +472,19 @@
 
   var form = document.getElementById('optin');
   form.addEventListener('submit', function(ev){
-    if (form.action.indexOf('FORM_ENDPOINT') !== -1) return;
     ev.preventDefault();
+    if (form.action.indexOf('FORM_ENDPOINT') !== -1) {
+      // No form service connected yet: open an email to hello@ with the details and the source
+      var f = new FormData(form);
+      var body = 'Please add me to the Therapilatics Insider List.\n\n' +
+        'Name: ' + (f.get('first_name') || '') + '\n' +
+        'Email: ' + (f.get('email') || '') + '\n' +
+        'Cell: ' + (f.get('cell') || '') + '\n\n' +
+        'Source: ' + f.get('source');
+      window.location.href = 'mailto:hello@therapilatics.com?subject=' +
+        encodeURIComponent('Insider List signup from the Exchange event page') + '&body=' + encodeURIComponent(body);
+      return;
+    }
     fetch(form.action, {method:'POST', body:new FormData(form), headers:{Accept:'application/json'}})
       .then(function(r){
         if (!r.ok) throw new Error();
