@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eve Gentry — I Dance. I Heal. I Teach. | Therapilatics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #FAF5F3;
+    --hero: #A8415C;
+    --hero-deep: #7E3049;
+    --ink: #2B2321;
+    --ink-soft: #5B4C48;
+    --rose: #C97B8E;
+    --rose-pale: #F1D9DF;
+    --card: #FFFFFF;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Lora', Georgia, serif;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  .hero{
+    background:var(--hero);
+    color:#fff;
+    padding:4.5rem 1.5rem 3.5rem;
+    text-align:center;
+  }
+  .brandmark{
+    height:2.6rem;
+    width:auto;
+    margin:0 0 1.4rem;
+  }
+  .motto{
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:700;
+    font-size:clamp(2.4rem, 9vw, 3.6rem);
+    line-height:1.05;
+    letter-spacing:0.01em;
+    margin:0;
+  }
+  .kicker{
+    font-family:'Lora', Georgia, serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:1.05rem;
+    color:var(--rose-pale);
+    margin:0.9rem 0 0;
+  }
+  .byline{
+    margin-top:2rem;
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:600;
+    font-size:1.3rem;
+    letter-spacing:0.03em;
+  }
+  .dates{
+    font-family:'Lora', Georgia, serif;
+    font-size:0.95rem;
+    color:var(--rose-pale);
+    margin-top:0.15rem;
+  }
+  main{
+    max-width:640px;
+    margin:0 auto;
+    padding:3rem 1.5rem 2rem;
+  }
+  .archive-photo{
+    margin:1rem 0 2.2rem;
+  }
+  .archive-photo img{
+    width:100%;
+    height:auto;
+    display:block;
+    border-bottom:3px solid var(--hero);
+  }
+  .archive-photo figcaption{
+    font-family:'Lora', Georgia, serif;
+    font-size:0.85rem;
+    font-style:italic;
+    color:var(--ink-soft);
+    padding-top:0.6rem;
+    line-height:1.5;
+  }
+  .lede{
+    font-size:1.15rem;
+    color:var(--hero-deep);
+    font-style:italic;
+    border-left:3px solid var(--rose);
+    padding-left:1rem;
+    margin-bottom:2.2rem;
+  }
+  article p{
+    font-size:1.08rem;
+    margin:0 0 1.4rem;
+  }
+  .pullquote{
+    background:var(--rose-pale);
+    border-radius:2px;
+    padding:1.6rem 1.8rem;
+    margin:2.5rem 0 1rem;
+    font-style:italic;
+    color:var(--hero-deep);
+    font-size:1.05rem;
+    line-height:1.6;
+  }
+  .ribbon{
+    display:inline-block;
+    width:1.1rem;
+    height:1.7rem;
+    margin-left:0.35rem;
+    vertical-align:middle;
+  }
+  footer{
+    max-width:640px;
+    margin:0 auto;
+    padding:1.5rem 1.5rem 3.5rem;
+    border-top:1px solid var(--rose-pale);
+    font-family:'Barlow Condensed', sans-serif;
+    font-size:1rem;
+  }
+  footer a{
+    color:var(--hero);
+    text-decoration:none;
+    border-bottom:1px solid var(--rose);
+  }
+  .series{
+    margin-top:1.2rem;
+    font-size:0.95rem;
+    color:var(--ink-soft);
+  }
+  .series a{
+    color:var(--ink-soft);
+    text-decoration:underline;
+    text-decoration-color:var(--rose);
+  }
+  @media (max-width:480px){
+    .hero{padding:3.2rem 1.2rem 2.6rem;}
+    main{padding:2.2rem 1.2rem 1.5rem;}
+  }  .support-cta{
+    margin:2.5rem 0;
+    text-align:center;
+    background:var(--rose-pale);
+    padding:1.8rem 1.5rem;
+    border-radius:3px;
+  }
+  .support-cta h2{
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:600;
+    font-size:1.4rem;
+    color:var(--hero-deep);
+    margin:0 0 0.7rem;
+  }
+  .support-cta p{
+    font-size:0.98rem;
+    color:var(--ink);
+    margin:0 0 1.2rem;
+  }
+  .support-button{
+    display:inline-block;
+    background:var(--hero);
+    color:#fff;
+    padding:0.85rem 2rem;
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:700;
+    font-size:1.05rem;
+    text-decoration:none;
+    letter-spacing:0.02em;
+    border-radius:2px;
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <img class="brandmark" src="logo-white.png" alt="Therapilatics">
+  <p class="motto">I Dance.<br>I Heal.<br>I Teach.</p>
+  <p class="kicker">&hellip;because Pilates.</p>
+  <p class="byline">Eve Gentry
+    <svg class="ribbon" viewBox="0 0 24 36" aria-hidden="true">
+      <path d="M12 4c2.5 4 6 7 6 12a6 6 0 1 1-12 0c0-5 3.5-8 6-12z" fill="none" stroke="#F1D9DF" stroke-width="2"/>
+      <path d="M12 16 L6 32 M12 16 L18 32" stroke="#F1D9DF" stroke-width="2" fill="none"/>
+    </svg>
+  </p>
+  <p class="dates">August 20, 1909 – June 17, 1994</p>
+</div>
+
+<main>
+  <figure class="archive-photo">
+    <img src="eve-gentry-apparatus.jpeg" alt="Eve Gentry standing on an apparatus with arms raised overhead, mid-exercise" loading="lazy">
+    <figcaption>Eve Gentry.</figcaption>
+  </figure>
+
+  <p class="lede">A Pilates elder who used her own recovery from breast cancer to prove what movement could do.</p>
+
+  <article>
+    <p>Before she was Eve Gentry, she was a young dancer building a career in New York, moving through the Hanya Holm Company and later founding her own troupe, Eve Gentry Dancers. Persistent back and knee trouble brought her to Joseph Pilates&rsquo; studio on Eighth Avenue in the late 1930s &mdash; one more dancer among many who came to &ldquo;Uncle Joe&rdquo; not for fitness, but to keep working.</p>
+
+    <p>In 1955, everything changed. Eve was diagnosed with breast cancer and underwent a radical mastectomy &mdash; an extreme procedure even by the standards of the time, removing not just breast tissue but most of her pectoral muscle and her lymph nodes. She couldn&rsquo;t lift her arms above her head. Doctors did not expect a dancer&rsquo;s range of motion to return.</p>
+
+    <p>She went back to Joseph Pilates. Within a year, she was performing the same advanced apparatus work she&rsquo;d done before the surgery &mdash; work built for a torso that, by every conventional expectation, could no longer do it. The recovery was so complete that when Joe tried to show it to a hospital board as evidence of what movement could do, they didn&rsquo;t believe him. He and Eve filmed her again, without a shirt, so there could be no argument about what the camera was showing.</p>
+
+    <p>In 1968, Eve carried that work to Santa Fe, New Mexico, where she opened her own studio and spent the rest of her career teaching people to understand the <em>why</em> behind a movement, not just the <em>how</em>. She helped found the Institute for the Pilates Method, becoming one of the &ldquo;elders&rdquo; &mdash; the small first generation who trained directly under Joseph Pilates and carried the method forward after his death in 1967.</p>
+
+    <p>Eve Gentry didn&rsquo;t invent the idea that movement is rehabilitation. But she proved it, in her own body, decades before &ldquo;exercise oncology&rdquo; was a phrase anyone used. Every era rediscovers what she already knew: that a body doesn&rsquo;t have to be whole in the way it once was to be strong.</p>
+  </article>
+
+  <p class="pullquote">This shirt exists because a Pilates elder used her own recovery to make the case that movement heals &mdash; and Therapilatics was built on the same idea.</p>
+
+  <div class="support-cta">
+    <h2>Teasers For Tatas</h2>
+    <p>A real nonprofit born from exactly this intersection &mdash; Pilates and breast cancer. Founded in 2016 by a Pilates professional and breast cancer survivor, it funds wellness services (massage therapy, nutrition counseling, support groups) for patients, previvors, thrivers, and survivors, raised through the Pilates community itself.</p>
+    <a class="support-button" href="https://teasersfortatas.org">Visit Teasers For Tatas</a>
+  </div>
+</main>
+
+<footer>
+  <p><a href="https://therapilatics.com">&larr; Back to Therapilatics</a></p>
+  <p class="series">Part of a tribute series &mdash; also read about <a href="kathy-grant.html">Kathy Grant</a>, <a href="romana-kryzanowska.html">Romana Kryzanowska</a>, and <a href="joseph-pilates.html">Joseph Pilates</a>.</p>
+</footer>
+
+</body>
+</html>

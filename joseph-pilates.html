@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joseph Pilates — I Am Joe Pilates | Therapilatics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F6F1E7;
+    --hero: #1E1B17;
+    --brass: #B8894B;
+    --brass-light: #D8AE79;
+    --ink: #221E19;
+    --ink-soft: #5C5346;
+    --card: #FFFCF6;
+    --hairline: #E1D5BE;
+    --cream: #F6F1E7;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Lora', Georgia, serif;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  .hero{
+    background:var(--hero);
+    padding:4.5rem 1.5rem 2.8rem;
+    text-align:center;
+    border-bottom:3px solid var(--brass);
+  }
+  .brandmark{
+    height:2.6rem;
+    width:auto;
+    margin:0 0 1.4rem;
+  }
+  .motto{
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:700;
+    font-size:clamp(1.6rem, 6vw, 2.3rem);
+    line-height:1.3;
+    letter-spacing:0.01em;
+    margin:0;
+    color:var(--brass-light);
+  }
+  .motto-line{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:0.5rem;
+    margin:0.15rem 0;
+  }
+  .motto-line.final-line{
+    color:var(--cream);
+  }
+  .hero-icon{
+    width:1.25em;
+    height:1.7em;
+    flex-shrink:0;
+  }
+  .reveal{
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:700;
+    font-size:clamp(1.3rem, 5vw, 1.7rem);
+    color:var(--cream);
+    margin:1.1rem 0 0;
+    letter-spacing:0.01em;
+  }
+  .byline{
+    margin-top:1.6rem;
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:600;
+    font-size:1.1rem;
+    letter-spacing:0.03em;
+    color:var(--brass-light);
+  }
+  .dates{
+    font-family:'Lora', Georgia, serif;
+    font-size:0.9rem;
+    color:var(--brass-light);
+    margin-top:0.1rem;
+  }
+  main{
+    max-width:640px;
+    margin:0 auto;
+    padding:3rem 1.5rem 2rem;
+  }
+  .archive-photo{
+    margin:1rem 0 2.2rem;
+  }
+  .archive-photo img{
+    width:100%;
+    height:auto;
+    display:block;
+    border-bottom:3px solid var(--brass);
+  }
+  .archive-photo figcaption{
+    font-family:'Lora', Georgia, serif;
+    font-size:0.85rem;
+    font-style:italic;
+    color:var(--ink-soft);
+    padding-top:0.6rem;
+    line-height:1.5;
+  }
+  .lede{
+    font-size:1.15rem;
+    color:var(--brass);
+    font-style:italic;
+    border-left:3px solid var(--brass);
+    padding-left:1rem;
+    margin-bottom:2.2rem;
+  }
+  article p{
+    font-size:1.08rem;
+    margin:0 0 1.4rem;
+    color:var(--ink);
+  }
+  .epigraph{
+    font-family:'Lora', Georgia, serif;
+    font-style:italic;
+    font-size:1.05rem;
+    color:var(--ink-soft);
+    border-left:3px solid var(--brass);
+    padding-left:1.2rem;
+    margin:2rem 0;
+  }
+  .pullquote{
+    background:var(--card);
+    border-left:4px solid var(--brass);
+    padding:1.6rem 1.8rem;
+    margin:2.5rem 0 1rem;
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:1.05rem;
+    line-height:1.6;
+  }
+  footer{
+    max-width:640px;
+    margin:0 auto;
+    padding:1.5rem 1.5rem 3.5rem;
+    border-top:1px solid var(--hairline);
+    font-family:'Barlow Condensed', sans-serif;
+    font-size:1rem;
+  }
+  footer a{
+    color:var(--brass);
+    text-decoration:none;
+    border-bottom:1px solid var(--brass);
+  }
+  .series{
+    margin-top:1.2rem;
+    font-size:0.95rem;
+    color:var(--ink-soft);
+  }
+  .series a{
+    color:var(--ink-soft);
+    text-decoration:underline;
+    text-decoration-color:var(--brass);
+  }
+  .mythology{
+    margin-top:2.5rem;
+    padding:1.6rem 1.8rem;
+    border:1px dashed var(--brass);
+    background:rgba(184,137,75,0.07);
+  }
+  .mythology-label{
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:600;
+    font-size:1.15rem;
+    color:var(--brass);
+    margin:0 0 0.6rem;
+  }
+  .mythology p:not(.mythology-label){
+    font-size:0.98rem;
+    font-style:italic;
+    color:var(--ink-soft);
+    margin:0 0 1rem;
+  }
+  .mythology p:last-child{
+    margin-bottom:0;
+  }
+  .mythology a{
+    color:var(--brass);
+  }
+  @media (max-width:480px){
+    .hero{padding:3.2rem 1.2rem 2.2rem;}
+    main{padding:2.2rem 1.2rem 1.5rem;}
+  }  .further-reading{
+    margin-top:2.2rem;
+  }
+  .further-reading h2{
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:600;
+    font-size:1.15rem;
+    color:var(--brass);
+    margin:0 0 0.7rem;
+  }
+  .further-reading ul{
+    margin:0;
+    padding-left:1.2rem;
+    color:var(--ink-soft);
+    font-size:0.98rem;
+  }
+  .further-reading li{
+    margin-bottom:0.4rem;
+  }  .shop-shirt{
+    margin:2.5rem 0;
+    text-align:center;
+  }
+  .shop-shirt h2{
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:600;
+    font-size:1.4rem;
+    color:var(--ink);
+    margin:0 0 1rem;
+  }
+  .shop-shirt .shirt-images{
+    display:flex;
+    gap:0.8rem;
+  }
+  .shop-shirt .shirt-images img{
+    width:50%;
+    height:auto;
+    display:block;
+    border-radius:3px;
+  }
+  .shop-button{
+    display:inline-block;
+    margin-top:1.3rem;
+    background:var(--brass);
+    color:var(--hero);
+    padding:0.85rem 2rem;
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:700;
+    font-size:1.05rem;
+    text-decoration:none;
+    letter-spacing:0.02em;
+    border-radius:2px;
+  }  .aside-link{
+    display:block;
+    margin-top:0.9rem;
+    font-family:'Lora', Georgia, serif;
+    font-style:italic;
+    font-size:0.9rem;
+    color:var(--ink-soft);
+  }
+  .aside-link a{
+    color:var(--ink-soft);
+    text-decoration:underline;
+    text-decoration-color:var(--brass);
+  }  .personal-note{
+    font-family:'Lora', Georgia, serif;
+    font-style:italic;
+    font-size:1.05rem;
+    color:var(--ink-soft);
+    border-left:3px solid var(--brass);
+    padding-left:1.2rem;
+    margin:2rem 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <img class="brandmark" src="logo-brass.png" alt="Therapilatics">
+  <p class="motto">Strength comes from&hellip;</p>
+
+  <p class="motto-line">
+    <span>the glass?</span>
+    <svg class="hero-icon" viewBox="0 0 20 28" aria-hidden="true">
+      <path d="M4 3 L16 3 L14 25 L6 25 Z" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <line x1="5.4" y1="13" x2="14.6" y2="13" stroke="currentColor" stroke-width="1.6"/>
+    </svg>
+  </p>
+
+  <p class="motto-line">
+    <span>the glove?</span>
+    <svg class="hero-icon" viewBox="0 0 28 24" aria-hidden="true">
+      <path d="M6 11 C5 6 9 2 14.5 2 C19.5 2 22.5 6.5 22.5 11.5 C22.5 15.5 19.5 18.5 15.5 19.3 L15.5 22 L8.5 22 L8.5 18.3 C5.8 16.5 5 13.5 6 11 Z" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <line x1="8.5" y1="18" x2="15.5" y2="18" stroke="currentColor" stroke-width="1.3"/>
+    </svg>
+  </p>
+
+  <p class="motto-line final-line">
+    <span>The core.</span>
+    <svg class="hero-icon" viewBox="0 0 20 28" aria-hidden="true">
+      <path d="M10 2.5 C7.5 2.5 6.3 5 6.3 7 C6.3 8.8 7 9.8 7.2 10.6 L5.2 13 L5.2 17.5 L14.8 17.5 L14.8 13 L12.8 10.6 C13 9.8 13.7 8.8 13.7 7 C13.7 5 12.5 2.5 10 2.5 Z" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <rect x="4.3" y="17.5" width="11.4" height="5.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+    </svg>
+  </p>
+
+  <p class="reveal">I am Joe Pilates.</p>
+  <p class="byline">Joseph Pilates</p>
+  <p class="dates">December 9, 1883 – October 9, 1967</p>
+</div>
+
+<main>
+  <figure class="archive-photo">
+    <img src="joseph-pilates-reformer.jpeg" alt="Joseph Pilates demonstrating an exercise on the Universal Reformer" loading="lazy">
+    <figcaption>Joseph Pilates on the Universal Reformer. Widely circulated instructional photo; exact date unconfirmed.</figcaption>
+  </figure>
+
+  <p class="lede">The founder &mdash; imperfect, contradictory, and honest about both.</p>
+
+  <article>
+    <p>He was not supposed to be strong. Born in 1883 near D&uuml;sseldorf, Germany, Joseph Pilates was a sickly child &mdash; asthma, rickets, rheumatic fever, all three at once, the kind of childhood that gets you bullied rather than admired. The family name didn&rsquo;t help: other children taunted the Pilates kids as descendants of Pontius Pilate. His younger brother Fred later described what that bullying actually looked like &mdash; other boys held five-year-old Joseph down and struck him with a stone, blinding him in one eye. &ldquo;This is when he made up his mind to become strong,&rdquo; Fred recalled. He wasn&rsquo;t exaggerating: once Joseph had rebuilt himself, he turned around and taught Fred the same discipline.</p>
+
+    <p>He decided not to stay one. With his father &mdash; a gymnast &mdash; pushing him, Joseph took up gymnastics, bodybuilding, and boxing. By fourteen he&rsquo;d rebuilt himself so completely that he was posing for anatomical charts. He kept going: skiing, diving, wrestling, gymnastics. In 1912 he moved to England, where he made a living as a boxer and a circus performer, and &mdash; by some accounts &mdash; was brought in to teach self-defense to police.</p>
+
+    <p>Then came the war. As a German national in England, Joseph was interned for the duration of World War I. He didn&rsquo;t stop moving. He taught exercise to his fellow internees, and when some of them were too sick or injured to get out of bed, he rigged springs to the bed frames so they could still resist against something. That&rsquo;s the exercise apparatus, in its rawest form &mdash; the ancestor of the reformer and the Cadillac, invented out of necessity in a prison camp.</p>
+
+    <p>He immigrated to New York in 1926 and opened a studio with his wife, Clara, at 939 Eighth Avenue. He called the method Contrology. He never called it Pilates &mdash; that name came later, from everyone else.</p>
+
+    <p>Here&rsquo;s the part that doesn&rsquo;t fit the poster version of him: Joseph Pilates smoked and drank, openly and constantly, while running a studio built on the idea that the body could be perfected through discipline. He told a reporter in 1964 that he drank a quart of liquor a day, plus beer, and smoked around fifteen cigars. He taught classes in tiny shorts with a cigar in his hand. His own line for it was blunt: &ldquo;Look at me &mdash; smoking and drinking and loving!&rdquo; He wasn&rsquo;t hiding the contradiction. He was daring you to explain how he was still standing.</p>
+
+    <p>He kept teaching into his eighties, well past the point most people slow down, and he died in 1967 at 83.</p>
+
+    <figure class="archive-photo">
+      <img src="joseph-pilates-1960.jpeg" alt="Joseph Pilates demonstrating a seated spine twist and a side plank exercise" loading="lazy">
+      <figcaption>Spine twist and side plank, dated 1960 &mdash; he would have been about 76.</figcaption>
+    </figure>
+  </article>
+
+  <blockquote class="epigraph">&ldquo;Patience and persistence are vital qualities&rdquo; &mdash; that&rsquo;s how Joe summed up what it takes to accomplish anything worthwhile, in his 1945 book <em>Return to Life Through Contrology</em>.</blockquote>
+
+  <blockquote class="personal-note">I&rsquo;ve always suspected Joe was neurodivergent &mdash; a mind that invents things nobody asked for, out of bed springs, in a prison camp, because it had no other way to be. I keep Gratz equipment in the studio to honor exactly what he built; everywhere else, I build my own way, same as he did.</blockquote>
+
+  <p class="pullquote">This shirt exists because Joe never asked anyone to live like him &mdash; only to move like he taught. Therapilatics teaches the method, not the man.</p>
+
+  <div class="shop-shirt">
+    <h2>Shop This Shirt</h2>
+    <div class="shirt-images">
+      <img src="joseph-shirt-front.jpg" alt="Front of the Joseph Pilates tribute shirt: Strength comes from the glass? the glove? The core. I am Joe Pilates.">
+      <img src="joseph-shirt-back.jpg" alt="Back of the Joseph Pilates tribute shirt: a hand holding a whiskey glass, with the Therapilatics logo below">
+    </div>
+    <!-- TODO: replace href="#" with the Shopify product link once the store is live -->
+    <a class="shop-button" href="#">Shop Now</a>
+    <span class="aside-link">Love the glass bit? <a href="https://pilatespeople.store/products/pre-order-pilates-icon-glass">Here's a literal one</a> (unrelated shop, not ours).</span>
+  </div>
+
+  <div class="mythology">
+    <p class="mythology-label">The Mythology</p>
+    <p>There&rsquo;s a story that circulates in some corners of the Pilates world &mdash; that Joseph Pilates died a hero, running into a fire to save his studio from burning down. It&rsquo;s a good story. It&rsquo;s also not true. A Pilates elder who knew him personally has said plainly that it didn&rsquo;t happen that way: there was a fire in a storage room in 1965, but it didn&rsquo;t touch Joe, Clara, or the studio itself.</p>
+    <p>What actually caught up with him was slower and far less cinematic: decades of heavy cigar smoking left him with advanced emphysema, and by one biographer&rsquo;s account (John Howard Steel&rsquo;s <em>Caged Lion</em>), it was pneumonia &mdash; taking hold in lungs that were already compromised &mdash; that was the immediate cause of death in 1967. He kept teaching and advocating for his method into his eighties, past the point where his own body could still perform everything he&rsquo;d built it around. That persistence is genuinely admirable. It doesn&rsquo;t erase what the cigars cost him. Cigar smoke does real lung damage even for people who don&rsquo;t inhale it the way a cigarette smoker does &mdash; Joe&rsquo;s own lungs made that case before the research caught up. If any of this lands close to home, <a href="https://smokefree.gov">smokefree.gov</a> is a good place to start.</p>
+  </div>
+
+  <div class="further-reading">
+    <h2>Further Reading</h2>
+    <ul>
+      <li>John Howard Steel, <em>Caged Lion: Joseph Pilates and His Legacy</em> (2020)</li>
+      <li>Javier P&eacute;rez Pont &amp; Esperanza Aparicio Romero, <em>Joseph Hubertus Pilates: The Biography</em> (2013)</li>
+    </ul>
+  </div>
+</main>
+
+<footer>
+  <p><a href="https://therapilatics.com">&larr; Back to Therapilatics</a></p>
+  <p class="series">Part of a tribute series &mdash; also read about <a href="eve-gentry.html">Eve Gentry</a>, <a href="kathy-grant.html">Kathy Grant</a>, and <a href="romana-kryzanowska.html">Romana Kryzanowska</a>.</p>
+</footer>
+
+</body>
+</html>
