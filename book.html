@@ -966,6 +966,47 @@
     outline: 3px solid var(--teal-dark);
     outline-offset: 2px;
   }
+
+  .paths-head { padding: 2.25rem 3rem 1.25rem; border-top: 2px solid var(--black); }
+  .paths-head-label {
+    font-family:'Barlow Condensed',sans-serif; font-size:.6rem; font-weight:600;
+    letter-spacing:.22em; text-transform:uppercase; color:var(--teal-dark);
+    display:block; margin-bottom:.6rem;
+  }
+  .paths-head-title {
+    font-family:'Barlow Condensed',sans-serif; font-size:1.7rem; font-weight:600;
+    letter-spacing:.03em; text-transform:uppercase; color:var(--black); margin-bottom:.6rem;
+  }
+  .paths-head-intro { font-size:1rem; line-height:1.7; color:var(--body); max-width:40rem; }
+  .paths { border-top: 1px solid var(--rule); }
+  .path-integrated::before { background: var(--teal-dark); }
+
+  .path-visiting {
+    display:flex; align-items:center; justify-content:space-between; gap:2rem;
+    padding:1.75rem 3rem; background:var(--white);
+    border-top:1px solid var(--rule); border-bottom:2px solid var(--black);
+  }
+  .path-visiting-text { max-width:46rem; }
+  .path-visiting-title {
+    font-family:'Barlow Condensed',sans-serif; font-size:1.2rem; font-weight:600;
+    letter-spacing:.03em; text-transform:uppercase; color:var(--black); margin:.15rem 0 .4rem;
+  }
+  .path-visiting-text p { font-size:.92rem; line-height:1.7; color:var(--mid); }
+  .path-visiting-cta {
+    flex-shrink:0; display:flex; flex-direction:column; align-items:center; gap:.3rem;
+    font-family:'Barlow Condensed',sans-serif; font-size:.74rem; font-weight:600;
+    letter-spacing:.16em; text-transform:uppercase; color:var(--white);
+    background:var(--black); padding:1rem 1.75rem; text-decoration:none;
+    min-height:54px; justify-content:center; transition:background .2s;
+  }
+  .path-visiting-cta:hover { background:var(--teal-dark); }
+  .path-visiting-price { color:var(--teal); font-size:.68rem; letter-spacing:.14em; }
+
+  @media (max-width:768px){
+    .paths-head { padding:1.75rem 1.25rem 1rem; }
+    .path-visiting { flex-direction:column; align-items:flex-start; gap:1.1rem; padding:1.5rem 1.25rem; }
+    .path-visiting-cta { width:100%; }
+  }
 </style>
 </head>
 <body>
@@ -1016,33 +1057,52 @@
     <div class="notice-dot"></div>
     <div class="notice-text">
       Appointment only — no walk-ins
-      <span>New clients start with the Introductory Assessment. Existing clients may book directly.</span>
+      <span>New clients start with an assessment. Existing clients may book directly.</span>
     </div>
     <a href="mailto:hello@therapilatics.com" class="notice-contact">Questions? Email us</a>
   </div>
 </div>
 
 <!-- CHOOSE YOUR PATH -->
+<div class="paths-head">
+  <span class="paths-head-label">New Clients</span>
+  <h2 class="paths-head-title">Two Ways to Start</h2>
+  <p class="paths-head-intro">Both begin the same way &mdash; you moving, while I watch and take your history. The difference is how far we go, and what you walk out holding.</p>
+</div>
+
 <div class="paths" id="paths">
   <a class="path path-new" href="https://therapilatics.setmore.com/services/9cd126ca-877e-450d-9613-22d306df21bc">
-    <span class="path-label">Start Here</span>
-    <span class="path-title">Introductory Assessment</span>
-    <span class="path-price">$85 &middot; One Hour</span>
-    <span class="path-body">For anyone new to the studio, or coming back after time away from classical work. You move &mdash; on the apparatus, within the first few minutes &mdash; while I take your history and watch what your body is actually doing. You leave with written findings and a plan built from them.</span>
+    <span class="path-label">Standard</span>
+    <span class="path-title">Standard Assessment</span>
+    <span class="path-price">$85 &middot; About 50 Minutes</span>
+    <span class="path-body">The movement baseline. A short screen, then a fitness assessment that moves you through mat work and onto the apparatus while I take your history and record what I see. You leave with written findings and a plan built from them.</span>
     <span class="path-cta">Book an Assessment &nearr;</span>
   </a>
 
-  <a class="path path-exp" href="https://therapilatics.setmore.com/services/c070dca7-2410-433b-afc5-00f62be1aebb">
-    <span class="path-label">Already Training</span>
-    <span class="path-title">Visiting Practitioner Session</span>
-    <span class="path-price">$130 &middot; One Hour</span>
-    <span class="path-body">For experienced classical clients passing through Melbourne, or training at another studio and visiting. You know the order and the apparatus, so we go straight to work. A short health screen and signed waiver are required before your first session.</span>
-    <span class="path-cta">Book a Session &nearr;</span>
+  <a class="path path-integrated" href="https://therapilatics.setmore.com/services/b45c08d0-7153-46ee-8b53-1c9a14027e05">
+    <span class="path-label">Comprehensive</span>
+    <span class="path-title">Integrated Health &amp; Movement Assessment</span>
+    <span class="path-price">$225 &middot; 80&ndash;120 Minutes</span>
+    <span class="path-body">Everything in the standard assessment, plus strength testing, body composition, a closer look at one or two specific areas &mdash; knee, hip, shoulder, spine &mdash; and a review of activity and health habits. You leave with a written assessment and a practical five-to-six week plan.</span>
+    <span class="path-cta">Book the Full Assessment &nearr;</span>
   </a>
 </div>
+
 <div class="paths-note">
   <span class="paths-note-dot"></span>
-  <p>Melbourne is home and you are new to me? Choose the assessment &mdash; it is the right start for almost everyone.</p>
+  <p>Not sure? Start standard. It answers what your body is doing now.</p>
+</div>
+
+<div class="path-visiting">
+  <div class="path-visiting-text">
+    <span class="path-label">Already Training</span>
+    <h3 class="path-visiting-title">Visiting Practitioner Session</h3>
+    <p>For experienced classical clients passing through Melbourne, or training at another studio and visiting. You know the order and the apparatus, so we go straight to work. A short health screen and signed waiver are required before your first session.</p>
+  </div>
+  <a class="path-visiting-cta" href="https://therapilatics.setmore.com/services/c070dca7-2410-433b-afc5-00f62be1aebb">
+    <span class="path-visiting-price">$130 &middot; One Hour</span>
+    <span>Book a Session &nearr;</span>
+  </a>
 </div>
 
 <!-- EMBED + ASIDE -->
@@ -1063,7 +1123,7 @@
   <div class="policy-block">
     <span class="policy-label">Scheduling Policy</span>
     <h3 class="policy-title">Appointment Only</h3>
-    <p class="policy-text">There is no walk-in availability at either location. All sessions are booked in advance. New clients begin with an Introductory Assessment. Assessments are by appointment, including Sunday afternoons — if you do not see a time that works, request one above.</p>
+    <p class="policy-text">There is no walk-in availability at either location. All sessions are booked in advance. New clients begin with an assessment. Assessments are by appointment, including Sunday afternoons — if you do not see a time that works, request one above.</p>
   </div>
   <div class="policy-block">
     <span class="policy-label">Cancellation Policy</span>
@@ -1112,7 +1172,7 @@
 
 <footer>
   <div>
-    <div class="footer-logo"><img src="logo-mark.png" alt=""><span class="wm">Thera<span>pilatics</span></span></div>
+    <div class="footer-logo"><img src="logo-mark-light.png" alt=""><span class="wm">Thera<span>pilatics</span></span></div>
     <div class="footer-tagline">Mending with Movement</div>
     <div class="footer-legal">&copy; 2026 Pilates Footworks LLC<br>All Rights Reserved</div>
   </div>
