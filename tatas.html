@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brevard Teasers for Tatas | Therapilatics</title>
+  <meta name="description" content="Brevard Teasers for Tatas: October Pilates fundraiser classes in Melbourne, Florida, plus Radiance & Resilience for older adults.">
+  <style>
+    :root{
+      --ink:#151515;
+      --muted:#676767;
+      --paper:#fffdfc;
+      --rose:#d92f68;
+      --rose-soft:#f9e7ee;
+      --wine:#64223c;
+      --line:#eadce2;
+      --card:#ffffff;
+      --shadow:0 14px 40px rgba(35,20,28,.08);
+      --radius:22px;
+      --max:1120px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--ink);
+      background:var(--paper);
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height:1.6;
+    }
+    a{color:inherit}
+    .wrap{width:min(var(--max), calc(100% - 36px)); margin:0 auto}
+    .eyebrow{
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-size:.78rem;
+      font-weight:800;
+      color:var(--rose);
+      margin:0 0 .8rem;
+    }
+    h1,h2,h3{
+      font-family:Georgia, "Times New Roman", serif;
+      line-height:1.08;
+      margin:0;
+      color:#171217;
+    }
+    h1{font-size:clamp(3rem, 8vw, 6.5rem); max-width:900px}
+    h2{font-size:clamp(2rem, 5vw, 3.8rem)}
+    h3{font-size:1.55rem}
+    p{margin:.7rem 0 0}
+    .lead{font-size:clamp(1.12rem,2vw,1.35rem); max-width:800px; color:#433a3f}
+    .small{font-size:.93rem; color:var(--muted)}
+    .btns{display:flex; flex-wrap:wrap; gap:12px; margin-top:1.6rem}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:48px;
+      padding:.8rem 1.2rem;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:800;
+      border:1px solid transparent;
+      transition:.2s ease;
+    }
+    .btn.primary{background:var(--rose); color:white}
+    .btn.primary:hover{transform:translateY(-1px); box-shadow:0 8px 20px rgba(217,47,104,.22)}
+    .btn.secondary{background:white; border-color:#d8c8cf}
+    .btn.secondary:hover{border-color:var(--rose)}
+    .btn.dark{background:var(--wine); color:white}
+    header{
+      padding:18px 0;
+      position:sticky;
+      top:0;
+      z-index:10;
+      background:rgba(255,253,252,.94);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(234,220,226,.8);
+    }
+    nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+    .brand{font-weight:900; text-decoration:none; letter-spacing:.02em}
+    .navlinks{display:flex; flex-wrap:wrap; gap:18px; font-size:.92rem}
+    .navlinks a{text-decoration:none; color:#4f454b}
+    .hero{
+      padding:clamp(70px,11vw,135px) 0 70px;
+      background:
+        radial-gradient(circle at 85% 10%, rgba(217,47,104,.13), transparent 32%),
+        linear-gradient(180deg,#fff 0%, #fff8fa 100%);
+      border-bottom:1px solid var(--line);
+    }
+    .hero-note{
+      margin-top:2rem;
+      display:inline-block;
+      padding:.7rem 1rem;
+      border-radius:14px;
+      background:white;
+      border:1px solid var(--line);
+      color:#4a4045;
+    }
+    section{padding:80px 0}
+    .section-head{max-width:760px; margin-bottom:34px}
+    .schedule{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:16px;
+    }
+    .date-card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:24px;
+      box-shadow:var(--shadow);
+    }
+    .date-card.featured{
+      background:linear-gradient(145deg,#fff 0%,#fff2f6 100%);
+      border-color:#efc4d3;
+    }
+    .date{font-weight:900; color:var(--wine); font-size:1.05rem}
+    .time{font-size:1.45rem; font-weight:900; margin-top:.2rem}
+    .tag{
+      display:inline-block;
+      margin-top:.7rem;
+      padding:.3rem .65rem;
+      border-radius:999px;
+      background:var(--rose-soft);
+      color:var(--wine);
+      font-size:.82rem;
+      font-weight:800;
+    }
+    .location-box{
+      margin-top:26px;
+      background:#171217;
+      color:white;
+      border-radius:var(--radius);
+      padding:28px;
+    }
+    .location-box h3{color:white}
+    .location-box a{color:white}
+    .grid2{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:26px;
+      align-items:start;
+    }
+    .panel{
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:30px;
+      background:white;
+      box-shadow:var(--shadow);
+    }
+    .bullets{padding-left:1.2rem; margin:1.2rem 0 0}
+    .bullets li{margin:.55rem 0}
+    .callout{
+      background:var(--wine);
+      color:white;
+    }
+    .callout h2,.callout h3{color:white}
+    .callout .lead,.callout p{color:#f7edf1}
+    .premium{
+      background:
+        linear-gradient(rgba(255,255,255,.94),rgba(255,255,255,.94)),
+        radial-gradient(circle at 20% 10%, rgba(217,47,104,.25), transparent 36%);
+    }
+    .premium-card{
+      background:#fff;
+      border:1px solid #e7d4dc;
+      border-radius:28px;
+      padding:clamp(28px,5vw,50px);
+      box-shadow:0 18px 55px rgba(66,33,49,.11);
+    }
+    .premium-kicker{
+      font-size:.86rem;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-weight:900;
+      color:var(--rose);
+    }
+    .signup{
+      background:linear-gradient(135deg,#fcecf2,#fff);
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+    }
+    .signup-box{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:30px;
+      align-items:center;
+    }
+    .contact-card{
+      background:white;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:24px;
+    }
+    footer{
+      padding:34px 0 50px;
+      color:#74686e;
+      font-size:.9rem;
+    }
+    footer .row{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+
+    .interest-form{
+      margin-top:1.4rem;
+      display:grid;
+      gap:12px;
+      max-width:620px;
+    }
+    .interest-form .row2{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+    .interest-form label{
+      display:grid;
+      gap:6px;
+      font-size:.9rem;
+      font-weight:800;
+      color:#4f454b;
+    }
+    .interest-form input,
+    .interest-form select{
+      width:100%;
+      min-height:48px;
+      border:1px solid #d8c8cf;
+      border-radius:14px;
+      padding:.8rem .9rem;
+      font:inherit;
+      background:white;
+      color:var(--ink);
+    }
+    .interest-form input:focus,
+    .interest-form select:focus{
+      outline:2px solid rgba(217,47,104,.18);
+      border-color:var(--rose);
+    }
+    .inactive-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:48px;
+      padding:.8rem 1.2rem;
+      border-radius:999px;
+      font-weight:800;
+      border:1px solid #d8c8cf;
+      background:#f7f2f4;
+      color:#776a70;
+      cursor:default;
+    }
+
+    @media (max-width:760px){
+      .navlinks{display:none}
+      .schedule,.grid2,.signup-box,.interest-form .row2{grid-template-columns:1fr}
+      section{padding:62px 0}
+      h1{font-size:clamp(2.8rem,15vw,4.6rem)}
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="#top">THERAPILATICS</a>
+      <div class="navlinks">
+        <a href="#schedule">Schedule</a>
+        <a href="#about">About</a>
+        <a href="#radiance">Radiance &amp; Resilience</a>
+        <a href="#updates">Get Updates</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">New to Brevard County • October 2026</p>
+      <h1>Brevard Teasers for Tatas</h1>
+      <p class="lead">
+        Pilates, community, and a fundraiser with a purpose.
+        Join Therapilatics this October for a Brevard County series benefiting
+        <strong>Teasers for Tatas</strong>.
+      </p>
+      <div class="btns">
+        <a class="btn primary" href="#updates">Get on the list</a>
+        <span class="inactive-btn" aria-disabled="true">Eventbrite registration opening soon</span>
+      </div>
+      <p class="hero-note"><strong>Come once. Come twice. Or make a series of it.</strong></p>
+    </div>
+  </section>
+
+  <section id="schedule">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Confirmed Melbourne Schedule</p>
+        <h2>Choose the session that fits your life.</h2>
+        <p class="lead">
+          These are bring-your-own-mat fundraiser classes. A thicker mat is recommended.
+          Water will be provided.
+        </p>
+      </div>
+
+      <div class="schedule">
+        <article class="date-card">
+          <div class="date">Monday, October 19</div>
+          <div class="time">11:00 AM</div>
+        </article>
+
+        <article class="date-card">
+          <div class="date">Wednesday, October 21</div>
+          <div class="time">11:00 AM</div>
+        </article>
+
+        <article class="date-card">
+          <div class="date">Sunday, October 25</div>
+          <div class="time">2:30 PM</div>
+        </article>
+
+        <article class="date-card featured">
+          <div class="date">Tuesday, October 27</div>
+          <div class="time">8:00 PM</div>
+          <span class="tag">Late Night Latte</span>
+          <p>Our late class includes a latte station so you can refuel before heading home.</p>
+        </article>
+
+        <article class="date-card">
+          <div class="date">Thursday, October 29</div>
+          <div class="time">2:30 PM</div>
+        </article>
+      </div>
+
+      <div class="location-box">
+        <h3>Melbourne Location</h3>
+        <p>
+          7720 N. Wickham Road, Suite 105<br>
+          Melbourne, FL 32940
+        </p>
+        <p>
+          Need help finding us? Call or text Therapilatics at
+          <a href="tel:+13213453797"><strong>321-345-3797</strong></a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap grid2">
+      <div>
+        <p class="eyebrow">The Workout</p>
+        <h2>Yes, there will be Teasers.</h2>
+        <p class="lead">
+          Expect an approachable Pilates class, the infamous towel workout, and progressive
+          exercises that build toward one of the method's best-known movements: the Teaser.
+        </p>
+        <p>
+          You do not have to be able to do a Teaser to come. That is rather the point.
+        </p>
+      </div>
+
+      <div class="panel">
+        <h3>What to bring</h3>
+        <ul class="bullets">
+          <li>Your own mat — a thicker mat is recommended.</li>
+          <li>Comfortable clothes you can move in.</li>
+          <li>A little curiosity. Experience is not required.</li>
+        </ul>
+        <p class="small">Water will be provided. Coffee will be available at select sessions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="callout">
+    <div class="wrap grid2">
+      <div>
+        <p class="eyebrow" style="color:#ffb8ce">Why Teasers for Tatas?</p>
+        <h2>Movement with a larger purpose.</h2>
+        <p class="lead">
+          Teasers for Tatas is a 501(c)(3) organization created to celebrate and support
+          the breast cancer community through Pilates, wellness, and connection.
+        </p>
+      </div>
+      <div class="panel" style="background:#251820;border-color:#4f3441;color:white">
+        <h3 style="color:white">Learn more</h3>
+        <p>
+          Visit the official Teasers for Tatas website or read about Eve Gentry,
+          a first-generation Pilates teacher whose breast-cancer recovery became part
+          of Pilates history.
+        </p>
+        <div class="btns">
+          <a class="btn secondary" href="https://teasersfortatas.org/" target="_blank" rel="noopener">TeasersForTatas.org</a>
+          <a class="btn secondary" href="https://therapilatics.com/eve-gentry.html" target="_blank" rel="noopener">Eve Gentry</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="radiance" class="premium">
+    <div class="wrap">
+      <article class="premium-card">
+        <p class="premium-kicker">Rockledge • Date &amp; location to be announced</p>
+        <h2>Radiance &amp; Resilience</h2>
+        <p class="lead">
+          A smaller, more intimate experience centered specifically on
+          <strong>exercise for older adults</strong>.
+        </p>
+        <p>
+          Laini will lead a short movement experience focused on how exercise changes as we age —
+          including strength, balance, mobility, recovery, and maintaining independence —
+          as part of her <strong>Certified Geriatric Care Professional</strong> certification.
+        </p>
+
+        <div class="grid2" style="margin-top:26px">
+          <div>
+            <h3>The evening is expected to include</h3>
+            <ul class="bullets">
+              <li>Light hors d'oeuvres</li>
+              <li>A short guided Pilates experience</li>
+              <li>A Pilates mat to take home</li>
+              <li>Salon tour and refreshments</li>
+              <li>A silent auction benefiting Teasers for Tatas</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>Want first notice?</h3>
+            <p>
+              The Rockledge date and exact location are still being finalized.
+              Join the list and we’ll send the details when registration opens.
+            </p>
+            <div class="btns">
+              <a class="btn dark" href="#updates">Get Radiance &amp; Resilience updates</a>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="updates" class="signup">
+    <div class="wrap signup-box">
+      <div>
+        <p class="eyebrow">Be first to know</p>
+        <h2>Get on the Brevard list.</h2>
+        <p class="lead">
+          Registration is opening shortly. Get event updates, final details,
+          and the Eventbrite link as soon as it is live.
+        </p>
+        <form class="interest-form" action="https://formspree.io/f/mkjgzvrq" method="POST">
+          <input type="hidden" name="_subject" value="Brevard Teasers for Tatas Interest">
+          <input type="hidden" name="source" value="Brevard Teasers for Tatas landing page">
+
+          <div class="row2">
+            <label>
+              Name
+              <input type="text" name="name" autocomplete="name" required>
+            </label>
+
+            <label>
+              Email
+              <input type="email" name="email" autocomplete="email" required>
+            </label>
+          </div>
+
+          <label>
+            I'm most interested in
+            <select name="interest">
+              <option value="Brevard Teasers for Tatas classes">Brevard Teasers for Tatas classes</option>
+              <option value="Late Night Latte">Late Night Latte</option>
+              <option value="Radiance & Resilience">Radiance &amp; Resilience</option>
+              <option value="All event updates">All event updates</option>
+            </select>
+          </label>
+
+          <button class="btn primary" type="submit">Get on the list</button>
+        </form>
+
+        <div class="btns">
+          <span class="inactive-btn" aria-disabled="true">Eventbrite registration opening soon</span>
+        </div>
+
+
+      </div>
+
+      <aside class="contact-card">
+        <h3>Questions?</h3>
+        <p>Call or text Therapilatics.</p>
+        <p style="font-size:1.4rem;font-weight:900">
+          <a href="tel:+13213453797">321-345-3797</a>
+        </p>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap row">
+    <div>© 2026 Therapilatics • Brevard Teasers for Tatas</div>
+    <div>
+      <a href="https://teasersfortatas.org/" target="_blank" rel="noopener">Teasers for Tatas</a>
+      &nbsp;•&nbsp;
+      <a href="tel:+13213453797">321-345-3797</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
