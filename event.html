@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Exchange Rate: Integrated Health &amp; Movement Assessment | Therapilatics</title>
+<meta name="description" content="For professionals who hit a health plateau: joint pain, metabolic changes, or GLP-1 side effects. Private classical Pilates assessment plus a health coaching plan. $89 event rate, October only. Melbourne, FL.">
+<link rel="canonical" href="https://therapilatics.com/event">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://therapilatics.com/event">
+<meta property="og:title" content="Hit a plateau? $89 Integrated Health & Movement Assessment">
+<meta property="og:description" content="Private classical Pilates apparatus assessment + health coaching plan. The Exchange rate: $89, October only.">
+<meta property="og:image" content="https://therapilatics.com/img-studio-room.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ============ EDIT THESE ============
+     SETMORE_EVENT_LINK  - the $89 event service link (appears 3 times)
+     FORM_ENDPOINT       - Formspree (or similar) URL for the Insider List
+     STANDARD_RATE       - keep the $225 line only if you charge $225 for this assessment
+     EVENT_DATE          - Teasers for Tatas date
+     ==================================== */
+  :root{
+    --teal:#3D9A97;
+    --teal-deep:#153F3D;
+    --night:#0E2230;
+    --roof:#0A1C1F;
+    --ink:#1C2B2A;
+    --mist:#EEF5F4;
+    --paper:#FFFFFF;
+    --cyan:#0CC0DF;
+    --bulb:#FFD58A;
+    --dusk:#E8A06E;
+    --rose:#D9557F;
+    --rose-soft:#FBEAF0;
+    --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+    --body:"Barlow","Helvetica Neue",Arial,sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:var(--body);font-size:1.0625rem;line-height:1.6;color:var(--ink);background:var(--paper)}
+  img{max-width:100%;display:block}
+  a{color:var(--teal-deep)}
+  :focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
+  .wrap{width:min(100% - 2.5rem, 68rem);margin-inline:auto}
+  .measure{max-width:38rem}
+
+  /* ---------- Rooftop hero ---------- */
+  .hero{position:relative;color:#fff;overflow:hidden;
+    background:linear-gradient(180deg,var(--night) 0%,#12303A 38%,var(--teal-deep) 62%,#3B6F6A 82%,var(--dusk) 100%);
+    padding:calc(1rem + env(safe-area-inset-top,0px)) 0 0}
+  .topbar{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:3}
+  .mark{font-family:var(--display);font-weight:700;letter-spacing:.14em;font-size:1.15rem;color:#fff;text-decoration:none}
+  .tel{color:#fff;font-weight:500;text-decoration:none;font-size:.95rem}
+
+  .lights{position:absolute;left:0;right:0;top:3.2rem;width:100%;height:90px;z-index:1;pointer-events:none}
+  .lights circle{fill:var(--bulb);opacity:0;animation:on .5s ease-out forwards}
+  .lights .glow{filter:blur(3px)}
+  @keyframes on{to{opacity:1}}
+
+  .hero-copy{position:relative;z-index:2;padding:5.2rem 0 1.5rem;max-width:40rem}
+  .event-tag{display:inline-block;background:var(--bulb);color:var(--night);font-family:var(--display);font-weight:700;font-size:1rem;padding:.2rem .7rem;border-radius:3px}
+  .ask{font-family:var(--display);font-weight:600;font-size:clamp(1.5rem,5vw,2rem);line-height:1.1;color:var(--bulb);margin:1rem 0 .3rem}
+  h1{font-family:var(--display);font-weight:800;text-transform:uppercase;line-height:.95;font-size:clamp(2.5rem,9vw,4.4rem);margin:0 0 1rem;letter-spacing:.01em}
+  .sub{font-size:1.12rem;color:#DDEDEB;margin:0 0 1.6rem}
+  .sub p{margin:0 0 .7rem}
+  .price{display:flex;align-items:flex-end;gap:1rem;flex-wrap:wrap;margin-bottom:1.4rem}
+  .amt{font-family:var(--display);font-weight:800;font-size:5.5rem;line-height:.8}
+  .amt sup{font-size:2rem;vertical-align:top;position:relative;top:.35rem;margin-right:.1rem}
+  .price .note{font-size:1rem;color:#DDEDEB;line-height:1.35;padding-bottom:.3rem}
+  .price .note s{color:#A7CBC8}
+  .btn{display:inline-block;font-family:var(--display);font-weight:700;font-size:1.35rem;letter-spacing:.03em;text-decoration:none;text-align:center;padding:1rem 1.9rem;border-radius:4px;border:0;cursor:pointer}
+  .btn-primary{background:var(--cyan);color:var(--night)}
+  .btn-primary:hover{background:#3CD3EC}
+  .slots{margin:.7rem 0 0;font-size:.95rem;color:#DDEDEB}
+  .skyline{display:block;width:100%;height:auto;position:relative;z-index:1;margin-top:-1rem}
+
+  /* roof ledge = proof strip, same color as the skyline so buildings run into it */
+  .ledge{background:var(--roof);color:#CFE3E0;border-top:4px solid var(--teal)}
+  .ledge ul{list-style:none;margin:0;padding:1.1rem 0;display:flex;flex-wrap:wrap;gap:.6rem 2rem;font-size:.97rem}
+  .ledge li{font-weight:500}
+
+  section{padding:3.5rem 0}
+  h2{font-family:var(--display);font-weight:700;font-size:clamp(1.9rem,5vw,2.6rem);line-height:1.05;margin:0 0 .8rem;color:var(--teal-deep)}
+  .lede{font-size:1.1rem;margin:0 0 2rem}
+
+
+  /* comparison */
+  .compare{padding-top:3rem}
+  .tbl{overflow-x:auto;margin:0 0 2rem}
+  .compare table{width:100%;min-width:20rem;border-collapse:collapse;font-size:.98rem}
+  .compare th,.compare td{padding:.8rem .7rem;text-align:left;vertical-align:top;border-bottom:1px solid #D5E4E2}
+  .compare thead th{font-family:var(--display);font-weight:700;font-size:1.2rem;border-bottom:2px solid var(--teal-deep)}
+  .compare tbody th{font-weight:500;width:46%}
+  .compare td{width:27%}
+  .compare .hi{background:#E3F2F1;font-weight:600;color:var(--teal-deep)}
+  .compare thead .hi{background:var(--teal);color:#fff}
+  .compare .cost td,.compare .cost th{font-family:var(--display);font-size:1.3rem;font-weight:700;border-bottom:0}
+  .compare .std{font-family:var(--body);font-size:.85rem;font-weight:500;text-decoration:line-through;color:#5E7775}
+  .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .plateau{background:var(--mist)}
+  .how{background:#fff}
+  /* who it's for */
+  .who{display:grid;gap:2rem}
+  .who .col h3{font-family:var(--display);font-weight:700;font-size:1.45rem;margin:0 0 .3rem;color:var(--teal)}
+  .who .col p{margin:0}
+  @media (min-width:760px){.who{grid-template-columns:1fr 1fr;gap:3rem}}
+
+  /* steps (a real sequence, so numbered) */
+  .how{background:var(--mist)}
+  .steps{list-style:none;margin:0;padding:0;display:grid;gap:1.6rem;counter-reset:s}
+  .steps li{counter-increment:s;padding-left:3.2rem;position:relative}
+  .steps li::before{content:counter(s);position:absolute;left:0;top:-.15rem;font-family:var(--display);font-weight:800;font-size:2.4rem;line-height:1;color:var(--teal)}
+  .steps h3{font-family:var(--display);font-weight:700;font-size:1.4rem;margin:0 0 .2rem}
+  .steps p{margin:0}
+  @media (min-width:860px){.steps{grid-template-columns:repeat(3,1fr);gap:2.5rem}}
+  .studio{margin-top:2.5rem;border-radius:4px;overflow:hidden;max-height:22rem}
+  .studio img{width:100%;height:100%;object-fit:cover}
+
+  /* intake chips */
+  .intake fieldset{border:0;margin:0 0 1.2rem;padding:0}
+  .intake legend{font-family:var(--display);font-weight:700;font-size:1.35rem;margin-bottom:.3rem}
+  .hint{font-size:.95rem;margin:0 0 1rem;color:#4A5E5C}
+  .chips{display:flex;flex-wrap:wrap;gap:.6rem}
+  .chip input{position:absolute;opacity:0;width:1px;height:1px}
+  .chip span{display:inline-block;padding:.7rem 1.1rem;border:2px solid var(--teal);border-radius:999px;background:#fff;font-weight:600;cursor:pointer;user-select:none;transition:background .15s,color .15s}
+  .chip input:checked + span{background:var(--teal);color:#fff}
+  .chip input:focus-visible + span{outline:3px solid var(--cyan);outline-offset:2px}
+  .chip input:disabled + span{opacity:.4;cursor:not-allowed}
+  .result{margin-top:1.8rem;background:var(--mist);border-left:6px solid var(--teal);padding:1.4rem 1.5rem;border-radius:0 4px 4px 0}
+  .result[hidden]{display:none}
+  .result h3{font-family:var(--display);font-weight:700;font-size:1.5rem;margin:0 0 .6rem;color:var(--teal-deep)}
+  .result ul{margin:0 0 1.2rem;padding-left:1.2rem}
+  .result li{margin-bottom:.6rem}
+  .result .btn{font-size:1.2rem;padding:.85rem 1.5rem}
+  .btn-teal{background:var(--teal);color:#fff}
+  .btn-teal:hover{background:var(--teal-deep)}
+
+  /* insider list */
+  .insider{background:var(--rose-soft)}
+  .insider h2{color:#7A1F3D}
+  .insider .event{display:inline-block;background:var(--rose);color:#fff;font-family:var(--display);font-weight:700;padding:.15rem .6rem;border-radius:3px;font-size:1rem;margin-bottom:.8rem}
+  form.optin{display:grid;gap:1rem;max-width:32rem;margin-top:1.5rem}
+  .optin label{display:block;font-weight:600;font-size:.95rem;margin-bottom:.3rem}
+  .optin input[type=text],.optin input[type=email],.optin input[type=tel]{width:100%;font:inherit;padding:.8rem .9rem;border:2px solid #E3B7C6;border-radius:4px;background:#fff}
+  .optin input:focus{border-color:var(--rose);outline:none}
+  .optin .consent{font-size:.85rem;color:#5B3C47;margin:0}
+  .btn-rose{background:var(--rose);color:#fff;justify-self:start}
+  .btn-rose:hover{background:#B83F66}
+  .optin .done{font-weight:600;color:#7A1F3D}
+
+  footer{background:var(--roof);color:#CFE3E0;padding:2.5rem 0 calc(5rem + env(safe-area-inset-bottom,0px));font-size:.95rem}
+  footer a{color:#fff}
+  footer .cols{display:grid;gap:1.5rem}
+  @media (min-width:760px){footer .cols{grid-template-columns:1fr 1.4fr}footer{padding-bottom:3rem}}
+  footer .fine{font-size:.85rem;color:#A7CBC8;margin:.6rem 0 0}
+  footer .home{font-family:var(--display);font-weight:700;font-size:1.15rem}
+
+  .sticky{position:fixed;left:0;right:0;bottom:0;background:var(--night);padding:.7rem 1.25rem calc(.7rem + env(safe-area-inset-bottom,0px));display:flex;justify-content:space-between;align-items:center;gap:1rem;transform:translateY(110%);transition:transform .25s;z-index:10;border-top:3px solid var(--bulb)}
+  .sticky.show{transform:none}
+  .sticky span{color:#fff;font-family:var(--display);font-weight:700;font-size:1.2rem}
+  .sticky .btn{font-size:1.05rem;padding:.65rem 1.1rem}
+  @media (min-width:860px){.sticky{display:none}}
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .lights circle{animation:none;opacity:1}
+    *{transition:none!important}
+  }
+</style>
+</head>
+<body>
+
+<main>
+<header class="hero" id="top">
+  <!-- string lights: one orchestrated load moment, bulbs switch on left to right -->
+  <svg class="lights" viewBox="0 0 1200 90" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,8 Q150,70 300,14 Q450,70 600,10 Q750,70 900,14 Q1050,70 1200,8" fill="none" stroke="#54727A" stroke-width="1.5"/>
+    <g id="bulbs"></g>
+  </svg>
+
+  <div class="wrap">
+    <div class="topbar">
+      <a class="mark" href="https://therapilatics.com/">THERAPILATICS</a>
+      <a class="tel" href="tel:+13213453797">321-345-3797</a>
+    </div>
+
+    <div class="hero-copy">
+      <span class="event-tag">The Exchange rate · October openings</span>
+      <p class="ask">Met me at The Exchange? This is the offer I mentioned.</p>
+      <h1>Integrated Health &amp; Movement Assessment</h1>
+      <div class="sub">
+        <p>I work with professionals who've hit a plateau with their health. Sometimes that's a hip, knee, or shoulder that hasn't been right since an injury, or since rehab ended. Sometimes it's weight that stopped moving, or a GLP-1 that isn't working the way anyone hoped, or is taking muscle along with the fat.</p>
+        <p>This assessment is how I figure out what's actually going on with you before I suggest anything.</p>
+      </div>
+      <div class="price">
+        <div class="amt"><sup>$</sup>89</div>
+        <!-- STANDARD_RATE -->
+        <div class="note">Standard rate <s>$225</s><br>HSA/FSA reimbursable*</div>
+      </div>
+      <a class="btn btn-primary" href="SETMORE_EVENT_LINK">Schedule Your Assessment</a>
+      <p class="slots">It's $4 more than the standard assessment on my site and covers a great deal more. <a href="#compare" style="color:#fff">Here's the difference.</a></p>
+      <p class="slots">If none of the open times work for you, book the closest one anyway. Then email <a href="mailto:hello@therapilatics.com" style="color:#fff">hello@therapilatics.com</a> after booking to let me know you need to reschedule.</p>
+    </div>
+  </div>
+
+  <svg class="skyline" viewBox="0 0 1200 140" preserveAspectRatio="none" aria-hidden="true">
+    <path fill="#0A1C1F" d="M0,140 V96 H40 V70 H70 V88 H95 V52 H120 V40 H132 V52 H150 V100 H190 V78 H230 V60 H250 V78 H270 V104 H300 V66 H340 V30 H352 V66 H370 V92 H410 V74 H450 V96 H480 V56 H500 V44 H520 V56 H540 V100 H580 V82 H620 V62 H660 V86 H690 V36 H700 V24 H710 V36 H722 V94 H760 V72 H800 V98 H830 V58 H870 V80 H900 V46 H930 V90 H970 V70 H1010 V104 H1040 V64 H1080 V50 H1100 V64 H1120 V92 H1160 V78 H1200 V140 Z"/>
+    <g fill="#FFD58A" opacity=".55">
+      <rect x="102" y="62" width="5" height="6"/><rect x="112" y="76" width="5" height="6"/>
+      <rect x="318" y="78" width="5" height="6"/><rect x="340" y="42" width="5" height="6"/>
+      <rect x="490" y="66" width="5" height="6"/><rect x="505" y="80" width="5" height="6"/>
+      <rect x="700" y="50" width="5" height="6"/><rect x="712" y="70" width="5" height="6"/>
+      <rect x="880" y="60" width="5" height="6"/><rect x="910" y="58" width="5" height="6"/>
+      <rect x="1058" y="62" width="5" height="6"/><rect x="1090" y="76" width="5" height="6"/>
+    </g>
+  </svg>
+</header>
+
+<div class="ledge">
+  <div class="wrap">
+    <ul>
+      <li>Third Degree, Romana Kryzanowska lineage</li>
+      <li>NBC-HWC board-certified health coach</li>
+      <li>Only Gratz studio on the Space Coast</li>
+    </ul>
+  </div>
+</div>
+
+
+<section class="compare" id="compare">
+  <div class="wrap">
+    <h2>How this differs from the $85 assessment on my site</h2>
+    <p class="lede measure">The assessment on my site is a good starting point. You move through a screen and a classical fitness assessment, and you leave knowing where you stand. This one keeps all of that and adds a closer look at the two things bothering you most, plus a health coaching plan from me as a board-certified health coach. It's also a much longer session. The one on my site runs about 50 minutes. This one runs 80 to 120, and that additional time goes into a deeper analysis of your core issues. Normally it's $225. For people I meet at The Exchange, it's $89 through October.</p>
+    <div class="tbl">
+      <table>
+        <thead>
+          <tr><th scope="col"><span class="sr">Included</span></th><th scope="col">On my site</th><th scope="col" class="hi">The Exchange</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Session length</th><td>About 50 minutes</td><td class="hi">80 to 120 minutes</td></tr>
+          <tr><th scope="row">Movement screen and classical fitness assessment on the mat and apparatus</th><td>Yes</td><td class="hi">Yes</td></tr>
+          <tr><th scope="row">Deeper look at your top two concerns: hips, knees, shoulders, back, weight management, or GLP-1 (muscle protection, side effects, or a stalled result)</th><td>—</td><td class="hi">Yes</td></tr>
+          <tr><th scope="row">Health coaching strategy from a board-certified health coach (NBC-HWC)</th><td>—</td><td class="hi">Yes</td></tr>
+          <tr><th scope="row">What you leave with</th><td>Written findings and a movement plan</td><td class="hi">Findings, a movement plan, and a habits plan for the next six to eight weeks</td></tr>
+          <tr class="cost"><th scope="row">Price</th><td>$85</td><td class="hi">$89 now<br><span class="std">$225 standard</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <a class="btn btn-teal" href="SETMORE_EVENT_LINK">Schedule Your Assessment</a>
+  </div>
+</section>
+
+<section class="plateau">
+  <div class="wrap">
+    <h2>Two ways a plateau tends to show up</h2>
+    <p class="lede measure">If you're used to solving problems by working harder, a plateau is frustrating, because more effort usually isn't what's missing.</p>
+    <div class="who">
+      <div class="col">
+        <h3>When it's a joint</h3>
+        <p>Maybe you finished physical therapy and you're mostly fine, except on the stairs, or in your golf swing, or when you reach for something overhead. You've learned to work around it. I'd rather look at how you're moving now and find out why it still bothers you.</p>
+      </div>
+      <div class="col">
+        <h3>When it's your metabolism</h3>
+        <p>Maybe the scale stopped moving no matter what you did. Or you started a GLP-1, lost weight, and now you're wondering how much of it was muscle. Or you couldn't tolerate the medication at all. In every one of those situations, strength is what protects you, and building it is my job. Decisions about the medication itself belong to you and your prescriber.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how">
+  <div class="wrap">
+    <h2>What happens in your assessment</h2>
+    <p class="lede measure">This is not a typical Pilates session. It's a working session where I'm watching closely and writing things down, so that you leave knowing what's going on and what to do about it.</p>
+    <ol class="steps">
+      <li>
+        <h3>You tell me the history</h3>
+        <p>I want to hear what hurts, what stalled, and what you've already tried. Expect a lot of follow-up questions.</p>
+      </li>
+      <li>
+        <h3>Then you move</h3>
+        <p>A short movement screen, then real work on the mat and the apparatus. I'll be cueing and adjusting you as you go.</p>
+      </li>
+      <li>
+        <h3>You leave with a plan</h3>
+        <p>Written findings, a movement plan, and a health coaching plan for the next six to eight weeks, based on what I actually saw in you.</p>
+      </li>
+    </ol>
+    <div class="studio">
+      <img src="https://therapilatics.com/img-studio-room.jpeg" alt="Private classical Pilates studio in Melbourne FL with Gratz high chair, ladder barrel, and reformer in one room" onerror="this.parentNode.style.display='none'">
+    </div>
+  </div>
+</section>
+
+<section class="intake" id="check">
+  <div class="wrap">
+    <h2>What would you want me to look at?</h2>
+    <p class="lede measure">Pick up to two. Those are where your assessment will spend the most time.</p>
+    <fieldset>
+      <legend>Choose up to two</legend>
+      <p class="hint" id="count-hint">0 of 2 selected</p>
+      <div class="chips" id="chips">
+        <label class="chip"><input type="checkbox" value="hips"><span>Hips</span></label>
+        <label class="chip"><input type="checkbox" value="knees"><span>Knees</span></label>
+        <label class="chip"><input type="checkbox" value="shoulders"><span>Shoulders</span></label>
+        <label class="chip"><input type="checkbox" value="back"><span>Back</span></label>
+        <label class="chip"><input type="checkbox" value="weight"><span>Weight management</span></label>
+        <label class="chip"><input type="checkbox" value="glp1"><span>GLP-1</span></label>
+      </div>
+    </fieldset>
+    <div class="result" id="result" hidden aria-live="polite">
+      <h3>Here's where I'd start with you</h3>
+      <ul id="result-list"></ul>
+      <a class="btn btn-teal" href="SETMORE_EVENT_LINK">Schedule Your Assessment</a>
+    </div>
+  </div>
+</section>
+
+<section class="insider" id="insider">
+  <div class="wrap">
+    <span class="event">Teasers for Tatas · EVENT_DATE</span>
+    <h2>Not ready to book yet?</h2>
+    <p class="measure">Join the Therapilatics Insider List. When sessions open up, you'll hear about it early, along with workshops and events, including Teasers for Tatas this October. Teasers for Tatas is a breast cancer awareness event built around the Teaser, one of the signature exercises in classical Pilates. Joining the list doesn't commit you to anything.</p>
+    <!-- FORM_ENDPOINT: GitHub Pages can't process forms on its own -->
+    <form class="optin" action="FORM_ENDPOINT" method="POST" id="optin">
+      <input type="hidden" name="source" value="the-exchange-bbn">
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+      <div><label for="fn">First name</label><input type="text" id="fn" name="first_name" autocomplete="given-name" required></div>
+      <div><label for="em">Email</label><input type="email" id="em" name="email" autocomplete="email" required></div>
+      <div><label for="cell">Cell (optional, for text alerts)</label><input type="tel" id="cell" name="cell" autocomplete="tel"></div>
+      <p class="consent">Add your cell and you'll get occasional texts about openings and events. Reply STOP anytime.</p>
+      <button class="btn btn-rose" type="submit">Join the Insider List</button>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap cols">
+    <div>
+      <p class="home"><a href="https://therapilatics.com/">Therapilatics</a></p>
+      <p>478 N Babcock St, Melbourne, FL 32935<br>
+      <a href="tel:+13213453797">321-345-3797</a> · <a href="mailto:hello@therapilatics.com">hello@therapilatics.com</a></p>
+      <p><a href="https://therapilatics.com/services.html">See all services</a></p>
+    </div>
+    <div>
+      <p class="fine">*HSA/FSA: You pay me directly, then reimburse yourself from your own HSA or FSA. To do that, you'll need a letter of medical necessity from a licensed health care provider you already see, such as your doctor, your physical therapist, or the provider who prescribes your GLP-1. I can give you a sample letter to bring to them. Your plan administrator makes the final call on eligibility and on which providers' letters they accept.</p>
+      <p class="fine">Therapilatics is fitness, not healthcare. This assessment does not diagnose or treat medical conditions and doesn't replace care from your physician or prescriber. Cash pay; no insurance billing.</p>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky" id="sticky">
+  <span>$89 Exchange rate</span>
+  <a class="btn btn-primary" href="SETMORE_EVENT_LINK">Schedule Your Assessment</a>
+</div>
+
+<script>
+(function(){
+  // String-light bulbs along the wire, switching on left to right
+  var g = document.getElementById('bulbs'), ns = 'http://www.w3.org/2000/svg';
+  var wire = document.querySelector('.lights path'), len = wire.getTotalLength(), n = 24;
+  for (var i = 1; i < n; i++){
+    var p = wire.getPointAtLength(len * i / n);
+    [['glow',6,.35],['',2.6,1]].forEach(function(s){
+      var c = document.createElementNS(ns,'circle');
+      c.setAttribute('cx',p.x); c.setAttribute('cy',p.y + 5); c.setAttribute('r',s[1]);
+      if (s[0]) c.setAttribute('class',s[0]);
+      c.style.animationDelay = (0.3 + i * 0.06) + 's';
+      if (s[2] < 1) c.style.fillOpacity = s[2];
+      g.appendChild(c);
+    });
+  }
+
+  // Until SETMORE_EVENT_LINK is replaced, send buttons to the book page instead of a dead link
+  document.querySelectorAll('a[href="SETMORE_EVENT_LINK"]').forEach(function(a){ a.href = 'https://therapilatics.com/book.html?utm_source=exchange_bbn&utm_medium=qr_card'; });
+
+  var copy = {
+    hips: "Hips: how they rotate and extend, how steady they keep you on one leg, and where the pinch or stiffness is coming from.",
+    knees: "Knees: a knee is often reacting to what the hip or the foot is doing, so I look at all three.",
+    shoulders: "Shoulders: how far you can reach, how well you control it, and what your ribcage and upper back are doing while you do.",
+    back: "Back: how your spine moves one section at a time, and where you're gripping or sagging when you could be supported instead.",
+    weight: "Weight management: your strength baseline, how much you actually move on a normal day, and which habits are realistic to change first.",
+    glp1: "GLP-1: protecting the muscle you have. Weight lost on these medications can include muscle, and strength training is how you hold on to it. I can't tighten loose skin, but I can build what's under it. Whether the medication is right for you is a conversation for your prescriber, and I'll work alongside whatever you decide."
+  };
+  var boxes = document.querySelectorAll('#chips input'),
+      hint = document.getElementById('count-hint'),
+      result = document.getElementById('result'),
+      list = document.getElementById('result-list');
+  function update(){
+    var picked = [];
+    boxes.forEach(function(b){ if (b.checked) picked.push(b.value); });
+    boxes.forEach(function(b){ b.disabled = !b.checked && picked.length >= 2; });
+    hint.textContent = picked.length + " of 2 selected";
+    list.innerHTML = "";
+    picked.forEach(function(k){ var li = document.createElement('li'); li.textContent = copy[k]; list.appendChild(li); });
+    result.hidden = picked.length === 0;
+    // Once the second concern is picked, bring the result and booking button into view
+    if (picked.length === 2 && justPicked) {
+      var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      result.scrollIntoView({ behavior: still ? 'auto' : 'smooth', block: 'nearest' });
+    }
+  }
+  var justPicked = false;
+  boxes.forEach(function(b){ b.addEventListener('change', function(){ justPicked = b.checked; update(); }); });
+
+  var sticky = document.getElementById('sticky'), hero = document.getElementById('top');
+  if ('IntersectionObserver' in window){
+    new IntersectionObserver(function(e){ sticky.classList.toggle('show', !e[0].isIntersecting); }).observe(hero);
+  }
+
+  var form = document.getElementById('optin');
+  form.addEventListener('submit', function(ev){
+    if (form.action.indexOf('FORM_ENDPOINT') !== -1) return;
+    ev.preventDefault();
+    fetch(form.action, {method:'POST', body:new FormData(form), headers:{Accept:'application/json'}})
+      .then(function(r){
+        if (!r.ok) throw new Error();
+        form.innerHTML = '<p class="done">You\'re on the list. Openings and event news will come to your inbox.</p>';
+      })
+      .catch(function(){ alert('That didn\'t go through. Email hello@therapilatics.com and I\'ll add you myself.'); });
+  });
+})();
+</script>
+</body>
+</html>
